@@ -1,0 +1,102 @@
+<div class="container-page">
+
+  <!--  ESTE MENU ES PARA MOVIL
+    <mat-sidenav-container class="example-container" *ngIf="shouldRun">
+        <mat-sidenav class="content-menu" #sidenav [mode]="mode.value">
+          <p><button mat-button (click)="sidenav.toggle()"><i class="material-icons">list</i></button></p>
+          <p>
+              <button class="option-menu" mat-menu-item>
+                <i class="material-icons">
+                  home
+                </i>
+                Inicio
+              </button>
+              <button class="option-menu" mat-menu-item>
+                <i class="material-icons">
+                  missed_video_call
+                </i>
+                Públicar video
+              </button>
+              <button class="option-menu" mat-menu-item>
+                <i class="material-icons">
+                  image
+                </i>
+                Públicar banner
+              </button>
+              <button class="option-menu" mat-menu-item>
+                <i class="material-icons">
+                  edit
+                </i>
+                Publicar texto
+              </button>
+              <button class="option-menu" mat-menu-item>
+                <i class="material-icons">
+                    person
+                </i>
+                  Iniciar sesión
+              </button>
+          </p>
+        </mat-sidenav>
+        <mat-sidenav-content >
+          <p><button mat-button (click)="sidenav.toggle()"><i class="material-icons">list</i></button></p>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      
+      <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+      -->
+
+      
+    
+      <mat-toolbar class="title-bar" color="primary">
+        <mat-toolbar-row>
+          <span>DEMO DEL SISTEMA</span>
+          <span class="example-spacer"></span>
+          <div>
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">perm_identity</mat-icon>
+              <i class="material-icons">keyboard_arrow_down</i>
+              <span>iniciar sesion</span>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+              </mat-menu>
+            <a mat-button routerLink=".">Inicio</a>
+          </div>
+          <button mat-button class="text-menu">Públicar video</button>
+          <button mat-button class="text-menu">Públicar banner</button>
+          <button mat-button class="text-menu">Públicar texto</button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    <div class="container-body">
+      <div class="container-video">
+          <iframe allow="autoplay; encrypted-media" allowfullscreen=""
+           frameborder="0" height="100%" src="https://www.youtube.com/embed/NnIiIRHuEtU" 
+           width="100%">
+      </iframe>
+      </div>
+      <div class="container-banner">
+        <ul class="list-banner">
+          <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/images.jpg"></li>
+          <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/1.jpeg"></li>
+          <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/2.jpg"></li>
+          <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/3.jpg"></li>
+        </ul>
+      </div>
+    </div>
+    <footer class="container-text">
+      <h1 class="title-text">Texto Informativo</h1>
+      <p>
+        La semana pasada comentaba que la disolución del Congreso debía entenderse 
+        en el marco de un diseño constitucional presidencialista, pero con incrustaciones 
+        propias de los regímenes parlamentarios. Ellos buscan, de un lado, limitar el poder 
+        del Ejecutivo cuando este tiene mayoría y, del otro, dar una salida institucional 
+        al bloqueo que se produce cuando enfrenta una mayoría hostil en el Parlamento (en el pasado,
+        esta situación desencadenó golpes de Estado). Para este último caso se creó la posibilidad
+        de disolver el Congreso y convocar a elecciones parlamentarias, si es que se censuran a 
+        dos consejos de ministros. Ciertamente es una medida extrema que debe evaluarse con mucha 
+        prudencia.
+      </p>
+    </footer>
+  </div>
+  
