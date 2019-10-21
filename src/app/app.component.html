@@ -68,22 +68,30 @@
           <button mat-button class="text-menu">Públicar texto</button>
         </mat-toolbar-row>
       </mat-toolbar>
-    <div class="container-body">
-      <div class="container-video">
-          <iframe allow="autoplay; encrypted-media" allowfullscreen=""
-           frameborder="0" height="100%" src="https://www.youtube.com/embed/NnIiIRHuEtU" 
-           width="100%">
-      </iframe>
-      </div>
-      <div class="container-banner">
-        <ul class="list-banner">
-          <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/images.jpg"></li>
-          <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/1.jpeg"></li>
-          <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/2.jpg"></li>
-          <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/3.jpg"></li>
-        </ul>
-      </div>
-    </div>
+
+      <!-- EL BODY -->
+      <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="400px">
+          <mat-grid-tile>
+                  <div class="container-video">
+                    <iframe allow="autoplay; encrypted-media" allowfullscreen=""
+                       frameborder="0" height="100%" src="https://www.youtube.com/embed/NnIiIRHuEtU" 
+                       width="100%">
+                    </iframe>
+                  </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+              <div class="container-banner">
+                  <ul class="list-banner">
+                    <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/images.jpg"></li>
+                    <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/1.jpeg"></li>
+                    <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/2.jpg"></li>
+                    <li class="item-banner"><img class="img-banner" width="300px" height="400px" src="assets/banner/3.jpg"></li>
+                  </ul>
+                </div>
+          </mat-grid-tile>
+      </mat-grid-list>
+
+      <!-- FOOTER -->
     <footer class="container-text">
       <h1 class="title-text">Texto Informativo</h1>
       <p>
