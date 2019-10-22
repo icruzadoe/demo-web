@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ export class AppComponent {
   mode = new FormControl('over');
   shouldRun = true;
   breakpoint: number;
+  private router: Router;
 
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 400) ? 1 : 2;

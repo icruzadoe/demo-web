@@ -1,0 +1,39 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .example-container > * {
+    width: 100%;
+    margin-left : 20px;
+    margin-top: 40px;
+  }
+
+  .title-page{
+      text-align: center;
+      margin-top: 0px !important;
+      font-weight: bold;
+      font: sans-serif;
+  }
+
+  .form-row{
+      margin-top: 0px !important;
+  }
+
+  .content-text{
+    display: flex;
+    margin-top: 0px;
+    flex-direction: column;
+    width: 400px !important;
+  }
+
+  .title-text{
+    margin-bottom: 24px;
+  }
+
+  .txt-area{
+    height: 200px !important;
+    width: 200px !important;
+  }

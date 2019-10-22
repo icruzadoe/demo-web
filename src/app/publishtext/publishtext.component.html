@@ -1,0 +1,15 @@
+<mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="600px">
+        <mat-grid-tile>
+            <div class="example-container">
+                <h1 class="title-page">Públicar texto</h1>
+                <mat-form-field class="form-row">
+                    <input matInput  placeholder="Título">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                        <textarea class="txt-area" matInput placeholder="Ingresa el texto"></textarea>
+                </mat-form-field>
+                <button mat-raised-button>Cancelar</button>
+                <button mat-raised-button color="primary">Subir</button>
+            </div>
+        </mat-grid-tile>
+</mat-grid-list>
