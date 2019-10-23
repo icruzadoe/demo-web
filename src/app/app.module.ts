@@ -12,6 +12,7 @@ import { PublishvideoComponent } from './publishvideo/publishvideo.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PublishtextComponent } from './publishtext/publishtext.component';
 import { PublishbannerComponent } from './publishbanner/publishbanner.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PublishbannerComponent } from './publishbanner/publishbanner.component'
     PublishvideoComponent,
     NavbarComponent,
     PublishtextComponent,
-    PublishbannerComponent
+    PublishbannerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

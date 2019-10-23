@@ -1,3 +1,4 @@
+import { LoginComponent } from './../login/login.component';
 import { PublishbannerComponent } from './../publishbanner/publishbanner.component';
 import { PublishtextComponent } from './../publishtext/publishtext.component';
 import { PublishvideoComponent } from './../publishvideo/publishvideo.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   {path: 'publishvideo', component: PublishvideoComponent},
   {path: 'publishtext', component: PublishtextComponent},
   {path: 'publishbanner', component: PublishbannerComponent},
+  {path: 'login', component: LoginComponent}
 ]
 
 @NgModule({
