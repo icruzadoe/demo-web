@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule }         from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './inicio/app.component';
 //servicios
 import { LoginService } from './services/login.service';
 import { UploadService } from './services/upload.service';
 import { PublishtextComponent } from './publishtext/publishtext.component';
+import { RegisteruserService } from './services/registeruser.service';
 //Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Material
@@ -18,6 +19,7 @@ import { PublishvideoComponent } from './publishvideo/publishvideo.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PublishbannerComponent } from './publishbanner/publishbanner.component';
 import { LoginComponent } from './login/login.component';
+import { RegisteruserComponent } from './registeruser/registeruser.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     PublishtextComponent,
     PublishbannerComponent,
-    LoginComponent
+    LoginComponent,
+    RegisteruserComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { LoginComponent } from './login/login.component';
   providers: [
     LoginService, 
     UploadService,
-    PublishtextComponent,
+    RegisteruserService,
+
   ],
   bootstrap: [AppComponent]
 })

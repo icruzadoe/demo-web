@@ -1,8 +1,6 @@
 import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -21,9 +19,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.required])],
+      email: ['', Validators.compose([Validators.required])],
       password: ['', Validators.required],
-      email: ['', Validators.required],
     });
   }
 
@@ -35,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     console.log("loginForm :", this.loginForm)
 
-    this._serviceLogin.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value,this.loginForm.controls.email.value)
+    this._serviceLogin.login(this.loginForm.controls.password.value,this.loginForm.controls.email.value)
     .subscribe(
       (data) => { // Success
        console.log(" data :", data)
@@ -44,11 +41,6 @@ export class LoginComponent implements OnInit {
         console.error(error);
       }
     );
-    const loginPayload = {
-      username: this.loginForm.controls.username.value,
-      password: this.loginForm.controls.password.value
-    }
-
   }
 
 }

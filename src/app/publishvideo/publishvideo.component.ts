@@ -38,7 +38,8 @@ export class PublishvideoComponent implements OnInit {
 
     console.log("Video Fomr :", this.publishVideoForm)
 
-    this._uploadService.upload(this.publishVideoForm.controls.fileVideo.value,
+    this._uploadService.upload(
+      this.publishVideoForm.controls.fileVideo.value,
       this.publishVideoForm.controls.titleVideo.value,
       this.publishVideoForm.controls.descriptionVideo.value, "arequipa11", "1")
       .subscribe(

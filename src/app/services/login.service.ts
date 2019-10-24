@@ -11,10 +11,10 @@ export class LoginService {
     ) { 
   }
 
-  login(user, password, email){
+  login(password, email){
     return this.http.post('https://caja-sullana.us-south.cf.appdomain.cloud/login', {
-          username: user,
           password: password,
+          username: "null",
           correo: email,
         });
   }
