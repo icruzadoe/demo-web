@@ -1,4 +1,8 @@
+import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -6,18 +10,45 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  breakpoint: number;
-  hide = true;
-  constructor() { }
+
+  loginForm: FormGroup;
+  invalidLogin: boolean = false;
+  
+  constructor(
+    private formBuilder: FormBuilder,
+    private _serviceLogin: LoginService,
+    ) { }
 
   ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 400) ? 1 : 3;
-    console.log("tamaño :", window.innerWidth);
-    console.log("ROW :", this.breakpoint)
+    window.localStorage.removeItem('token');
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.compose([Validators.required])],
+      password: ['', Validators.required]
+    });
   }
 
-  onResize(event) {
-    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 3;
-    console.log("ROW :", this.breakpoint)
+  onSubmit() {
+    console.log("hiciste click")
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    console.log("loginForm :", this.loginForm)
+
+    this._serviceLogin.login(this.loginForm.controls.username.value,this.loginForm.controls.password.value)
+    .subscribe(
+      (data) => { // Success
+       console.log(" data :", data)
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    const loginPayload = {
+      username: this.loginForm.controls.username.value,
+      password: this.loginForm.controls.password.value
+    }
+
   }
+
 }
