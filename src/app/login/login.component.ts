@@ -20,10 +20,10 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    window.localStorage.removeItem('token');
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      email: ['', Validators.required],
     });
   }
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 
     console.log("loginForm :", this.loginForm)
 
-    this._serviceLogin.login(this.loginForm.controls.username.value,this.loginForm.controls.password.value)
+    this._serviceLogin.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value,this.loginForm.controls.email.value)
     .subscribe(
       (data) => { // Success
        console.log(" data :", data)

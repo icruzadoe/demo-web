@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule }         from '@angular/forms';
 import { AppComponent } from './inicio/app.component';
 //servicios
 import { LoginService } from './services/login.service';
+import { UploadService } from './services/upload.service';
+import { PublishtextComponent } from './publishtext/publishtext.component';
 //Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Material
@@ -14,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PublishvideoComponent } from './publishvideo/publishvideo.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { PublishtextComponent } from './publishtext/publishtext.component';
 import { PublishbannerComponent } from './publishbanner/publishbanner.component';
 import { LoginComponent } from './login/login.component';
 
@@ -37,7 +38,9 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
   ],
   providers: [
-    LoginService,
+    LoginService, 
+    UploadService,
+    PublishtextComponent,
   ],
   bootstrap: [AppComponent]
 })

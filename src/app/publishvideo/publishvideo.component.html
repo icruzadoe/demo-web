@@ -1,19 +1,39 @@
-<mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="600px">
-    <mat-grid-tile>
-        <div class="example-container">
-            <h1 class="title-page">Públicar un video</h1>
-            <mat-form-field class="form-row">
-                <input matInput  placeholder="Título">
-            </mat-form-field>
-            <mat-form-field class="form-row">
-                <input matInput placeholder="Descripción">
-            </mat-form-field>
-            <mat-form-field class="form-row">
-                <textarea matInput placeholder="Link del video"></textarea>
-            </mat-form-field>
-            <input type="file">
-            <button mat-raised-button>Cancelar</button>
-            <button mat-raised-button color="primary">Subir</button>
-        </div>
-    </mat-grid-tile>
-</mat-grid-list>
+<div class="row">
+    <div>
+        <h2 style="margin: auto">Públicar video </h2>
+        <form [formGroup]="publishVideoForm" (ngSubmit)="upload()">
+            <div>
+                <label for="titleVideo">Título:</label>
+                <input type="text" formControlName="titleVideo" id="titleVideo" autocomplete="off">
+                <div
+                    *ngIf="publishVideoForm.controls['titleVideo'].hasError('required') && publishVideoForm.controls['titleVideo'].touched">
+                    Username is required
+                </div>
+            </div>
+            <div>
+                <label for="descriptionVideo">Descripción:</label>
+                <input type="text" formControlName="descriptionVideo" id="descriptionVideo" autocomplete="off">
+                <div
+                    *ngIf="publishVideoForm.controls['descriptionVideo'].hasError('required') && publishVideoForm.controls['descriptionVideo'].touched">
+                    Password is required
+                </div>
+            </div>
+            <div>
+                <label for="fileVideo">Link del video:</label>
+                <input type="file" formControlName="fileVideo" id="fileVideo" autocomplete="off"
+                    (change)="loadImage($event)">
+                <div
+                    *ngIf="publishVideoForm.controls['fileVideo'].hasError('required') && publishVideoForm.controls['fileVideo'].touched">
+                    Username is required
+                </div>
+            </div>
+
+            <button [disabled]="publishVideoForm.invalid">Subir</button>
+            <div *ngIf="invalidLogin">
+                <div>
+                    Invalid credentials.
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

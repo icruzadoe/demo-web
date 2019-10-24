@@ -9,14 +9,13 @@ export class LoginService {
   constructor(
     private http: HttpClient
     ) { 
-    console.log("funcionando servicio");
   }
 
-  login(user, password){
+  login(user, password, email){
     return this.http.post('https://caja-sullana.us-south.cf.appdomain.cloud/login', {
-          user: user,
+          username: user,
           password: password,
+          correo: email,
         });
   }
-
 }

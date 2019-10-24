@@ -1,21 +1,37 @@
 <div class="row">
-        <div >
-          <h2 style="margin: auto">Login </h2>
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div >
-              <label for="username">UserName:</label>
-              <input type="text"  formControlName="username" id="username" autocomplete="off">
-              <div  *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">Username is required</div>
+    <div>
+        <h2 style="margin: auto">Login </h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="username">UserName:</label>
+                <input type="text" formControlName="username" id="username" autocomplete="off">
+                <div
+                    *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">
+                    Username is required
+                </div>
             </div>
-            <div >
-              <label for="pwd">Password:</label>
-              <input type="password" formControlName="password" id="pwd" autocomplete="off">
-              <div  *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password is required</div>
+            <div>
+                    <label for="email">Correo electrónico:</label>
+                    <input type="text" formControlName="email" id="email" autocomplete="off">
+                    <div
+                        *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">
+                        Username is required
+                    </div>
+                </div>
+            <div>
+                <label for="pwd">Password:</label>
+                <input type="password" formControlName="password" id="pwd" autocomplete="off">
+                <div
+                    *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
+                    Password is required
+                </div>
             </div>
             <button [disabled]="loginForm.invalid">Login</button>
-            <div *ngIf="invalidLogin" >
-              <div>Invalid credentials.</div>
+            <div *ngIf="invalidLogin">
+                <div>
+                    Invalid credentials.
+                </div>
             </div>
-          </form>
-        </div>
-      </div>
+        </form>
+    </div>
+</div>

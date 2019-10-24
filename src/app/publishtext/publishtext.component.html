@@ -1,15 +1,28 @@
-<mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="600px">
-        <mat-grid-tile>
-            <div class="example-container">
-                <h1 class="title-page">Públicar texto</h1>
-                <mat-form-field class="form-row">
-                    <input matInput  placeholder="Título">
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                        <textarea class="txt-area" matInput placeholder="Ingresa el texto"></textarea>
-                </mat-form-field>
-                <button mat-raised-button>Cancelar</button>
-                <button mat-raised-button color="primary">Subir</button>
+<div class="row">
+    <div>
+        <h2 style="margin: auto">Públicar texto </h2>
+        <form [formGroup]="publishTextForm" (ngSubmit)="upload()">
+            <div>
+                <label for="titleText">Titulo:</label>
+                <input type="text" formControlName="titleText" id="titleText" autocomplete="off">
+                <div *ngIf="publishTextForm.controls['titleText'].hasError('required') && publishTextForm.controls['titleText'].touched">
+                    Username is required
+                </div>
             </div>
-        </mat-grid-tile>
-</mat-grid-list>
+            <div>
+                <label for="textContent">Ingresa el texto:</label>
+                <textarea type="text" formControlName="textContent" id="pwd" autocomplete="off"></textarea>
+                <div
+                    *ngIf="publishTextForm.controls['textContent'].hasError('required') && publishTextForm.controls['textContent'].touched">
+                    Password is required
+                </div>
+            </div>
+            <button [disabled]="publishTextForm.invalid">Públicar</button>
+            <div *ngIf="invalidLogin">
+                <div>
+                    Invalid credentials.
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
