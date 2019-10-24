@@ -20,6 +20,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PublishbannerComponent } from './publishbanner/publishbanner.component';
 import { LoginComponent } from './login/login.component';
 import { RegisteruserComponent } from './registeruser/registeruser.component';
+import { HomeComponent } from './home/home.component';
+//guardado validacion de inicio de sesion para navegar entre pantallas
+import { AuthGuard } from './authGuard.injectable';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
     PublishtextComponent,
     PublishbannerComponent,
     LoginComponent,
-    RegisteruserComponent
+    RegisteruserComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,7 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
     LoginService, 
     UploadService,
     RegisteruserService,
-
+    AuthGuard,
   ],
   
   bootstrap: [AppComponent]

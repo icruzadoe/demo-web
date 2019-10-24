@@ -32,3 +32,9 @@
   justify-content: center;
   margin-top: 60px;
 }
+
+.icon-login{
+  font-size: 6em;
+  display: flex;
+  justify-content: center;
+}
