@@ -1,36 +1,38 @@
-<div class="col-md-6 user-container">
-    <h2 class="text-center">Públicar texto </h2>
-    <form [formGroup]="publishTextForm" (ngSubmit)="upload()">
-        <div class="form-group">
-            <label for="titleText">Titulo:</label>
-            <input class="form-control" type="text" formControlName="titleText" id="titleText" autocomplete="off">
-            <div
-                *ngIf="publishTextForm.controls['titleText'].hasError('required') && publishTextForm.controls['titleText'].touched">
-                Username is required
+<div class="center-container">
+    <div class="col-md-6 user-container">
+        <h2 class="text-center">Públicar texto </h2>
+        <form [formGroup]="publishTextForm" (ngSubmit)="upload()">
+            <div class="form-group">
+                <label for="titleText">Titulo:</label>
+                <input class="form-control" type="text" formControlName="titleText" id="titleText" autocomplete="off">
+                <div
+                    *ngIf="publishTextForm.controls['titleText'].hasError('required') && publishTextForm.controls['titleText'].touched">
+                    Username is required
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="textContent">Ingresa el texto:</label>
-            <textarea class="form-control" type="text" formControlName="textContent" id="pwd"
-                autocomplete="off"></textarea>
-            <div
-                *ngIf="publishTextForm.controls['textContent'].hasError('required') && publishTextForm.controls['textContent'].touched">
-                Password is required
+            <div class="form-group">
+                <label for="textContent">Ingresa el texto:</label>
+                <textarea class="form-control" type="text" formControlName="textContent" id="pwd"
+                    autocomplete="off"></textarea>
+                <div
+                    *ngIf="publishTextForm.controls['textContent'].hasError('required') && publishTextForm.controls['textContent'].touched">
+                    Password is required
+                </div>
             </div>
-        </div>
-        <select class="custom-select" (change)="selectPoint($event)" formControlName="pointName" name="select"
-            id="point">
-            <option selected>Selecciona un punto </option>
-            <option *ngFor="let point of points" value="value1">{{point.points}} </option>
-        </select>
-        <br>
-        <br>
-        <br>
-        <button class="btn btn-success" [disabled]="publishTextForm.invalid">Públicar</button>
-        <div *ngIf="invalidLogin">
-            <div>
-                Invalid credentials.
+            <select class="custom-select" (change)="selectPoint($event)" formControlName="pointName" name="select"
+                id="point">
+                <option selected>Selecciona un punto </option>
+                <option *ngFor="let point of points" value="value1">{{point.points}} </option>
+            </select>
+            <br>
+            <br>
+            <br>
+            <button class="btn btn-success" [disabled]="publishTextForm.invalid">Públicar</button>
+            <div *ngIf="invalidLogin">
+                <div>
+                    Invalid credentials.
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
