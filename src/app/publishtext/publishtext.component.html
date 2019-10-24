@@ -5,7 +5,8 @@
             <div>
                 <label for="titleText">Titulo:</label>
                 <input type="text" formControlName="titleText" id="titleText" autocomplete="off">
-                <div *ngIf="publishTextForm.controls['titleText'].hasError('required') && publishTextForm.controls['titleText'].touched">
+                <div
+                    *ngIf="publishTextForm.controls['titleText'].hasError('required') && publishTextForm.controls['titleText'].touched">
                     Username is required
                 </div>
             </div>
@@ -17,6 +18,9 @@
                     Password is required
                 </div>
             </div>
+            <select  (change)="selectPoint($event)" formControlName="pointName" name="select" id="point">
+                <option *ngFor="let point of points" value="value1">{{point.points}} </option>
+            </select>
             <button [disabled]="publishTextForm.invalid">Públicar</button>
             <div *ngIf="invalidLogin">
                 <div>

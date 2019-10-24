@@ -46,6 +46,7 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
     RegisteruserService,
 
   ],
+  
   bootstrap: [AppComponent]
 })
 

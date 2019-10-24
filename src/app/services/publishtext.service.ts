@@ -12,6 +12,7 @@ export class PublishtextService {
   }
 
   publishText(tittle, description, point) {
+    console.log("publish service :", point);
     return this.http.post('https://caja-sullana.us-south.cf.appdomain.cloud/update/text', {
       title: tittle,
       description: description,

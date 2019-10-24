@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div>
-                <label for="fileVideo">Link del video:</label>
+                <label for="fileVideo">Selecciona el archivo:</label>
                 <input type="file" formControlName="fileVideo" id="fileVideo" autocomplete="off"
                     (change)="loadImage($event)">
                 <div
@@ -27,7 +27,9 @@
                     Username is required
                 </div>
             </div>
-
+            <select  (change)="selectPoint($event)" formControlName="pointName" name="select" id="point">
+                    <option *ngFor="let point of points" value="value1">{{point.points}} </option>
+            </select>
             <button [disabled]="publishVideoForm.invalid">Subir</button>
             <div *ngIf="invalidLogin">
                 <div>

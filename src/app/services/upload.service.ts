@@ -11,14 +11,14 @@ export class UploadService {
     ) { 
   }
 
-  upload(file, title, desciption, point, category){
+  upload(file, title, description, point, category){
     console.log("upload service")
     return this.http.post('https://caja-sullana.us-south.cf.appdomain.cloud/file/upload', {
           file: file,
-          title: title,
-          desciption: desciption,
-          point: point,
-          category: category,
+          title: "hoyy",
+          description: "okoko",
+          point: "123",
+          category: "123",
         });
   }
 

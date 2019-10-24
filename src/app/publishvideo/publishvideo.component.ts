@@ -11,6 +11,8 @@ export class PublishvideoComponent implements OnInit {
   //breakpoint: number;
   publishVideoForm: FormGroup;
   invalidLogin: boolean = false;
+  points: Array<any>;
+
   constructor(
     private formBuilder: FormBuilder,
     private _uploadService: UploadService,
@@ -18,11 +20,12 @@ export class PublishvideoComponent implements OnInit {
 
   ngOnInit() {
     //this.breakpoint = (window.innerWidth <= 400) ? 1 : 1;
+    this.points = JSON.parse(localStorage.getItem('point'));
     this.publishVideoForm = this.formBuilder.group({
       titleVideo: ['', Validators.compose([Validators.required])],
       descriptionVideo: ['', Validators.required],
       fileVideo: ['', Validators.required],
-
+      pointName: ['', Validators.required],
     });
   }
 
@@ -41,7 +44,8 @@ export class PublishvideoComponent implements OnInit {
     this._uploadService.upload(
       this.publishVideoForm.controls.fileVideo.value,
       this.publishVideoForm.controls.titleVideo.value,
-      this.publishVideoForm.controls.descriptionVideo.value, "arequipa11", "1")
+      this.publishVideoForm.controls.descriptionVideo.value,
+      this.publishVideoForm.controls.pointName.value, "1")
       .subscribe(
         (data) => { // Success
           console.log(" data :", data)
@@ -50,6 +54,13 @@ export class PublishvideoComponent implements OnInit {
           console.error(error);
         }
       );
+  }
+
+  selectPoint(e) {
+    console.log("event", e)
+    this.publishVideoForm.controls.pointName.setValue(e.target.value, {
+      onlySelf: true
+    })
   }
 
   // onResize(event) {

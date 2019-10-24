@@ -1,13 +1,41 @@
-<mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="600px">
-        <mat-grid-tile>
-            <div class="example-container">
-                <h1 class="title-page">Públicar banner</h1>
-                <mat-form-field class="form-row">
-                    <input matInput  placeholder="Título">
-                </mat-form-field>
-                <input type="file">
-                <button mat-raised-button>Cancelar</button>
-                <button mat-raised-button color="primary">Subir</button>
+<div class="row">
+    <div>
+        <h2 style="margin: auto">Públicar banner </h2>
+        <form [formGroup]="publishBannerForm" (ngSubmit)="upload()">
+            <div>
+                <label for="titleBanner">Título:</label>
+                <input type="text" formControlName="titleBanner" id="titleBanner" autocomplete="off">
+                <div
+                    *ngIf="publishBannerForm.controls['titleBanner'].hasError('required') && publishBannerForm.controls['titleBanner'].touched">
+                    Username is required
+                </div>
             </div>
-        </mat-grid-tile>
-    </mat-grid-list>
+            <div>
+                <label for="descriptionBanner">Descripción:</label>
+                <input type="text" formControlName="descriptionBanner" id="descriptionBanner" autocomplete="off">
+                <div
+                    *ngIf="publishBannerForm.controls['descriptionBanner'].hasError('required') && publishBannerForm.controls['descriptionBanner'].touched">
+                    Password is required
+                </div>
+            </div>
+            <div>
+                <label for="fileImage">Selecciona el archivo:</label>
+                <input type="file" formControlName="fileImage" id="fileImage" autocomplete="off"
+                    (change)="loadImage($event)">
+                <div
+                    *ngIf="publishBannerForm.controls['fileImage'].hasError('required') && publishBannerForm.controls['fileImage'].touched">
+                    Username is required
+                </div>
+            </div>
+            <select (change)="selectPoint($event)" formControlName="pointName" name="select" id="point">
+                <option *ngFor="let point of points" value="value1">{{point.points}} </option>
+            </select>
+            <button [disabled]="publishBannerForm.invalid">Subir</button>
+            <div *ngIf="invalidLogin">
+                <div>
+                    Invalid credentials.
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

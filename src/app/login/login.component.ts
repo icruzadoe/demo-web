@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (data) => { // Success
        console.log(" data :", data)
+       localStorage.setItem('point', JSON.stringify(data));
       },
       (error) => {
         console.error(error);
