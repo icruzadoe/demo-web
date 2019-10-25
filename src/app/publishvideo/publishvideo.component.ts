@@ -12,6 +12,7 @@ export class PublishvideoComponent implements OnInit {
   publishVideoForm: FormGroup;
   invalidLogin: boolean = false;
   points: Array<any>;
+  fileName : string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,7 +31,8 @@ export class PublishvideoComponent implements OnInit {
   }
 
   loadImage(event) {
-    console.log("loadImage :", event)
+    console.log("loadImage :", event.target.files.name)
+    this.fileName = event.target.files.name;
   }
 
   upload() {
@@ -42,7 +44,7 @@ export class PublishvideoComponent implements OnInit {
     console.log("Video Fomr :", this.publishVideoForm)
 
     this._uploadService.upload(
-      this.publishVideoForm.controls.fileVideo.value,
+      this.fileName,
       this.publishVideoForm.controls.titleVideo.value,
       this.publishVideoForm.controls.descriptionVideo.value,
       this.publishVideoForm.controls.pointName.value, "1")

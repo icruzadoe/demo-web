@@ -15,10 +15,10 @@ export class UploadService {
     console.log("upload service")
     return this.http.post('https://caja-sullana.us-south.cf.appdomain.cloud/file/upload', {
           file: file,
-          title: "hoyy",
-          description: "okoko",
-          point: "123",
-          category: "123",
+          title: title,
+          description: description,
+          point: point,
+          category: category,
         });
   }
 
