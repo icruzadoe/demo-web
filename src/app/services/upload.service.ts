@@ -13,8 +13,8 @@ export class UploadService {
   }
 
   upload(file, title, description, point, category){
-    console.log("upload service")
-    return this.http.post(globals.BASE_URL+'file/upload', {
+    console.log("upload service - file :", file)
+    return this.http.post(globals.BASE_URL+'file/upload2', {
           file: file,
           title: title,
           description: description,

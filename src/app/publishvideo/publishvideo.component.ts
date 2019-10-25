@@ -31,8 +31,11 @@ export class PublishvideoComponent implements OnInit {
   }
 
   loadImage(event) {
-    console.log("loadImage :", event.target.files.name)
-    this.fileName = event.target.files.name;
+    console.log("event :", event)
+    console.log("target :", event.target)
+    console.log("files :", event.target.files)
+    console.log("loadImage :", event.target.files[0].name)
+    this.fileName = event.target.files[0].name;
   }
 
   upload() {

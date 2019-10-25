@@ -13,8 +13,6 @@ export class RegisteruserService {
   }
 
   register(password, email) {
-    console.log("password :", password)
-    console.log("email :", email)
     return this.http.post(globals.BASE_URL+'register', {
       username:"admin",
       password: password,
