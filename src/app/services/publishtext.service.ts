@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as globals from './globals';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class PublishtextService {
 
   publishText(tittle, description, point) {
     console.log("publish service :", point);
-    return this.http.post('https://caja-sullana.us-south.cf.appdomain.cloud/update/text', {
+    return this.http.post(globals.BASE_URL+'update/text', {
       title: tittle,
       description: description,
       point: point,
