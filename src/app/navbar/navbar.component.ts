@@ -6,25 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  loginData : any;
-  showButton : boolean;
-  isLogout : boolean = false;
+  loginData: any;
+  showButton: boolean;
+
   constructor() { }
 
   ngOnInit() {
     this.loginData = JSON.parse(localStorage.getItem('login'));
 
-    if (this.loginData.user = ! null && this.loginData.auth) {
-      this.showButton = true;
+    if (this.loginData) {
+      if (this.loginData.user = ! null && this.loginData.auth) {
+        this.showButton = true;
+      }
     }
   }
 
-  login(event){
-    this.isLogout = true;
-  }
-
-  logout(event){
-    this.isLogout = false;
+  logout(event) {
     localStorage.clear();
   }
 

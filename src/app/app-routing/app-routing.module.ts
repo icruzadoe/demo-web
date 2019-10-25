@@ -10,14 +10,14 @@ import { AppComponent } from '../inicio/app.component';
 import { AuthGuard } from '../authGuard.injectable';
 
 const routes: Routes = [
-  {path: 'publishvideo', component: PublishvideoComponent, canActivate: [AuthGuard]},
-  {path: 'publishtext', component: PublishtextComponent, canActivate: [AuthGuard]},
+  {path: 'publishvideo', component: PublishvideoComponent},
+  {path: 'publishtext', component: PublishtextComponent},
   {path: 'publishbanner', component: PublishbannerComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'registeruser', component: RegisteruserComponent},
-  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'home', component: HomeComponent},
   {path: '', component: LoginComponent,  pathMatch: 'full'},
-  {path: '**', redirectTo:'/',  pathMatch: 'full'}
+  {path: '**', component: LoginComponent,  pathMatch: 'full'}
 ]
 
 @NgModule({

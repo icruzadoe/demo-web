@@ -6,14 +6,7 @@
     <button *ngIf="showButton" routerLink="/publishbanner" mat-button ton class="text-menu">PÚBLICAR BANNER</button>
     <button *ngIf="showButton" routerLink="/publishtext" mat-button class="text-menu">PÚBLICAR TEXTO</button>
     <button *ngIf="showButton" routerLink="/home" mat-button class="text-menu">INICIO</button>
-    <div routerLink="/login" (click)="login($event)" *ngIf="!isLogout">
-      <button mat-button class="text-menu">
-        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">perm_identity
-        </mat-icon>
-        <span>INICIAR SESIÓN</span>
-      </button>
-    </div>
-    <div routerLink="/login" (click)="logout($event)" *ngIf="isLogout">
+    <div *ngIf="showButton" routerLink="/login" (click)="logout($event)">
       <button  mat-button class="text-menu">
         <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">perm_identity
         </mat-icon>

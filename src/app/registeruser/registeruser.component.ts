@@ -1,6 +1,7 @@
 import { RegisteruserService } from '../services/registeruser.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registeruser',
@@ -15,6 +16,7 @@ export class RegisteruserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private _serviceRegisterUser: RegisteruserService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -25,12 +27,9 @@ export class RegisteruserComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("hiciste click")
     if (this.loginForm.invalid) {
       return;
     }
-
-    console.log("loginForm :", this.loginForm)
 
     this._serviceRegisterUser.register(this.loginForm.controls.password.value, this.loginForm.controls.email.value)
       .subscribe(
@@ -41,5 +40,9 @@ export class RegisteruserComponent implements OnInit {
           console.error(error);
         }
       );
+  }
+
+  test(){
+    this.router.navigate(['']);
   }
 }
