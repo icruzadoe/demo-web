@@ -9,7 +9,7 @@
                     autocomplete="off">
                 <div
                     *ngIf="publishBannerForm.controls['titleBanner'].hasError('required') && publishBannerForm.controls['titleBanner'].touched">
-                 
+
                 </div>
             </div>
             <div class="form-group">
@@ -18,7 +18,7 @@
                     autocomplete="off">
                 <div
                     *ngIf="publishBannerForm.controls['descriptionBanner'].hasError('required') && publishBannerForm.controls['descriptionBanner'].touched">
-                   
+
                 </div>
             </div>
             <select class="custom-select" (change)="selectPoint($event)" formControlName="pointName" name="select"
@@ -31,12 +31,15 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="customFileLang">Agregar imagen</label>
-                    <input formControlName="fileImage" type="file" class="form-control-file" id="fileImage"
+                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" multiple #fileInput
+                        data-multiple-caption="{count} archivos seleccionados" multiple />
+                    <!-- <input formControlName="fileImage" type="file" class="form-control-file" id="fileImage"
                         autocomplete="off" (change)="loadImage($event)">
-                </div>
-                <div
-                    *ngIf="publishBannerForm.controls['fileImage'].hasError('required') && publishBannerForm.controls['fileImage'].touched">
-                  
+                </div> -->
+                    <div
+                        *ngIf="publishBannerForm.controls['fileImage'].hasError('required') && publishBannerForm.controls['fileImage'].touched">
+
+                    </div>
                 </div>
             </div>
             <br>

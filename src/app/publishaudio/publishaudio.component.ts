@@ -33,25 +33,24 @@ export class PublishaudioComponent implements OnInit {
   }
 
   loadImage(event) {
-    console.log("event :", event)
-    console.log("target :", event.target)
-    console.log("files :", event.target.files)
-    console.log("loadImage :", event.target.files[0].name)
+    // console.log("event :", event)
+    // console.log("target :", event.target)
+    // console.log("files :", event.target.files)
+    // console.log("loadImage :", event.target.files[0].name)
     this.fileName = event.target.files[0].name;
     this.files = event.target.files;
   }
 
   upload() {
-    console.log("hiciste click")
-    /*if (this.publishVideoForm.invalid) {
+    if (this.publishAudioForm.invalid) {
       return;
-    }*/
+    }
 
     console.log("Video Fomr :", this.publishAudioForm)
     let audioElement = this.inputEl.nativeElement;
     console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
-    this._uploadService.upload2(audioElement.files,"c")
+    this._uploadService.upload2(audioElement.files,this.publishAudioForm.controls.titleAudio.value,this.publishAudioForm.controls.descriptionAudio.value)
 
  /*   this._uploadService.upload(
       this.fileName,
@@ -74,4 +73,10 @@ export class PublishaudioComponent implements OnInit {
       onlySelf: true
     })
   }
+
+  // onResize(event) {
+  //   this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 2;
+  //   console.log("ROW :", this.breakpoint)
+  // }
+
 }

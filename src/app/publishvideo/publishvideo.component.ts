@@ -33,23 +33,23 @@ export class PublishvideoComponent implements OnInit {
   }
 
   loadImage(event) {
-    console.log("event :", event)
-    console.log("target :", event.target)
-    console.log("files :", event.target.files)
-    console.log("loadImage :", event.target.files[0].name)
+    // console.log("event :", event)
+    // console.log("target :", event.target)
+    // console.log("files :", event.target.files)
+    // console.log("loadImage :", event.target.files[0].name)
     this.fileName = event.target.files[0].name;
     this.files = event.target.files;
   }
 
   upload() {
     console.log("hiciste click")
-    /*if (this.publishVideoForm.invalid) {
+    if (this.publishVideoForm.invalid) {
       return;
-    }*/
+    }
 
-    console.log("Video Fomr :", this.publishVideoForm)
+    // console.log("Video Fomr :", this.publishVideoForm)
     let audioElement = this.inputEl.nativeElement;
-    console.log('Archivos:' + audioElement.files.length);
+    // console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
     this._uploadService.upload2(audioElement.files,this.publishVideoForm.controls.titleVideo.value,this.publishVideoForm.controls.descriptionVideo.value)
 
@@ -69,7 +69,7 @@ export class PublishvideoComponent implements OnInit {
   }
 
   selectPoint(e) {
-    console.log("event", e)
+    // console.log("event", e)
     this.publishVideoForm.controls.pointName.setValue(e.target.value, {
       onlySelf: true
     })

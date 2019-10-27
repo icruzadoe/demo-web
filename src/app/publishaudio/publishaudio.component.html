@@ -8,7 +8,7 @@
                 <input class="form-control" type="text" formControlName="titleAudio" id="titleAudio" autocomplete="off">
                 <div
                     *ngIf="publishAudioForm.controls['titleAudio'].hasError('required') && publishAudioForm.controls['titleAudio'].touched">
-        
+
                 </div>
             </div>
             <div class="form-group">
@@ -17,7 +17,7 @@
                     autocomplete="off">
                 <div
                     *ngIf="publishAudioForm.controls['descriptionAudio'].hasError('required') && publishAudioForm.controls['descriptionAudio'].touched">
-                  
+
                 </div>
             </div>
             <select class="custom-select" (change)="selectPoint($event)" formControlName="pointName" name="select"
@@ -29,15 +29,18 @@
             <br>
             <div class="form-group">
                 <div class="form-group">
-                    <label for="fileVideo">Agregar video</label>
+                    <label for="fileVideo">Agregar audio</label>
+                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" multiple #fileInput
+                        data-multiple-caption="{count} archivos seleccionados" multiple />
+                    <!-- 
                     <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1"  multiple #fileInput data-multiple-caption="{count} archivos seleccionados" multiple />
                     <a class="boton_greentdp " id="subirAudioVisible" (click)="upload()">SUBIR</a>
                     <input formControlName="fileVideo" type="file" class="form-control-file" id="fileVideo"
-                        autocomplete="on" (change)="loadImage($event)">
+                        autocomplete="on" (change)="loadImage($event)"> -->
                 </div>
                 <div
                     *ngIf="publishAudioForm.controls['fileVideo'].hasError('required') && publishAudioForm.controls['fileVideo'].touched">
-                   
+
                 </div>
             </div>
             <br>
