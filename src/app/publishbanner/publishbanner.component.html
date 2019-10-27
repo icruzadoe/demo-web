@@ -6,7 +6,7 @@
             <div class="form-group">
                 <label for="titleBanner">Título:</label>
                 <input class="form-control" type="text" formControlName="titleBanner" id="titleBanner"
-                    autocomplete="off">
+                    autocomplete="off" placeholder="Inrese el título">
                 <div
                     *ngIf="publishBannerForm.controls['titleBanner'].hasError('required') && publishBannerForm.controls['titleBanner'].touched">
 
@@ -15,7 +15,7 @@
             <div class="form-group">
                 <label for="descriptionBanner">Descripción:</label>
                 <input class="form-control" type="text" formControlName="descriptionBanner" id="descriptionBanner"
-                    autocomplete="off">
+                    autocomplete="off" placeholder="Ingrese la descripción">
                 <div
                     *ngIf="publishBannerForm.controls['descriptionBanner'].hasError('required') && publishBannerForm.controls['descriptionBanner'].touched">
 
@@ -31,6 +31,7 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="customFileLang">Agregar imagen</label>
+                    <br>
                     <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" multiple #fileInput
                         data-multiple-caption="{count} archivos seleccionados" multiple />
                     <!-- <input formControlName="fileImage" type="file" class="form-control-file" id="fileImage"

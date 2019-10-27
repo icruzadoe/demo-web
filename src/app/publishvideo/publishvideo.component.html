@@ -5,19 +5,20 @@
         <form [formGroup]="publishVideoForm" (ngSubmit)="upload()">
             <div class="form-group">
                 <label for="titleVideo">Título:</label>
-                <input class="form-control" type="text" formControlName="titleVideo" id="titleVideo" autocomplete="off">
+                <input class="form-control" type="text" formControlName="titleVideo" id="titleVideo" autocomplete="off"
+                    placeholder="Ingrese el título">
                 <div
                     *ngIf="publishVideoForm.controls['titleVideo'].hasError('required') && publishVideoForm.controls['titleVideo'].touched">
-        
+
                 </div>
             </div>
             <div class="form-group">
                 <label for="descriptionVideo">Descripción:</label>
                 <input class="form-control" type="text" formControlName="descriptionVideo" id="descriptionVideo"
-                    autocomplete="off">
+                    autocomplete="off" placeholder="Ingrese la descripción">
                 <div
                     *ngIf="publishVideoForm.controls['descriptionVideo'].hasError('required') && publishVideoForm.controls['descriptionVideo'].touched">
-                  
+
                 </div>
             </div>
             <select class="custom-select" (change)="selectPoint($event)" formControlName="pointName" name="select"
@@ -30,18 +31,20 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="fileVideo">Agregar video</label>
-                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1"  multiple #fileInput data-multiple-caption="{count} archivos seleccionados" multiple />
+                    <br>
+                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" multiple #fileInput
+                        data-multiple-caption="{count} archivos seleccionados" multiple />
                     <!-- <a class="boton_greentdp " id="subirAudioVisible" (click)="upload()">SUBIR</a> -->
                     <!-- <input formControlName="fileVideo" type="file" class="form-control-file" id="fileVideo"
                         autocomplete="on" (change)="loadImage($event)"> -->
                 </div>
                 <div
                     *ngIf="publishVideoForm.controls['fileVideo'].hasError('required') && publishVideoForm.controls['fileVideo'].touched">
-                   
+
                 </div>
             </div>
             <br>
-            <button class="btn btn-success" (click)="upload()" >Subir</button>
+            <button class="btn btn-success" (click)="upload()">Subir</button>
             <div *ngIf="invalidLogin">
                 <div>
                     Invalid credentials.
