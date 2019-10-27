@@ -85,6 +85,7 @@
 
   .content-menu{
     width: 30%;
+    background-color: #3f51b5 !important;
     display: flex !important;
     flex-direction: column !important;
   }     
@@ -122,3 +123,20 @@
     font: normal normal bold 28px/1.4em georgia,palatino,'book antiqua','palatino linotype',serif;
   }
   
+  .color-navbar{
+    background-color: #3f51b5 !important;
+    width: 100% !important;
+
+  }
+
+  .mat-button-wrapper{
+    color: white !important;
+  }
+
+  .color-icon{
+    color: white !important;
+  }
+
+  .option-menu{
+    border: 1px solid black;
+  }

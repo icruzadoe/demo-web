@@ -16,45 +16,46 @@
   </mat-toolbar-row>
 </mat-toolbar> -->
 
-<mat-sidenav-container class="example-container" *ngIf="shouldRun">
-    <mat-sidenav class="content-menu" #sidenav [mode]="mode.value">
-      <p><button mat-button (click)="sidenav.toggle()"><i class="material-icons">list</i></button></p>
-      <p>
-          <button routerLink="/manageuser"  class="option-menu" mat-menu-item>
-            <i class="material-icons">
-              home
-            </i>
-            GESTIONAR USUARIOS
-          </button>
-          <button routerLink="/publishvideo" class="option-menu" mat-menu-item>
-            <i class="material-icons">
-              missed_video_call
-            </i>
-            GESTIONAR MULTIMEDIA
-          </button>
-          <button routerLink="/manageagency" class="option-menu" mat-menu-item>
-            <i class="material-icons">
-              image
-            </i>
-            GESTIONAR AGENCIA
-          </button>
-          <button routerLink="/activityregister" class="option-menu" mat-menu-item>
-            <i class="material-icons">
-              edit
-            </i>
-            REGISTRO DE ACTIVIDAD
-          </button>
-          <button (click)="logout($event)" class="option-menu" mat-menu-item>
-            <i class="material-icons">
-                person
-            </i>
-              CERRAR SESIÓN
-          </button>
-      </p>
-    </mat-sidenav>
-    <mat-sidenav-content >
-      <p><button mat-button (click)="sidenav.toggle()"><i class="material-icons">list</i></button></p>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+<mat-sidenav-container class="example-container color-navbar" *ngIf="shouldRun">
+  <mat-sidenav class="content-menu" #sidenav [mode]="mode.value">
+    <p>
+      <button mat-button (click)="sidenav.toggle()">
+          <i class="material-icons color-icon">list</i>
+          <span class="color-icon">MENU</span>
+      </button>
+    </p>
+    <p>
+      <button routerLink="/manageuser" class="option-menu" mat-menu-item>
   
-  <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+        <span class="color-icon">GESTIONAR USUARIOS</span>
+      </button>
+      <button routerLink="/publishvideo" class="option-menu" mat-menu-item>
+  
+        <span class="color-icon">GESTIONAR MULTIMEDIA</span>
+        
+      </button>
+      <button routerLink="/manageagency" class="option-menu" mat-menu-item>
+  
+        <span class="color-icon">GESTIONAR AGENCIA</span>
+      </button>
+      <button routerLink="/activityregister" class="option-menu" mat-menu-item>
+
+        <span class="color-icon">GESTIONAR ACTIVIDAD</span>
+      </button>
+      <button (click)="logout($event)" class="option-menu" mat-menu-item>
+     
+        <span class="color-icon">CERRAR SESION</span>
+      </button>
+    </p>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <p>
+      <button mat-button (click)="sidenav.toggle()">
+        <i class="material-icons color-icon">list</i>
+        <span class="color-icon">MENU</span>
+      </button>
+    </p>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
