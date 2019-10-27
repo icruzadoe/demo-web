@@ -46,9 +46,9 @@ export class PublishaudioComponent implements OnInit {
       return;
     }
 
-    console.log("Video Fomr :", this.publishAudioForm)
+    //console.log("Video Fomr :", this.publishAudioForm)
     let audioElement = this.inputEl.nativeElement;
-    console.log('Archivos:' + audioElement.files.length);
+    //console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
     this._uploadService.upload2(audioElement.files,this.publishAudioForm.controls.titleAudio.value,this.publishAudioForm.controls.descriptionAudio.value)
 
@@ -68,7 +68,6 @@ export class PublishaudioComponent implements OnInit {
   }
 
   selectPoint(e) {
-    console.log("event", e)
     this.publishAudioForm.controls.pointName.setValue(e.target.value, {
       onlySelf: true
     })
