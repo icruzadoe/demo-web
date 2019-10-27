@@ -1,3 +1,4 @@
+import { PublishaudioComponent } from './../publishaudio/publishaudio.component';
 import { ActivityregisterComponent } from './../activityregister/activityregister.component';
 import { ManageAgencyComponent } from './../manageagency/manageagency.component';
 import { AddagencyComponent } from './../addagency/addagency.component';
@@ -12,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { AppComponent } from '../inicio/app.component';
 import { AuthGuard } from '../authGuard.injectable';
+import { ManagemultimediaComponent } from '../managemultimedia/managemultimedia.component';
 
 const routes: Routes = [
   {path: 'publishvideo', component: PublishvideoComponent, canActivate: [AuthGuard]},
@@ -21,7 +23,9 @@ const routes: Routes = [
   {path: 'registeruser', component: RegisteruserComponent},
   {path: 'manageuser', component: ManageuserComponent, canActivate: [AuthGuard]},
   {path: 'manageagency', component: ManageAgencyComponent, canActivate: [AuthGuard]},
+  {path: 'managemultimedia', component: ManagemultimediaComponent, canActivate: [AuthGuard]},
   {path: 'addagency', component: AddagencyComponent, canActivate: [AuthGuard]},
+  {path: 'publishaudio', component: PublishaudioComponent, canActivate: [AuthGuard]},
   {path: 'activityregister', component: ActivityregisterComponent, canActivate: [AuthGuard]},
   {path: '', component: LoginComponent,  pathMatch: 'full'},
   {path: '**', component: LoginComponent,  pathMatch: 'full'}
