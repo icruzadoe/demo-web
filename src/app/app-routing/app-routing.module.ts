@@ -1,3 +1,4 @@
+import { ManageuserComponent } from './../manageuser/manageuser.component';
 import { HomeComponent } from './../home/home.component';
 import { RegisteruserComponent } from './../registeruser/registeruser.component';
 import { LoginComponent } from './../login/login.component';
@@ -15,7 +16,7 @@ const routes: Routes = [
   {path: 'publishbanner', component: PublishbannerComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'registeruser', component: RegisteruserComponent},
-  {path: 'home', component: HomeComponent},
+  {path: 'manageuser', component: ManageuserComponent, canActivate: [AuthGuard]},
   {path: '', component: LoginComponent,  pathMatch: 'full'},
   {path: '**', component: LoginComponent,  pathMatch: 'full'}
 ]

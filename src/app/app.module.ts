@@ -23,6 +23,7 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
 import { HomeComponent } from './home/home.component';
 //guardado validacion de inicio de sesion para navegar entre pantallas
 import { AuthGuard } from './authGuard.injectable';
+import { ManageuserComponent } from './manageuser/manageuser.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AuthGuard } from './authGuard.injectable';
     LoginComponent,
     RegisteruserComponent,
     HomeComponent,
+    ManageuserComponent,
   ],
   imports: [
     BrowserModule,
