@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-managemultimedia',
-  templateUrl: './managemultimedia.component.html',
-  styleUrls: ['./managemultimedia.component.css']
+  selector: 'app-manageagency',
+  templateUrl: './manageagency.component.html',
+  styleUrls: ['./manageagency.component.css']
 })
-export class ManagemultimediaComponent implements OnInit {
+export class ManageAgencyComponent implements OnInit {
   agencyForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
+    private router:Router,
   ) { }
 
   ngOnInit() {
     this.agencyForm = this.formBuilder.group({
       agency: ['', Validators.compose([Validators.required])],
     });
+  }
+
+  addAgency(event){
+    this.router.navigate(['addagency']);
+
   }
 
 }
