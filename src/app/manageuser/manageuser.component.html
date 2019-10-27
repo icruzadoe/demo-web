@@ -44,14 +44,14 @@
                 <td>912345678</td>
                 <td>Admin</td>
                 <td>
-                    <button mat-button class="text-menu">
+                    <button (click)="editUser($event)" mat-button class="text-menu">
                         <i class="material-icons">
                             edit
                         </i>
                     </button>
                 </td>
                 <td>
-                    <button mat-button class="text-menu">
+                    <button (click)="deleteUser($event)" mat-button class="text-menu">
                         <i class="material-icons">
                             delete
                         </i>

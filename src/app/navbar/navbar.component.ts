@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   loginData: any;
   showButton: boolean;
+  mode = new FormControl('over');
+  shouldRun = true;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.loginData = JSON.parse(localStorage.getItem('login'));
@@ -23,6 +29,7 @@ export class NavbarComponent implements OnInit {
 
   logout(event) {
     localStorage.clear();
+    this.router.navigate(['']);
   }
 
 }

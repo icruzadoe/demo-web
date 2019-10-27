@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
@@ -23,6 +24,14 @@ export class ManageuserComponent implements OnInit {
 
   addUser(event){
     this.router.navigate(['registeruser']);
+
+  }
+
+  editUser(envent){
+    this.router.navigate(['registeruser']);
+  }
+
+  deleteUser(event){
 
   }
 

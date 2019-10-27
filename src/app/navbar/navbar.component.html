@@ -1,4 +1,4 @@
-<mat-toolbar class="title-bar" color="primary">
+<!-- <mat-toolbar class="title-bar" color="primary">
   <mat-toolbar-row class="navbar">
     <span>Web admin</span>
     <span class="example-spacer"></span>
@@ -14,4 +14,47 @@
       </button>
     </div>
   </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar> -->
+
+<mat-sidenav-container class="example-container" *ngIf="shouldRun">
+    <mat-sidenav class="content-menu" #sidenav [mode]="mode.value">
+      <p><button mat-button (click)="sidenav.toggle()"><i class="material-icons">list</i></button></p>
+      <p>
+          <button routerLink="/manageuser"  class="option-menu" mat-menu-item>
+            <i class="material-icons">
+              home
+            </i>
+            GESTIONAR USUARIOS
+          </button>
+          <button routerLink="/publishvideo" class="option-menu" mat-menu-item>
+            <i class="material-icons">
+              missed_video_call
+            </i>
+            GESTIONAR MULTIMEDIA
+          </button>
+          <button routerLink="/publishbanner" class="option-menu" mat-menu-item>
+            <i class="material-icons">
+              image
+            </i>
+            Públicar banner
+          </button>
+          <button routerLink="/publishtext" class="option-menu" mat-menu-item>
+            <i class="material-icons">
+              edit
+            </i>
+            Publicar texto
+          </button>
+          <button (click)="logout($event)" class="option-menu" mat-menu-item>
+            <i class="material-icons">
+                person
+            </i>
+              CERRAR SESIÓN
+          </button>
+      </p>
+    </mat-sidenav>
+    <mat-sidenav-content >
+      <p><button mat-button (click)="sidenav.toggle()"><i class="material-icons">list</i></button></p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
