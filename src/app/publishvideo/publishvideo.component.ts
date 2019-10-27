@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UploadService } from '../services/upload.service';
 
@@ -8,11 +8,13 @@ import { UploadService } from '../services/upload.service';
   styleUrls: ['./publishvideo.component.css']
 })
 export class PublishvideoComponent implements OnInit {
+  @ViewChild('fileInput',{ static: true }) inputEl: ElementRef;
   //breakpoint: number;
   publishVideoForm: FormGroup;
   invalidLogin: boolean = false;
   points: Array<any>;
   fileName : string;
+  files : File[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,17 +38,22 @@ export class PublishvideoComponent implements OnInit {
     console.log("files :", event.target.files)
     console.log("loadImage :", event.target.files[0].name)
     this.fileName = event.target.files[0].name;
+    this.files = event.target.files;
   }
 
   upload() {
     console.log("hiciste click")
-    if (this.publishVideoForm.invalid) {
+    /*if (this.publishVideoForm.invalid) {
       return;
-    }
+    }*/
 
     console.log("Video Fomr :", this.publishVideoForm)
+    let audioElement = this.inputEl.nativeElement;
+    console.log('Archivos:' + audioElement.files.length);
+    let file = audioElement.files[0];
+    this._uploadService.upload2(audioElement.files,"c")
 
-    this._uploadService.upload(
+ /*   this._uploadService.upload(
       this.fileName,
       this.publishVideoForm.controls.titleVideo.value,
       this.publishVideoForm.controls.descriptionVideo.value,
@@ -58,7 +65,7 @@ export class PublishvideoComponent implements OnInit {
         (error) => {
           console.error(error);
         }
-      );
+      );*/
   }
 
   selectPoint(e) {

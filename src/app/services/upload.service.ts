@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as globals from './globals';
-
+import {Upload} from '../publishvideo/upload.model'
+import { Subject } from 'rxjs';
+interface HttpEvent {
+  type: any;
+  reason?: any;
+  value?: number;
+  id?: number;
+  name?: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class UploadService {
-
+  urlprueba : string = globals.BASE_URL+'file/upload2'
+  _eventBus: Subject<HttpEvent>;
   constructor(
     private http: HttpClient
     ) { 
@@ -21,6 +30,37 @@ export class UploadService {
           point: point,
           category: category,
         });
+  }
+
+  upload2( file : File[], params : any) {
+    return new Promise((resolve, reject) => {
+      let formData:FormData = new FormData();
+      let xhr:XMLHttpRequest = new XMLHttpRequest();
+      let files = file;
+      var f:File;
+     /* if (params) {
+        for (var key in params) {
+          if (params.hasOwnProperty(key)) {
+            formData.append(key, params[key]);
+          }
+        }
+      }*/
+      formData.append('file', file[0]);
+      formData.append('title',"title");
+      formData.append('description', "desc");
+   
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            resolve(JSON.parse(xhr.response));
+          } else {
+            reject(xhr.response);
+          }
+        }
+      }
+      xhr.open('POST', this.urlprueba, true);
+      xhr.send(formData);
+    });
   }
 
 }
