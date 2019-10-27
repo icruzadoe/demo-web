@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
           }
 
           localStorage.setItem('login', JSON.stringify(login));
-          this.router.navigate(['/home']);
+          this.router.navigate(['/manageuser']);
         },
 
         (error) => {

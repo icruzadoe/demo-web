@@ -1,3 +1,4 @@
+import { ManageAgencyComponent } from './manageagency/manageagency.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +24,9 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
 import { HomeComponent } from './home/home.component';
 //guardado validacion de inicio de sesion para navegar entre pantallas
 import { AuthGuard } from './authGuard.injectable';
+import { ManageuserComponent } from './manageuser/manageuser.component';
+import { AddagencyComponent } from './addagency/addagency.component';
+import { ActivityregisterComponent } from './activityregister/activityregister.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { AuthGuard } from './authGuard.injectable';
     LoginComponent,
     RegisteruserComponent,
     HomeComponent,
+    ManageuserComponent,
+    ManageAgencyComponent,
+    AddagencyComponent,
+    ActivityregisterComponent,
   ],
   imports: [
     BrowserModule,

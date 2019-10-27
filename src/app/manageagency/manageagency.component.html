@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<div class="center-container margin-container">
+    <h2 class="text-center">GESTIONAR AGENCIA</h2>
+    <br>
+    <button (click)="addAgency($event)" class="btn btn-primary">
+        AGREGAR AGENCIA
+    </button>
+    <br>
+    <br>
+    <form [formGroup]="agencyForm" (ngSubmit)="onSubmit()">
+        <div class="form-row ">
+            <div class="col-md-6 mb-3">
+                <label class="sr-only" for="agency">Agencia:</label>
+                <input type="text" class="form-control mb-2" id="agency" placeholder="Ingrese el nombre de la agencia"
+                    autocomplete="off">
+            </div>
+            <div class="col-md-3 mb-3">
+                <button type="submit" class="btn btn-primary mb-2" [disabled]="agencyForm.invalid">BUSCAR
+                    AGENCIA
+                </button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <table class="table table-hover">
+        <thead class="thead-color">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">NOMBRE DE AGENCIA</th>
+                <th scope="col">IP</th>
+                <th scope="col">NOMBRE DEL DESTINO</th>
+                <th scope="col">EDITAR</th>
+                <th scope="col">ELIMINAR</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark SANCHEZ PEREZ</td>
+                <td>192.168.2.18</td>
+                <td>carpeta/compartida</td>
+                <td>
+                    <button (click)="editUser($event)" mat-button class="text-menu">
+                        <i class="material-icons">
+                            edit
+                        </i>
+                    </button>
+                </td>
+                <td>
+                    <button (click)="deleteUser($event)" mat-button class="text-menu">
+                        <i class="material-icons">
+                            delete
+                        </i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
