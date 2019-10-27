@@ -140,3 +140,12 @@
   .option-menu{
     border: 1px solid black;
   }
+
+  .menu-btn{
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    
+  }
