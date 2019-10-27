@@ -51,7 +51,7 @@ export class PublishvideoComponent implements OnInit {
     let audioElement = this.inputEl.nativeElement;
     console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
-    this._uploadService.upload2(audioElement.files,"c")
+    this._uploadService.upload2(audioElement.files,this.publishVideoForm.controls.titleVideo.value,this.publishVideoForm.controls.descriptionVideo.value)
 
  /*   this._uploadService.upload(
       this.fileName,
