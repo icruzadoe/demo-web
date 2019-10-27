@@ -2,6 +2,11 @@
 <div class="center-container margin-container">
     <h2 class="text-center">Gestionar usuarios</h2>
     <br>
+    <button (click)="addUser($event)" class="btn btn-primary">
+        AGREGAR USUARIO
+    </button>
+    <br>
+    <br>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-row ">
             <div class="col-md-6 mb-3">
@@ -14,11 +19,7 @@
                     USUARIO
                 </button>
             </div>
-            <div class="col-md-3 mb-3">
-                <button type="submit" class="btn btn-primary">
-                    AGREGAR USUARIO
-                </button>
-            </div>
+
 
         </div>
     </form>

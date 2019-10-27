@@ -60,6 +60,6 @@ export class RegisteruserComponent implements OnInit {
   }
 
   cancel(){
-    this.router.navigate(['']);
+    this.router.navigate(['manageuser']);
   }
 }
