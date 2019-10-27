@@ -29,11 +29,11 @@
             <br>
             <div class="form-group">
                 <div class="form-group">
-                    <label for="fileVideo">Agregar video</label>
+                    <!-- <label for="fileVideo">Agregar video</label> -->
                     <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1"  multiple #fileInput data-multiple-caption="{count} archivos seleccionados" multiple />
-                    <a class="boton_greentdp " id="subirAudioVisible" (click)="upload()">SUBIR</a>
-                    <input formControlName="fileVideo" type="file" class="form-control-file" id="fileVideo"
-                        autocomplete="on" (change)="loadImage($event)">
+                    <!-- <a class="boton_greentdp " id="subirAudioVisible" (click)="upload()">SUBIR</a> -->
+                    <!-- <input formControlName="fileVideo" type="file" class="form-control-file" id="fileVideo"
+                        autocomplete="on" (change)="loadImage($event)"> -->
                 </div>
                 <div
                     *ngIf="publishVideoForm.controls['fileVideo'].hasError('required') && publishVideoForm.controls['fileVideo'].touched">
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <br>
-            <button class="btn btn-success">Subir</button>
+            <button class="btn btn-success" (click)="upload()" >Subir</button>
             <div *ngIf="invalidLogin">
                 <div>
                     Invalid credentials.
