@@ -26,6 +26,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './authGuard.injectable';
 import { ManageuserComponent } from './manageuser/manageuser.component';
 import { AddagencyComponent } from './addagency/addagency.component';
+import { ActivityregisterComponent } from './activityregister/activityregister.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AddagencyComponent } from './addagency/addagency.component';
     ManageuserComponent,
     ManageAgencyComponent,
     AddagencyComponent,
+    ActivityregisterComponent,
   ],
   imports: [
     BrowserModule,
