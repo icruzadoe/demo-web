@@ -5,7 +5,7 @@
         <form [formGroup]="publishTextForm" (ngSubmit)="upload()">
             <div class="form-group">
                 <label for="titleText">Titulo:</label>
-                <input class="form-control" type="text" formControlName="titleText" id="titleText" autocomplete="off">
+                <input class="form-control" type="text" formControlName="titleText" id="titleText" autocomplete="off" placeholder="Ingrese el título">
                 <div
                     *ngIf="publishTextForm.controls['titleText'].hasError('required') && publishTextForm.controls['titleText'].touched">
                    
@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label for="textContent">Ingresa el texto:</label>
                 <textarea class="form-control" type="text" formControlName="textContent" id="pwd"
-                    autocomplete="off"></textarea>
+                    autocomplete="off" placeholder="Ingrese el texto"></textarea>
                 <div
                     *ngIf="publishTextForm.controls['textContent'].hasError('required') && publishTextForm.controls['textContent'].touched">
               

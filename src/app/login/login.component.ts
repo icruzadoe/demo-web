@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     let loginData = JSON.parse(localStorage.getItem('login'));
     if(loginData){
       if (loginData.user = ! null && loginData.auth) {
-        this.router.navigate(['home']);
+        this.router.navigate(['manageuser']);
       }
     }
   }

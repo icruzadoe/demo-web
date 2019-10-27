@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UploadService } from '../services/upload.service';
 
 @Component({
-  selector: 'app-publishvideo',
-  templateUrl: './publishvideo.component.html',
-  styleUrls: ['./publishvideo.component.css']
+  selector: 'app-publishaudio',
+  templateUrl: './publishaudio.component.html',
+  styleUrls: ['./publishaudio.component.css']
 })
-export class PublishvideoComponent implements OnInit {
+export class PublishaudioComponent implements OnInit {
   @ViewChild('fileInput',{ static: true }) inputEl: ElementRef;
   //breakpoint: number;
-  publishVideoForm: FormGroup;
+  publishAudioForm: FormGroup;
   invalidLogin: boolean = false;
   points: Array<any>;
   fileName : string;
@@ -24,9 +24,9 @@ export class PublishvideoComponent implements OnInit {
   ngOnInit() {
     //this.breakpoint = (window.innerWidth <= 400) ? 1 : 1;
     this.points = JSON.parse(localStorage.getItem('point'));
-    this.publishVideoForm = this.formBuilder.group({
-      titleVideo: ['', Validators.compose([Validators.required])],
-      descriptionVideo: ['', Validators.required],
+    this.publishAudioForm = this.formBuilder.group({
+      titleAudio: ['', Validators.compose([Validators.required])],
+      descriptionAudio: ['', Validators.required],
       fileVideo: ['', Validators.required],
       pointName: ['', Validators.required],
     });
@@ -42,16 +42,15 @@ export class PublishvideoComponent implements OnInit {
   }
 
   upload() {
-    console.log("hiciste click")
-    if (this.publishVideoForm.invalid) {
+    if (this.publishAudioForm.invalid) {
       return;
     }
 
-    // console.log("Video Fomr :", this.publishVideoForm)
+    //console.log("Video Fomr :", this.publishAudioForm)
     let audioElement = this.inputEl.nativeElement;
-    // console.log('Archivos:' + audioElement.files.length);
+    //console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
-    this._uploadService.upload2(audioElement.files,this.publishVideoForm.controls.titleVideo.value,this.publishVideoForm.controls.descriptionVideo.value)
+    this._uploadService.upload2(audioElement.files,this.publishAudioForm.controls.titleAudio.value,this.publishAudioForm.controls.descriptionAudio.value)
 
  /*   this._uploadService.upload(
       this.fileName,
@@ -69,8 +68,7 @@ export class PublishvideoComponent implements OnInit {
   }
 
   selectPoint(e) {
-    // console.log("event", e)
-    this.publishVideoForm.controls.pointName.setValue(e.target.value, {
+    this.publishAudioForm.controls.pointName.setValue(e.target.value, {
       onlySelf: true
     })
   }

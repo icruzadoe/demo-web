@@ -28,6 +28,7 @@ import { ManageuserComponent } from './manageuser/manageuser.component';
 import { AddagencyComponent } from './addagency/addagency.component';
 import { ActivityregisterComponent } from './activityregister/activityregister.component';
 import { MultimediaComponent } from './multimedia/multimedia.component';
+import { PublishaudioComponent } from './publishaudio/publishaudio.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MultimediaComponent } from './multimedia/multimedia.component';
     AddagencyComponent,
     ActivityregisterComponent,
     MultimediaComponent,
+    PublishaudioComponent,
   ],
   imports: [
     BrowserModule,
