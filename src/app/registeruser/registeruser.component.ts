@@ -12,6 +12,7 @@ export class RegisteruserComponent implements OnInit {
 
   loginForm: FormGroup;
   invalidLogin: boolean = false;
+  typeUsers: Array<any>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,8 +23,20 @@ export class RegisteruserComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required])],
+      name: ['', Validators.required],
+      numCel: ['', Validators.required],
       password: ['', Validators.required],
+      typeUser: ['', Validators.required],
     });
+
+    this.typeUsers = [
+      {
+        type: "admin",
+      },
+      {
+        type: "user",
+      }
+    ]
   }
 
   onSubmit() {
@@ -31,7 +44,7 @@ export class RegisteruserComponent implements OnInit {
       return;
     }
 
-    this._serviceRegisterUser.register(this.loginForm.controls.password.value, this.loginForm.controls.email.value)
+    this._serviceRegisterUser.register(this.loginForm.controls.password.value, this.loginForm.controls.numCel.value, this.loginForm.controls.email.value)
       .subscribe(
         (data) => { // Success
           console.log(" data :", data)
@@ -42,7 +55,11 @@ export class RegisteruserComponent implements OnInit {
       );
   }
 
-  test(){
+  selectTypeUser(event){
+    console.log(event)
+  }
+
+  cancel(){
     this.router.navigate(['']);
   }
 }

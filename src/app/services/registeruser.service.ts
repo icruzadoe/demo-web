@@ -12,10 +12,11 @@ export class RegisteruserService {
   ) {
   }
 
-  register(password, email) {
+  register(password, numCel, email) {
     return this.http.post(globals.BASE_URL+'register', {
       username:"admin",
       password: password,
+      numCel: numCel,
       correo: email,
     });
   }
