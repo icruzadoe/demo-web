@@ -32,7 +32,7 @@ export class UploadService {
         });
   }
 
-  upload2( file : File[], params : any) {
+  upload2( file : File[], title:string,des: string) {
     return new Promise((resolve, reject) => {
       let formData:FormData = new FormData();
       let xhr:XMLHttpRequest = new XMLHttpRequest();
@@ -46,8 +46,8 @@ export class UploadService {
         }
       }*/
       formData.append('file', file[0]);
-      formData.append('title',"title");
-      formData.append('description', "desc");
+      formData.append('title',title);
+      formData.append('description', des);
    
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
