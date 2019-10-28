@@ -46,10 +46,17 @@ export class ManagemultimediaComponent implements OnInit {
   }
 
   searchClean(){
-    console.log("sadadadads")
     this.manageMediaForm.controls.agency.setValue("");
-    console.log(this.multimediasBuckup)
     this.multimedias = this.multimediasBuckup;
+  }
+
+  editMultimedia(multimedia){
+    localStorage.setItem("updateMultimedia",JSON.stringify(multimedia));
+    this.router.navigate(['updateuser']);
+  }
+
+  deleteMultimedia(multimedia){
+    this._serviceMultimedia.dropMultimedia(multimedia.id_media)
   }
 
 }

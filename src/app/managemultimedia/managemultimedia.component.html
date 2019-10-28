@@ -23,8 +23,7 @@
         <div class="form-row ">
             <div class="col-md-6 mb-3">
                 <label class="sr-only" for="agengy">Agencia:</label>
-                <input type="agency" class="form-control mb-2" formControlName="agency" id="agency"
-                    placeholder="Ingrese el nombre de la agencia" autocomplete="off">
+                <input type="agency" class="form-control mb-2" formControlName="agency" id="agency" placeholder="Ingrese el nombre de la agencia" autocomplete="off">
             </div>
             <div class="col-md-3 mb-3">
                 <button (click)="onSubmit()" class="btn btn-primary mb-2" [disabled]="manageMediaForm.invalid">BUSCAR
@@ -58,14 +57,14 @@
                 <td>{{multimedia.dateCreated.slice(0,10)}}</td>
                 <td>{{multimedia.fileName}}</td>
                 <td>
-                    <button (click)="editUser(user)" mat-button class="text-menu">
+                    <button (click)="editMultimedia(multimedia)" mat-button class="text-menu">
                         <i class="material-icons">
                             edit
                         </i>
                     </button>
                 </td>
                 <td>
-                    <button (click)="deleteUser($event)" mat-button class="text-menu">
+                    <button (click)="deleteMultimedia(multimedia)" mat-button class="text-menu">
                         <i class="material-icons">
                             delete
                         </i>

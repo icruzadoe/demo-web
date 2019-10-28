@@ -17,6 +17,22 @@ export class MultimediaService {
     return this.http.get(globals.BASE_URL+'listarMedia');
   }
 
+  updateMultimedia(idMedia, category, description, point,title){
+    return this.http.post(globals.BASE_URL+'updateMedia', {
+      id_media: idMedia,
+      category:category,
+      description: description,
+      point: point,
+      title: title,
+    });
+  }
+
+  dropMultimedia(idMedia){
+    return this.http.post(globals.BASE_URL+'dropMedia', {
+      id_media: idMedia,
+    });
+  }
+
   listarPuntos(){
     return this.http.get(globals.BASE_URL+'ListarPuntos');
   }
