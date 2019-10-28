@@ -1,4 +1,5 @@
-import { Component, OnInit,ViewChild, ElementRef} from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UploadService } from '../services/upload.service';
 
@@ -8,18 +9,19 @@ import { UploadService } from '../services/upload.service';
   styleUrls: ['./publishbanner.component.css']
 })
 export class PublishbannerComponent implements OnInit {
-  @ViewChild('fileInput',{ static: true }) inputEl: ElementRef;
+  @ViewChild('fileInput', { static: true }) inputEl: ElementRef;
 
   //breakpoint: number;
   publishBannerForm: FormGroup;
   invalidLogin: boolean = false;
   points: Array<any>;
-  fileName : string;
-  files : File[];
+  fileName: string;
+  files: File[];
 
   constructor(
     private formBuilder: FormBuilder,
     private _uploadService: UploadService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -51,21 +53,25 @@ export class PublishbannerComponent implements OnInit {
     let audioElement = this.inputEl.nativeElement;
     //console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
-    this._uploadService.upload2(audioElement.files,this.publishBannerForm.controls.titleVideo.value,this.publishBannerForm.controls.descriptionVideo.value)
+    this._uploadService.upload2(audioElement.files,
+      this.publishBannerForm.controls.titleVideo.value,
+      this.publishBannerForm.controls.descriptionVideo.value);
 
- /*   this._uploadService.upload(
-      this.fileName,
-      this.publishVideoForm.controls.titleVideo.value,
-      this.publishVideoForm.controls.descriptionVideo.value,
-      this.publishVideoForm.controls.pointName.value, "1")
-      .subscribe(
-        (data) => { // Success
-          console.log(" data :", data)
-        },
-        (error) => {
-          console.error(error);
-        }
-      );*/
+
+    /*   this._uploadService.upload(
+         this.fileName,
+         this.publishVideoForm.controls.titleVideo.value,
+         this.publishVideoForm.controls.descriptionVideo.value,
+         this.publishVideoForm.controls.pointName.value, "1")
+         .subscribe(
+           (data) => { // Success
+             this.router.navigate(['managemultimedia']);
+             console.log(" data :", data)
+           },
+           (error) => {
+             console.error(error);
+           }
+         );*/
   }
 
   selectPoint(e) {
@@ -74,9 +80,7 @@ export class PublishbannerComponent implements OnInit {
     })
   }
 
-  // onResize(event) {
-  //   this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 2;
-  //   console.log("ROW :", this.breakpoint)
-  // }
-
+  cancel() {
+    this.router.navigate(['managemultimedia'])
+  }
 }

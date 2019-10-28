@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UploadService } from '../services/upload.service';
@@ -9,7 +10,6 @@ import { UploadService } from '../services/upload.service';
 })
 export class PublishaudioComponent implements OnInit {
   @ViewChild('fileInput',{ static: true }) inputEl: ElementRef;
-  //breakpoint: number;
   publishAudioForm: FormGroup;
   invalidLogin: boolean = false;
   points: Array<any>;
@@ -19,10 +19,10 @@ export class PublishaudioComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private _uploadService: UploadService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
-    //this.breakpoint = (window.innerWidth <= 400) ? 1 : 1;
     this.points = JSON.parse(localStorage.getItem('point'));
     this.publishAudioForm = this.formBuilder.group({
       titleAudio: ['', Validators.compose([Validators.required])],
@@ -73,9 +73,7 @@ export class PublishaudioComponent implements OnInit {
     })
   }
 
-  // onResize(event) {
-  //   this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 2;
-  //   console.log("ROW :", this.breakpoint)
-  // }
-
+  cancel(){
+    this.router.navigate(['managemultimedia']);
+  }
 }

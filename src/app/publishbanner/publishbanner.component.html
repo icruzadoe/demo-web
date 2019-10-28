@@ -1,55 +1,55 @@
 <app-navbar></app-navbar>
 <div class="center-container">
     <div class="col-md-6 user-container">
-        <h2 class="text-center">Públicar banner </h2>
-        <form [formGroup]="publishBannerForm" (ngSubmit)="upload()">
-            <div class="form-group">
-                <label for="titleBanner">Título:</label>
-                <input class="form-control" type="text" formControlName="titleBanner" id="titleBanner"
-                    autocomplete="off" placeholder="Inrese el título">
-                <div
-                    *ngIf="publishBannerForm.controls['titleBanner'].hasError('required') && publishBannerForm.controls['titleBanner'].touched">
+        <div class="card rounded-0">
+            <div class="card-body">
+                <h2 class="text-center">Públicar banner </h2>
+                <form [formGroup]="publishBannerForm">
+                    <div class="form-group">
+                        <label for="titleBanner">Título:</label>
+                        <input class="form-control" type="text" formControlName="titleBanner" id="titleBanner" autocomplete="off" placeholder="Inrese el título">
+                        <div *ngIf="publishBannerForm.controls['titleBanner'].hasError('required') && publishBannerForm.controls['titleBanner'].touched">
 
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="descriptionBanner">Descripción:</label>
-                <input class="form-control" type="text" formControlName="descriptionBanner" id="descriptionBanner"
-                    autocomplete="off" placeholder="Ingrese la descripción">
-                <div
-                    *ngIf="publishBannerForm.controls['descriptionBanner'].hasError('required') && publishBannerForm.controls['descriptionBanner'].touched">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="descriptionBanner">Descripción:</label>
+                        <input class="form-control" type="text" formControlName="descriptionBanner" id="descriptionBanner" autocomplete="off" placeholder="Ingrese la descripción">
+                        <div *ngIf="publishBannerForm.controls['descriptionBanner'].hasError('required') && publishBannerForm.controls['descriptionBanner'].touched">
 
-                </div>
-            </div>
-            <select class="custom-select" (change)="selectPoint($event)" formControlName="pointName" name="select"
-                id="point">
+                        </div>
+                    </div>
+                    <select class="custom-select" (change)="selectPoint($event)" formControlName="pointName" name="select" id="point">
                 <option selected>Selecciona un punto </option>
                 <option *ngFor="let point of points" value="value1">{{point.points}} </option>
             </select>
-            <br>
-            <br>
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="customFileLang">Agregar imagen</label>
                     <br>
-                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" multiple #fileInput
-                        data-multiple-caption="{count} archivos seleccionados" multiple />
-                    <!-- <input formControlName="fileImage" type="file" class="form-control-file" id="fileImage"
+                    <br>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="customFileLang">Agregar imagen</label>
+                            <br>
+                            <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" multiple #fileInput data-multiple-caption="{count} archivos seleccionados" multiple />
+                            <!-- <input formControlName="fileImage" type="file" class="form-control-file" id="fileImage"
                         autocomplete="off" (change)="loadImage($event)">
                 </div> -->
-                    <div
-                        *ngIf="publishBannerForm.controls['fileImage'].hasError('required') && publishBannerForm.controls['fileImage'].touched">
+                            <div *ngIf="publishBannerForm.controls['fileImage'].hasError('required') && publishBannerForm.controls['fileImage'].touched">
 
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <br>
+                    <div class="container-btn-form">
+                        <button (click)="upload()" class="btn btn-primary  btn-register" [disabled]="publishBannerForm.invalid">PÚBLICAR</button>
+                        <button (click)="cancel()" class="btn btn-secondary">CANCELAR</button>
+                    </div>
+                    <div *ngIf="invalidLogin">
+                        <div>
+                            Invalid credentials.
+                        </div>
+                    </div>
+                </form>
             </div>
-            <br>
-            <button class="btn btn-success" [disabled]="publishBannerForm.invalid">Subir</button>
-            <div *ngIf="invalidLogin">
-                <div>
-                    Invalid credentials.
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>

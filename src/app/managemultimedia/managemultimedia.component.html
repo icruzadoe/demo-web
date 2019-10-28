@@ -3,16 +3,16 @@
     <h2 class="text-center">GESTIONAR MULTIMEDIA</h2>
     <br>
     <div class="buttons-container">
-        <button (click)="addUser($event)" class="btn btn-primary margin-btn">
+        <button [routerLink]="['/publishvideo']" class="btn btn-primary margin-btn">
             AGREGAR VIDEO
         </button>
-        <button (click)="addUser($event)" class="btn btn-primary margin-btn">
+        <button [routerLink]="['/publishaudio']" class="btn btn-primary margin-btn">
             AGREGAR AUDIO
         </button>
-        <button (click)="addUser($event)" class="btn btn-primary margin-btn">
+        <button [routerLink]="['/publishbanner']" class="btn btn-primary margin-btn">
             AGREGAR BANNER
         </button>
-        <button (click)="addUser($event)" class="btn btn-primary margin-btn">
+        <button [routerLink]="['/publishtext']" class="btn btn-primary margin-btn">
             AGREGAR TEXTO
         </button>
     </div>

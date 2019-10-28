@@ -3,43 +3,53 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  .example-container > * {
+}
+
+.example-container>* {
     width: 100%;
-    margin-left : 20px;
+    margin-left: 20px;
     margin-top: 40px;
-  }
+}
 
-  .title-page{
-      text-align: center;
-      margin-top: 0px !important;
-      font-weight: bold;
-      font: sans-serif;
-  }
+.title-page {
+    text-align: center;
+    margin-top: 0px !important;
+    font-weight: bold;
+    font: sans-serif;
+}
 
-  .form-row{
-      margin-top: 0px !important;
-  }
+.form-row {
+    margin-top: 0px !important;
+}
 
-  .content-text{
+.content-text {
     display: flex;
     margin-top: 0px;
     flex-direction: column;
     width: 400px !important;
-  }
+}
 
-  .title-text{
+.title-text {
     margin-bottom: 24px;
-  }
+}
 
-  .txt-area{
+.txt-area {
     height: 200px !important;
     width: 200px !important;
-  }
+}
 
-  .center-container{
+.center-container {
     display: flex;
     justify-content: center;
     margin-top: 60px;
-  }
+}
+
+.container-btn-form {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.btn-register {
+    margin-right: 20px;
+}

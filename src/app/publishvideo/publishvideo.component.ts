@@ -1,4 +1,5 @@
-import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UploadService } from '../services/upload.service';
 
@@ -8,21 +9,21 @@ import { UploadService } from '../services/upload.service';
   styleUrls: ['./publishvideo.component.css']
 })
 export class PublishvideoComponent implements OnInit {
-  @ViewChild('fileInput',{ static: true }) inputEl: ElementRef;
-  //breakpoint: number;
+  @ViewChild('fileInput', { static: true }) inputEl: ElementRef;
+
   publishVideoForm: FormGroup;
   invalidLogin: boolean = false;
   points: Array<any>;
-  fileName : string;
-  files : File[];
+  fileName: string;
+  files: File[];
 
   constructor(
     private formBuilder: FormBuilder,
     private _uploadService: UploadService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
-    //this.breakpoint = (window.innerWidth <= 400) ? 1 : 1;
     this.points = JSON.parse(localStorage.getItem('point'));
     this.publishVideoForm = this.formBuilder.group({
       titleVideo: ['', Validators.compose([Validators.required])],
@@ -42,7 +43,6 @@ export class PublishvideoComponent implements OnInit {
   }
 
   upload() {
-    console.log("hiciste click")
     if (this.publishVideoForm.invalid) {
       return;
     }
@@ -51,33 +51,30 @@ export class PublishvideoComponent implements OnInit {
     let audioElement = this.inputEl.nativeElement;
     // console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
-    this._uploadService.upload2(audioElement.files,this.publishVideoForm.controls.titleVideo.value,this.publishVideoForm.controls.descriptionVideo.value)
+    this._uploadService.upload2(audioElement.files, this.publishVideoForm.controls.titleVideo.value, this.publishVideoForm.controls.descriptionVideo.value)
 
- /*   this._uploadService.upload(
-      this.fileName,
-      this.publishVideoForm.controls.titleVideo.value,
-      this.publishVideoForm.controls.descriptionVideo.value,
-      this.publishVideoForm.controls.pointName.value, "1")
-      .subscribe(
-        (data) => { // Success
-          console.log(" data :", data)
-        },
-        (error) => {
-          console.error(error);
-        }
-      );*/
+    /*   this._uploadService.upload(
+         this.fileName,
+         this.publishVideoForm.controls.titleVideo.value,
+         this.publishVideoForm.controls.descriptionVideo.value,
+         this.publishVideoForm.controls.pointName.value, "1")
+         .subscribe(
+           (data) => { // Success
+             console.log(" data :", data)
+           },
+           (error) => {
+             console.error(error);
+           }
+         );*/
   }
 
   selectPoint(e) {
-    // console.log("event", e)
     this.publishVideoForm.controls.pointName.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
-  // onResize(event) {
-  //   this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 2;
-  //   console.log("ROW :", this.breakpoint)
-  // }
-
+  cancel() {
+    this.router.navigate(['managemultimedia']);
+  }
 }
