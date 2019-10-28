@@ -97,7 +97,7 @@ export class ManageuserComponent implements OnInit {
     if(confirm("¿Esta seguro que desea eliminar el registro seleccionado?")){
     //  alert("eliminando"+user.id)
     //  alert(JSON.stringify(user))
-    this._serviceUser.deleteUser(user.id).subscribe(
+    this._serviceUser.deleteUser(user.id, localStorage.getItem("user_correo")).subscribe(
       (data) => {
         console.error("data");
         // this.router.navigate(['manageuser']);

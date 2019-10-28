@@ -37,9 +37,10 @@ export class UserService {
     });
   }
 
-  deleteUser(idUser){
+  deleteUser(idUser, user_correo){
     return this.http.post(globals.BASE_URL+'dropUser', {
       id: idUser,
+      user_correo: user_correo,
     });
 
   }

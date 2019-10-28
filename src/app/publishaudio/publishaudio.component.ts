@@ -42,15 +42,18 @@ export class PublishaudioComponent implements OnInit {
   }
 
   upload() {
-    if (this.publishAudioForm.invalid) {
-      return;
-    }
+  console.log("upload")
 
     //console.log("Video Fomr :", this.publishAudioForm)
     let audioElement = this.inputEl.nativeElement;
     //console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
-    this._uploadService.upload2(localStorage.getItem("correo"),audioElement.files,this.publishAudioForm.controls.titleAudio.value,this.publishAudioForm.controls.descriptionAudio.value)
+    this._uploadService.upload2(
+      localStorage.getItem("correo")
+    ,audioElement.files,
+    this.publishAudioForm.controls.titleAudio.value,
+    this.publishAudioForm.controls.descriptionAudio.value,
+    "AUDIO")
     this.router.navigate(['managemultimedia']);
 
  /*   this._uploadService.upload(

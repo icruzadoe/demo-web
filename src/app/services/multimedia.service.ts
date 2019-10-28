@@ -27,10 +27,12 @@ export class MultimediaService {
     });
   }
 
-  dropMultimedia(idMedia){
+  dropMultimedia(idMedia, user_correo){
     console.log("dropMultimedia - service :",  idMedia)
     return this.http.post(globals.BASE_URL+'dropMedia', {
-      id_media: idMedia,
+      idMedia: idMedia,
+      user_correo: user_correo,
+
     });
   }
 

@@ -52,9 +52,13 @@ export class RegisteruserComponent implements OnInit {
       .subscribe(
         (data) => { // Success
           console.log(" data :", data)
+    this.router.navigate(['manageuser']);
+
         },
         (error) => {
           console.error(error);
+    this.router.navigate(['manageuser']);
+
         }
       );
   }

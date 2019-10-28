@@ -9,9 +9,9 @@
         <button [routerLink]="['/publishaudio']" class="btn btn-primary margin-btn">
             AGREGAR AUDIO
         </button>
-        <button [routerLink]="['/publishbanner']" class="btn btn-primary margin-btn">
+        <!-- <button [routerLink]="['/publishbanner']" class="btn btn-primary margin-btn">
             AGREGAR BANNER
-        </button>
+        </button> -->
         <button [routerLink]="['/publishtext']" class="btn btn-primary margin-btn">
             AGREGAR TEXTO
         </button>
@@ -57,7 +57,8 @@
                 <td>{{multimedia.dateCreated.slice(0,10)}}</td>
                 <td>{{multimedia.fileName}}</td>
                 <td>
-                    <button (click)="editMultimedia(multimedia)" mat-button class="text-menu">
+                    <button  mat-button class="text-menu">
+                   <!-- <button (click)="editMultimedia(multimedia)" mat-button class="text-menu"> -->
                         <i class="material-icons">
                             edit
                         </i>

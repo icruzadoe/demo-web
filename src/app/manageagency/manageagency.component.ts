@@ -101,7 +101,7 @@ export class ManageAgencyComponent implements OnInit {
   }
 
   deleteAgency(id){
-    if(confirm("Esta seguro que desea eliminar el registro seleccionado?")){
+    if(confirm("¿Esta seguro que desea eliminar el registro seleccionado?")){
       let editPoint = new Points;
       editPoint.id = Number(id);
       editPoint.user_correo = "correoelimina@gmail.com";

@@ -29,17 +29,21 @@ export class PublishtextComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.publishTextForm.invalid) {
-      return;
-    }
-
-    this._publishText.publishText(localStorage.getItem("correo"),this.publishTextForm.controls.titleText.value,this.publishTextForm.controls.textContent.value, this.publishTextForm.controls.pointName.value)
+  
+    this._publishText.publishText(
+      localStorage.getItem("correo"),
+      this.publishTextForm.controls.titleText.value,
+      this.publishTextForm.controls.textContent.value,
+       this.publishTextForm.controls.pointName.value,
+       "TEXTO")
     .subscribe(
       (data) => { // Success
         this.router.navigate(['managemultimedia']);
       },
       (error) => {
         console.error(error);
+        this.router.navigate(['managemultimedia']);
+
       }
     );
   }

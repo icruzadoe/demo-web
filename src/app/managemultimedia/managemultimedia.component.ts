@@ -58,7 +58,22 @@ export class ManagemultimediaComponent implements OnInit {
   deleteMultimedia(multimedia){
     console.log("deleteMultimedia ---")
     console.log(multimedia)
-    this._serviceMultimedia.dropMultimedia(multimedia.idMedia)
+    if(confirm("¿Esta seguro que desea eliminar el registro seleccionado?")){
+
+      this._serviceMultimedia.dropMultimedia(multimedia.idMedia, localStorage.getItem("user_correo")) .subscribe(
+        (data) => {
+          alert("Se elimino el registro seleccionado");
+          this.listMultimedia();
+        },
+
+        (error) => {
+          alert("Se elimino el registro seleccionado");
+          console.error(error);
+          this.listMultimedia();
+
+        }
+      );
+    }
   }
 
 }
