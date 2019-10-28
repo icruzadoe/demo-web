@@ -2,7 +2,6 @@ import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-manageuser',
@@ -59,14 +58,13 @@ export class ManageuserComponent implements OnInit {
          "privilegio" : "admin",
        }
      ]*/
-     this.usersBuckup = this.users;
   }
 
   listUsers() {
     this._serviceUser.listUser().subscribe(
       (data) => { // Success
-        console.log("data user:", data)
         this.users = data;
+        this.usersBuckup = data;
       },
       (error) => {
         console.error(error);

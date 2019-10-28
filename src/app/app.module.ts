@@ -1,3 +1,4 @@
+import { MultimediaService } from './services/multimedia.service';
 import { ManageAgencyComponent } from './manageagency/manageagency.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -31,6 +32,7 @@ import { MultimediaComponent } from './multimedia/multimedia.component';
 import { PublishaudioComponent } from './publishaudio/publishaudio.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { AppRoutingModule } from './services/app-routing.module';
+import { ManagemultimediaComponent } from './managemultimedia/managemultimedia.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { AppRoutingModule } from './services/app-routing.module';
     MultimediaComponent,
     PublishaudioComponent,
     UpdateUserComponent,
+    ManagemultimediaComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { AppRoutingModule } from './services/app-routing.module';
     LoginService, 
     UploadService,
     UserService,
+    MultimediaService,
     AuthGuard,
   ],
   

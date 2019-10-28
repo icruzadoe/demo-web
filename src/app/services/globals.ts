@@ -1,6 +1,6 @@
 // Testing
-// export var BASE_URL = 'https://caja-sullana.us-south.cf.appdomain.cloud/';
+ export var BASE_URL = 'https://caja-sullana.us-south.cf.appdomain.cloud/';
 
 
 //Local -->
-export var BASE_URL = 'http://localhost:8080/';
+//export var BASE_URL = 'http://localhost:8080/';
