@@ -61,7 +61,6 @@ export class UpdateUserComponent implements OnInit {
       this.loginForm.controls.typeUser.value)
       .subscribe(
         (data) => { // Success
-          console.log(" data :", data)
           localStorage.removeItem("userUpdate");
           this.router.navigate(['manageuser']);
         },
@@ -72,7 +71,7 @@ export class UpdateUserComponent implements OnInit {
   }
 
   selectTypeUser(event) {
-    console.log(event)
+
   }
 
   cancel() {

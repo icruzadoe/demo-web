@@ -36,4 +36,8 @@ export class UserService {
       privilegio : typeUser,
     });
   }
+
+  listLog(){
+    return this.http.get(globals.BASE_URL+'listarLog');
+  }
 }
