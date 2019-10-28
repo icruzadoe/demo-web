@@ -64,6 +64,7 @@ export class ManageuserComponent implements OnInit {
   listUsers() {
     this._serviceUser.listUser().subscribe(
       (data) => { // Success
+        console.log("data user:", data)
         this.users = data;
       },
       (error) => {
@@ -77,9 +78,8 @@ export class ManageuserComponent implements OnInit {
   }
 
   editUser(user) {
-    localStorage.setItem("user",JSON.stringify(user));
-    console.log(JSON.parse(localStorage.getItem('user')))
-    this.router.navigate(['registeruser']);
+    localStorage.setItem("userUpdate",JSON.stringify(user));
+    this.router.navigate(['updateuser']);
   }
 
   deleteUser(event) {

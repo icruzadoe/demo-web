@@ -15,7 +15,7 @@ import { MaterialModule } from './material';
 //conexion a internet
 import { HttpClientModule } from '@angular/common/http';
 //routing
-import { AppRoutingModule } from './app-routing/app-routing.module';
+
 import { PublishvideoComponent } from './publishvideo/publishvideo.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PublishbannerComponent } from './publishbanner/publishbanner.component';
@@ -29,6 +29,8 @@ import { AddagencyComponent } from './addagency/addagency.component';
 import { ActivityregisterComponent } from './activityregister/activityregister.component';
 import { MultimediaComponent } from './multimedia/multimedia.component';
 import { PublishaudioComponent } from './publishaudio/publishaudio.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { AppRoutingModule } from './services/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { PublishaudioComponent } from './publishaudio/publishaudio.component';
     ActivityregisterComponent,
     MultimediaComponent,
     PublishaudioComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,
