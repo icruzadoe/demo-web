@@ -1,4 +1,4 @@
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
@@ -40,9 +40,8 @@ export class RegisteruserComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.loginForm.invalid) {
-      return;
-    }
+    alert("guardó")
+    
 
     this._serviceUser.register(this.loginForm.controls.name.value,
       this.loginForm.controls.password.value,
@@ -52,9 +51,16 @@ export class RegisteruserComponent implements OnInit {
       .subscribe(
         (data) => { // Success
           console.log(" data :", data)
+        //  this.router.navigate(['manageuser']);
+        alert("guardó")
+
         },
         (error) => {
           console.error(error);
+      //  this.router.navigate(['manageuser']);
+      alert("no guardó")
+
+
         }
       );
   }

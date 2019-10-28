@@ -66,6 +66,8 @@ export class UpdateUserComponent implements OnInit {
         },
         (error) => {
           console.error(error);
+          this.router.navigate(['manageuser']);
+
         }
       );
   }

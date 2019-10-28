@@ -77,7 +77,7 @@ export class ManageAgencyComponent implements OnInit {
   }
 
   grabarEdit(){
-    if(confirm("Desea grabar la información ingresada?")){
+    if(confirm("¿Desea grabar la información ingresada?")){
       let editPoint = new Points;
       editPoint.id = Number(this.idAgency);
       editPoint.points = this.agenciaEdit;

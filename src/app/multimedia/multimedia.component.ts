@@ -12,7 +12,7 @@ export class MultimediaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._multimediaService.listarMedia()
+    this._multimediaService.listMedia()
     .subscribe(
       (data) => {
         // localStorage.setItem('', JSON.stringify(data));

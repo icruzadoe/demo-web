@@ -16,7 +16,7 @@ export class UserService {
     return this.http.post(globals.BASE_URL+'register', {
       username:nameUser,
       password: password,
-      numCel: numCel,
+      celular: numCel,
       correo: email,
       privilegio : typeUser,
     });
@@ -31,7 +31,7 @@ export class UserService {
       id: idUser,
       username:nameUser,
       password: password,
-      numCel: numCel,
+      celular: numCel,
       correo: email,
       privilegio : typeUser,
     });

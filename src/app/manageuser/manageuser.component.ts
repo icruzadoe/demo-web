@@ -79,10 +79,40 @@ export class ManageuserComponent implements OnInit {
   editUser(user) {
     localStorage.setItem("userUpdate",JSON.stringify(user));
     this.router.navigate(['updateuser']);
+   /* this._serviceUser.updateUser(user.id,user.nameUser,user.password,user.numCel,
+      user.email,user.typeUser).subscribe(
+        (data) => {
+          this.router.navigate(['updateuser']);
+        },
+  
+        (error) => {
+          console.error(error);
+        }
+      );
+*/
   }
 
   deleteUser(user) {
-    this._serviceUser.deleteUser(user.id);
+
+    if(confirm("¿Esta seguro que desea eliminar el registro seleccionado?")){
+    //  alert("eliminando"+user.id)
+    //  alert(JSON.stringify(user))
+    this._serviceUser.deleteUser(user.id).subscribe(
+      (data) => {
+        console.error("data");
+        // this.router.navigate(['manageuser']);
+        alert("Se elimino el registro seleccionado");
+        this.listUsers();
+      },
+
+      (error) => {
+        console.error(error);
+        // this.router.navigate(['manageuser']);
+        alert("Se elimino el registro seleccionado");
+        this.listUsers();
+      }
+    );
+  }
     
   }
 
