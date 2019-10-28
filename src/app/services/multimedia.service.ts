@@ -19,7 +19,7 @@ export class MultimediaService {
 
   updateMultimedia(idMedia, category, description, point,title){
     return this.http.post(globals.BASE_URL+'updateMedia', {
-      id_media: idMedia,
+      idMedia: idMedia,
       category:category,
       description: description,
       point: point,
@@ -28,6 +28,7 @@ export class MultimediaService {
   }
 
   dropMultimedia(idMedia){
+    console.log("dropMultimedia - service :",  idMedia)
     return this.http.post(globals.BASE_URL+'dropMedia', {
       id_media: idMedia,
     });

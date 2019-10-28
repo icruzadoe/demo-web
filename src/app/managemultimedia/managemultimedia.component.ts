@@ -56,7 +56,9 @@ export class ManagemultimediaComponent implements OnInit {
   }
 
   deleteMultimedia(multimedia){
-    this._serviceMultimedia.dropMultimedia(multimedia.id_media)
+    console.log("deleteMultimedia ---")
+    console.log(multimedia)
+    this._serviceMultimedia.dropMultimedia(multimedia.idMedia)
   }
 
 }
