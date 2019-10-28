@@ -53,9 +53,10 @@ export class PublishbannerComponent implements OnInit {
     let audioElement = this.inputEl.nativeElement;
     //console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
-    this._uploadService.upload2(audioElement.files,
+    this._uploadService.upload2(localStorage.getItem("correo"),audioElement.files,
       this.publishBannerForm.controls.titleVideo.value,
       this.publishBannerForm.controls.descriptionVideo.value);
+      this.router.navigate(['managemultimedia']);
 
 
     /*   this._uploadService.upload(

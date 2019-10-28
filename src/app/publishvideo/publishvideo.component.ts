@@ -43,15 +43,17 @@ export class PublishvideoComponent implements OnInit {
   }
 
   upload() {
-    if (this.publishVideoForm.invalid) {
-      return;
-    }
+    
 
     // console.log("Video Fomr :", this.publishVideoForm)
     let audioElement = this.inputEl.nativeElement;
     // console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
-    this._uploadService.upload2(audioElement.files, this.publishVideoForm.controls.titleVideo.value, this.publishVideoForm.controls.descriptionVideo.value)
+    this._uploadService.upload2(localStorage.getItem("correo"),
+    audioElement.files, this.publishVideoForm.controls.titleVideo.value,
+     this.publishVideoForm.controls.descriptionVideo.value)
+     this.router.navigate(['managemultimedia']);
+
 
     /*   this._uploadService.upload(
          this.fileName,

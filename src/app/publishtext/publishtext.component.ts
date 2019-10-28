@@ -33,7 +33,7 @@ export class PublishtextComponent implements OnInit {
       return;
     }
 
-    this._publishText.publishText(this.publishTextForm.controls.titleText.value,this.publishTextForm.controls.textContent.value, this.publishTextForm.controls.pointName.value)
+    this._publishText.publishText(localStorage.getItem("correo"),this.publishTextForm.controls.titleText.value,this.publishTextForm.controls.textContent.value, this.publishTextForm.controls.pointName.value)
     .subscribe(
       (data) => { // Success
         this.router.navigate(['managemultimedia']);

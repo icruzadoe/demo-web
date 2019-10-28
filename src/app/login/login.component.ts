@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
           }
 
           localStorage.setItem('login', JSON.stringify(login));
+          localStorage.setItem('correo', this.loginForm.controls.email.value);
           this.router.navigate(['/manageuser']);
         },
 

@@ -12,12 +12,13 @@ export class PublishtextService {
   ) {
   }
 
-  publishText(tittle, description, point) {
+  publishText(correo,tittle, description, point) {
     console.log("publish service :", point);
     return this.http.post(globals.BASE_URL+'update/text', {
       title: tittle,
       description: description,
       point: point,
+      user_correo : correo,
     });
   }
 }

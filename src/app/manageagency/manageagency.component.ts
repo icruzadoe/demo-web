@@ -34,6 +34,7 @@ export class ManageAgencyComponent implements OnInit {
     this.agencyForm = this.formBuilder.group({
       agency: ['', Validators.compose([Validators.required])],
     });
+
   }
 
   listarPuntos(){
@@ -43,6 +44,8 @@ export class ManageAgencyComponent implements OnInit {
         if(data !== null){
           console.log(JSON.stringify(data));
           this.procesarData(data);
+          localStorage.setItem('point', JSON.stringify(data));
+
         }
       }
     )
