@@ -82,8 +82,9 @@ export class ManageuserComponent implements OnInit {
     this.router.navigate(['updateuser']);
   }
 
-  deleteUser(event) {
-
+  deleteUser(user) {
+    this._serviceUser.deleteUser(user.id);
+    
   }
 
   onSubmit() {
