@@ -3,16 +3,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-registeruser',
-  templateUrl: './registeruser.component.html',
-  styleUrls: ['./registeruser.component.css']
-})
-export class RegisteruserComponent implements OnInit {
 
+@Component({
+  selector: 'app-update-user',
+  templateUrl: './update-user.component.html',
+  styleUrls: ['./update-user.component.css']
+})
+export class UpdateUserComponent implements OnInit {
   loginForm: FormGroup;
   invalidLogin: boolean = false;
   typeUsers: Array<any>;
+  user: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,6 +30,15 @@ export class RegisteruserComponent implements OnInit {
       typeUser: ['', Validators.required],
     });
 
+    this.user = JSON.parse(localStorage.getItem('userUpdate'));
+    if(this.user){
+      this.loginForm.controls.numCel.setValue(this.user.celular);
+      this.loginForm.controls.email.setValue(this.user.correo);
+      this.loginForm.controls.password.setValue(this.user.password);
+      this.loginForm.controls.typeUser.setValue(this.user.privilegio);
+      this.loginForm.controls.name.setValue(this.user.username);
+    }
+
     this.typeUsers = [
       {
         type: "admin",
@@ -44,14 +54,15 @@ export class RegisteruserComponent implements OnInit {
       return;
     }
 
-    this._serviceUser.register(this.loginForm.controls.name.value,
+    this._serviceUser.updateUser(this.user.id, this.loginForm.controls.name.value,
       this.loginForm.controls.password.value,
       this.loginForm.controls.numCel.value,
       this.loginForm.controls.email.value,
       this.loginForm.controls.typeUser.value)
       .subscribe(
         (data) => { // Success
-          console.log(" data :", data)
+          localStorage.removeItem("userUpdate");
+          this.router.navigate(['manageuser']);
         },
         (error) => {
           console.error(error);
@@ -60,10 +71,11 @@ export class RegisteruserComponent implements OnInit {
   }
 
   selectTypeUser(event) {
-    console.log(event)
+
   }
 
   cancel() {
+    localStorage.removeItem("userUpdate");
     this.router.navigate(['manageuser']);
   }
 }

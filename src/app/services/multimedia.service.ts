@@ -13,7 +13,7 @@ export class MultimediaService {
     ) { 
   }
 
-  listarMedia(){
+  listMedia(){
     return this.http.get(globals.BASE_URL+'listarMedia');
   }
 

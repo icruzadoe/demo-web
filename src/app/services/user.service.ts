@@ -12,17 +12,39 @@ export class UserService {
   ) {
   }
 
-  register(password, numCel, email) {
+  register(nameUser,password, numCel, email,typeUser) {
     return this.http.post(globals.BASE_URL+'register', {
-      username:"admin",
+      username:nameUser,
       password: password,
       numCel: numCel,
       correo: email,
+      privilegio : typeUser,
     });
   }
 
   listUser(){
-    console.log("listUser")
     return this.http.get(globals.BASE_URL+'listarUsuario');
+  }
+
+  updateUser(idUser, nameUser, password, numCel, email,typeUser){
+    return this.http.post(globals.BASE_URL+'updateUser', {
+      id: idUser,
+      username:nameUser,
+      password: password,
+      numCel: numCel,
+      correo: email,
+      privilegio : typeUser,
+    });
+  }
+
+  deleteUser(idUser){
+    return this.http.post(globals.BASE_URL+'dropUser', {
+      id: idUser,
+    });
+
+  }
+
+  listLog(){
+    return this.http.get(globals.BASE_URL+'listarLog');
   }
 }

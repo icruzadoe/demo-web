@@ -3,8 +3,8 @@
     <div class="col-md-6 user-container margin-bottom">
         <div class="card rounded-0">
             <div class="card-body">
-                <h2 class="text-center">REGISTRAR USUARIO</h2>
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <h2 class="text-center">ACTUALIZAR DATOS DEL USUARIO </h2>
+                <form [formGroup]="loginForm">
                     <i class="material-icons icon-register">
                         group_add
                     </i>
@@ -34,8 +34,8 @@
                         </div>
                     </div>
                     <br>
-                    <label for="numCel">Seleccione un tipo de usuario:</label>
-                    <select class="custom-select" (change)="selectTyprUser($event)" formControlName="typeUser"
+                    <label for="typeUser">Seleccione un tipo de usuario:</label>
+                    <select class="custom-select" (change)="selectTypeUser($event)" formControlName="typeUser"
                         name="select" id="typeUser">
                         <option *ngFor="let user of typeUsers" value="value1">{{user.type}} </option>
                     </select>
@@ -51,9 +51,8 @@
                         </div>
                     </div>
                     <div class="container-btn-form">
-                        <button class="btn btn-primary  btn-register" [disabled]="loginForm.invalid">REGISTRAR</button>
-                        <button (click)="cancel()" class="btn btn-secondary"
-                            [disabled]="loginForm.valid">CANCELAR</button>
+                        <button (click)="onSubmit()" class="btn btn-primary  btn-register" [disabled]="loginForm.invalid">REGISTRAR</button>
+                        <button (click)="cancel()" class="btn btn-secondary">CANCELAR</button>
                     </div>
 
                     <div *ngIf="invalidLogin">

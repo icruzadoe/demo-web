@@ -20,37 +20,41 @@
   <mat-sidenav class="content-menu" #sidenav [mode]="mode.value">
     <p>
       <button mat-button (click)="sidenav.toggle()">
-          <i class="material-icons color-icon">list</i>
-          <span class="color-icon">MENU</span>
+        <i class="material-icons color-icon">list</i>
+        <span class="color-icon">MENU</span>
       </button>
     </p>
     <p>
       <button routerLink="/manageuser" class="option-menu" mat-menu-item>
-  
+
         <span class="color-icon">GESTIONAR USUARIOS</span>
       </button>
+      <button routerLink="/managemultimedia" class="option-menu" mat-menu-item>
+
+        <span class="color-icon">GESTIONAR MULTIMEDIA</span>
+      </button>
       <button routerLink="/multimedia" class="option-menu" mat-menu-item>
-  
+
         <span class="color-icon">PÚBLICAR VIDEO</span>
-        
+
       </button>
       <button routerLink="/publishbanner" class="option-menu" mat-menu-item>
-  
+
         <span class="color-icon">PÚBLICAR BANNER</span>
-        
+
       </button>
       <button routerLink="/publishaudio" class="option-menu" mat-menu-item>
-  
+
         <span class="color-icon">PÚBLICAR AUDIO</span>
-        
+
       </button>
       <button routerLink="/publishtext" class="option-menu" mat-menu-item>
-  
+
         <span class="color-icon">PÚBLICAR TEXTO</span>
-        
+
       </button>
       <button routerLink="/manageagency" class="option-menu" mat-menu-item>
-  
+
         <span class="color-icon">GESTIONAR AGENCIA</span>
       </button>
       <button routerLink="/activityregister" class="option-menu" mat-menu-item>
@@ -58,7 +62,7 @@
         <span class="color-icon">GESTIONAR ACTIVIDAD</span>
       </button>
       <button (click)="logout($event)" class="option-menu" mat-menu-item>
-     
+
         <span class="color-icon">CERRAR SESION</span>
       </button>
     </p>
@@ -72,4 +76,3 @@
     </p>
   </mat-sidenav-content>
 </mat-sidenav-container>
-

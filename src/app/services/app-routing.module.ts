@@ -1,3 +1,5 @@
+import { ManagemultimediaComponent } from './../managemultimedia/managemultimedia.component';
+import { UpdateUserComponent } from './../update-user/update-user.component';
 import { PublishaudioComponent } from './../publishaudio/publishaudio.component';
 import { ActivityregisterComponent } from './../activityregister/activityregister.component';
 import { ManageAgencyComponent } from './../manageagency/manageagency.component';
@@ -22,9 +24,11 @@ const routes: Routes = [
   {path: 'registeruser', component: RegisteruserComponent},
   {path: 'manageuser', component: ManageuserComponent, canActivate: [AuthGuard]},
   {path: 'manageagency', component: ManageAgencyComponent, canActivate: [AuthGuard]},
+  {path: 'managemultimedia', component: ManagemultimediaComponent, canActivate: [AuthGuard]},
   {path: 'addagency', component: AddagencyComponent, canActivate: [AuthGuard]},
   {path: 'publishaudio', component: PublishaudioComponent, canActivate: [AuthGuard]},
   {path: 'activityregister', component: ActivityregisterComponent, canActivate: [AuthGuard]},
+  {path: 'updateuser', component: UpdateUserComponent, canActivate: [AuthGuard]},
   {path: '', component: LoginComponent,  pathMatch: 'full'},
   {path: '**', component: LoginComponent,  pathMatch: 'full'}
 ]
