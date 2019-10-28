@@ -2,6 +2,7 @@ import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-manageuser',
@@ -94,6 +95,7 @@ export class ManageuserComponent implements OnInit {
   }
 
   searchClean(){
+    this.loginForm.controls.email.setValue("");
     this.users = this.usersBuckup;
   }
 }
