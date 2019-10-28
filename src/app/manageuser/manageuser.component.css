@@ -1,51 +1,29 @@
-.margin-container{
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.margin-btn {
+    margin: 10px;
+}
+
+.margin-container {
     margin: 30px;
 }
 
-.add-user{
+.add-user {
     height: 150px;
     width: 150px;
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
-.thead-color{
+.thead-color {
     background-color: #3f51b5 !important;
     color: white !important;
 }
 
-.size-icon{
+.size-icon {
     font-size: 70px;
     border-radius: 15px !important;
 }
-
-.center-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
-  }
-
-  .message-alert{
-      color: red;
-  }
-
-  .container-btn-form{
-    display: flex;
-    justify-content: flex-start;
-    align-content: center;
-  }
-
-  .btn-register{
-      margin-right: 20px;
-  }
-
-  
-.icon-register{
-    font-size: 6em;
-    display: flex;
-    justify-content: center;
-  }
-
-  .margin-bottom{
-    margin-bottom: 25px;
-  }
