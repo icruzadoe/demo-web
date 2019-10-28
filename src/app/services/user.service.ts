@@ -5,7 +5,7 @@ import * as globals from './globals';
 @Injectable({
   providedIn: 'root'
 })
-export class RegisteruserService {
+export class UserService {
 
   constructor(
     private http: HttpClient
@@ -19,5 +19,10 @@ export class RegisteruserService {
       numCel: numCel,
       correo: email,
     });
+  }
+
+  listUser(){
+    console.log("listUser")
+    return this.http.get(globals.BASE_URL+'listarUsuario');
   }
 }

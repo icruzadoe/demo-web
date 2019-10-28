@@ -7,20 +7,22 @@
     </button>
     <br>
     <br>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm">
         <div class="form-row ">
             <div class="col-md-6 mb-3">
                 <label class="sr-only" for="email">Correo electrónico:</label>
-                <input type="email" class="form-control mb-2" id="email" placeholder="Ingrese su correo electrónico"
+                <input type="email" class="form-control mb-2" formControlName="email" id="email" placeholder="Ingrese su correo electrónico"
                     autocomplete="off">
             </div>
             <div class="col-md-3 mb-3">
-                <button type="submit" class="btn btn-primary mb-2" [disabled]="loginForm.invalid">BUSCAR
+                <button (click)="onSubmit()" class="btn btn-primary mb-2" [disabled]="loginForm.invalid">BUSCAR
                     USUARIO
                 </button>
             </div>
-
-
+            <div class="col-md-3 mb-3">
+                    <button (click)="searchClean()" class="btn btn-primary mb-2" >borrar busqueda
+            </button>
+            </div>
         </div>
     </form>
     <br>
@@ -36,15 +38,15 @@
                 <th scope="col">ELIMINAR</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let user of users; index as i" >
             <tr>
-                <th scope="row">1</th>
-                <td>Mark SANCHEZ PEREZ</td>
-                <td>mark.sanchez@vasslatam.com</td>
-                <td>912345678</td>
-                <td>Admin</td>
+                <th scope="row">{{i}}</th>
+                <td>{{user.username}}</td>
+                <td>{{user.correo}}</td>
+                <td>{{user.celular}}</td>
+                <td>{{user.privilegio}}</td>
                 <td>
-                    <button (click)="editUser($event)" mat-button class="text-menu">
+                    <button (click)="editUser(user)" mat-button class="text-menu" >
                         <i class="material-icons">
                             edit
                         </i>
@@ -56,36 +58,6 @@
                             delete
                         </i>
                     </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Mark SANCHEZ PEREZ</td>
-                <td>mark.sanchez@vasslatam.com</td>
-                <td>912345678</td>
-                <td>Admin</td>
-                <td><i class="material-icons">
-                        edit
-                    </i></td>
-                <td>
-                    <i class="material-icons">
-                        delete
-                    </i>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Mark SANCHEZ PEREZ</td>
-                <td>mark.sanchez@vasslatam.com</td>
-                <td>912345678</td>
-                <td>Admin</td>
-                <td><i class="material-icons">
-                        edit
-                    </i></td>
-                <td>
-                    <i class="material-icons">
-                        delete
-                    </i>
                 </td>
             </tr>
         </tbody>

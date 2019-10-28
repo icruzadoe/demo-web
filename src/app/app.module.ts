@@ -7,7 +7,7 @@ import { AppComponent } from './inicio/app.component';
 import { LoginService } from './services/login.service';
 import { UploadService } from './services/upload.service';
 import { PublishtextComponent } from './publishtext/publishtext.component';
-import { RegisteruserService } from './services/registeruser.service';
+import { UserService } from './services/user.service';
 //Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Material
@@ -59,7 +59,7 @@ import { PublishaudioComponent } from './publishaudio/publishaudio.component';
   providers: [
     LoginService, 
     UploadService,
-    RegisteruserService,
+    UserService,
     AuthGuard,
   ],
   

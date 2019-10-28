@@ -1,4 +1,4 @@
-import { RegisteruserService } from '../services/registeruser.service';
+import { UserService } from '../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class RegisteruserComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _serviceRegisterUser: RegisteruserService,
+    private _serviceUser: UserService,
     private router: Router,
   ) { }
 
@@ -44,7 +44,7 @@ export class RegisteruserComponent implements OnInit {
       return;
     }
 
-    this._serviceRegisterUser.register(this.loginForm.controls.password.value, this.loginForm.controls.numCel.value, this.loginForm.controls.email.value)
+    this._serviceUser.register(this.loginForm.controls.password.value, this.loginForm.controls.numCel.value, this.loginForm.controls.email.value)
       .subscribe(
         (data) => { // Success
           console.log(" data :", data)
