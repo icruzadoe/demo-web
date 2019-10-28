@@ -25,4 +25,10 @@ export class UserService {
     console.log("listUser")
     return this.http.get(globals.BASE_URL+'listarUsuario');
   }
+
+  
+  listLog(){
+    console.log("listLog")
+    return this.http.get(globals.BASE_URL+'listarLog');
+  }
 }
