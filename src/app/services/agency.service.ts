@@ -8,5 +8,9 @@ import * as globals from './globals';
 })
 export class AgencyService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  editarPuntos(puntos : any){
+    return this.http.post(globals.BASE_URL+'point',puntos);
+  }
 }

@@ -20,6 +20,8 @@ export class ManageAgencyComponent implements OnInit {
   idAgency : string;
   ciudadEdit : string;
   loading : boolean = false;
+  agenciaSearch : string;
+  pointsAux : Points[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -55,6 +57,7 @@ export class ManageAgencyComponent implements OnInit {
     this.points = [];
 
     this.points = responseData;
+    this.pointsAux = responseData;
     this.loading = false;
   }
 
@@ -114,6 +117,29 @@ export class ManageAgencyComponent implements OnInit {
           
         }
       )
+    }
+
+  }
+
+  buscarAgencia(){
+    this.points = this.pointsAux;
+    if(!this.agenciaSearch){
+      return alert('Ingrese un parametro de busqueda');
+    }
+    let datas : any;
+    datas = [];
+    
+    this.points.forEach(
+      p =>{
+        if(p.points.toUpperCase().includes(this.agenciaSearch.toUpperCase())){
+          datas.push(p);
+        } 
+      });
+    if(datas.length == 0){
+      alert('No se encontro el valor ingresado');
+    }
+    else{
+      this.points = datas;
     }
 
   }
