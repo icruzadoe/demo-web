@@ -34,6 +34,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { AppRoutingModule } from './services/app-routing.module';
 import { ManagemultimediaComponent } from './managemultimedia/managemultimedia.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

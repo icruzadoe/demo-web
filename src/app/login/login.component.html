@@ -10,7 +10,7 @@
                     </i>
                     <div class="form-group">
                         <label for="email">Correo electrónico:</label>
-                        <input class="form-control" type="email" formControlName="email" id="email" placeholder="Ingrese su correo electrónico" autocomplete="off">
+                        <input class="form-control" type="email" formControlName="email" id="email" placeholder="Ingrese su correo electrónico" autocomplete="off" required>
                         <div
                             *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">
 
@@ -30,7 +30,9 @@
                     <br>
                     <div *ngIf="invalidLogin">
                         <div>
-                            Invalid credentials.
+                            <div class="alert alert-danger" role="alert">
+                                {{advertencia}}
+                              </div>
                         </div>
                     </div>
                 </form>

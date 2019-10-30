@@ -28,6 +28,7 @@ export class AddagencyComponent implements OnInit {
       name: ['', Validators.compose([Validators.required])],
       ip: ['', Validators.required],
       nameFolder: ['', Validators.required],
+      ciudad: ['', Validators.required],
     });
   }
 
