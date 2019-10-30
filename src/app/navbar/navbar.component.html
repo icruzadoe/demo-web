@@ -29,7 +29,7 @@
         <br>
         <br>
         <p>
-            <button routerLink="/manageuser" class="option-menu" mat-menu-item>
+            <button *ngIf="isAdmin" routerLink="/manageuser" class="option-menu" mat-menu-item>
 
           <span class="color-icon">GESTIONAR USUARIOS</span>
       </button>
@@ -55,7 +55,7 @@
         <p class="menu-btn">
             <button mat-button (click)="sidenav.toggle()">
         <i class="material-icons color-icon">list</i>
-        <span class="color-icon">MENUuuuu</span>
+        <span class="color-icon">MENU</span>
       </button>
         </p>
     </mat-sidenav-content>

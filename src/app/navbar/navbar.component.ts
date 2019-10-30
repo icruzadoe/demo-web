@@ -13,9 +13,10 @@ export class NavbarComponent implements OnInit {
   mode = new FormControl('over');
   shouldRun = false;
   userLogin : any;
+  isAdmin:boolean;
 
   constructor(
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -25,6 +26,9 @@ export class NavbarComponent implements OnInit {
       if (this.loginData.user = ! null && this.loginData.auth) {
         this.shouldRun = true;
         this.userLogin =  JSON.parse(localStorage.getItem('userLogin'));
+        if(this.userLogin.privilegio == "admin"){
+          this.isAdmin = true;
+        }
       }
     }
   }
