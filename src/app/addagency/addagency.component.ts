@@ -28,6 +28,7 @@ export class AddagencyComponent implements OnInit {
       name: ['', Validators.compose([Validators.required])],
       ip: ['', Validators.required],
       nameFolder: ['', Validators.required],
+      ciudad: ['', Validators.required],
     });
   }
 
@@ -46,7 +47,7 @@ export class AddagencyComponent implements OnInit {
       "ip" : this.ip,
       "nombre_carpeta_destino" : this.nameFolder,
       "ciudad" : this.ciudad,
-      "user_correo" : "correo@prueba.com"
+      "user_correo" : localStorage.getItem("correo")
     }
 
     this.serviceAgency.editarPuntos(body).subscribe(
