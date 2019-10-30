@@ -7,10 +7,18 @@
     position: inherit;
 } */
 
+.option-menu[_ngcontent-jrg-c2] {
+    flex-direction: row;
+    width: 100%;
+    height: 64px;
+    align-items: center;
+    justify-content: space-between;
+}
 .user-container {
     width: 100%;
     height: 100%;
-    display: flex;
+    /* display: flex; */
+    text-align: center
 }
 
 .margin-text {
@@ -116,7 +124,7 @@
 
 .content-menu {
     width: 20%;
-    background-color: #3f51b5 !important;
+    background-color: #e03c3b !important;
     display: flex !important;
     flex-direction: column !important;
 }
@@ -154,8 +162,9 @@
     font: normal normal bold 28px/1.4em georgia, palatino, 'book antiqua', 'palatino linotype', serif;
 }
 
+
 .color-navbar {
-    background-color: #3f51b5 !important;
+    background-color: #e03c3b !important;
     width: 100% !important;
 }
 

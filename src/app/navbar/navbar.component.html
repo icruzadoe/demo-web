@@ -16,16 +16,16 @@
   </mat-toolbar-row>
 </mat-toolbar> -->
 
-<mat-sidenav-container class="example-container color-navbar" *ngIf="shouldRun">
+<mat-sidenav-container class="example-container color-navbar text-center" *ngIf="shouldRun">
     <mat-sidenav class="content-menu" #sidenav [mode]="mode.value">
         <p class="container-icon-user">
             <button class="user-container" mat-button (click)="sidenav.toggle()">
               <i class="material-icons color-icon size-ico">account_circle</i>
             </button>
         </p>
-        <span class="color-icon margin-text">{{userLogin.correo}}</span>
+        <span class="color-icon margin-text sss">{{userLogin.correo}}</span>
         <br>
-        <span class="color-icon margin-text">{{userLogin.username}}</span>
+        <span class="color-icon margin-text sss">{{userLogin.username}}</span>
         <br>
         <br>
         <p>
