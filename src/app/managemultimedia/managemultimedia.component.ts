@@ -44,12 +44,8 @@ export class ManagemultimediaComponent implements OnInit {
       (data) => { // Success
         this.multimedias = data;
         this.multimediasBuckup = data;
-        if(this.points == null){
           this.listarPuntos();
-        }
-        else{
           this.loading = false;
-        }
       },
       (error) => {
         console.error(error);
@@ -60,7 +56,7 @@ export class ManagemultimediaComponent implements OnInit {
     this._serviceMultimedia.listarPuntos().subscribe(
       (data) => {
         if(data !== null){
-          //console.log(JSON.stringify(data));
+         console.log(JSON.stringify(data));
           this.procesarData(data);
           this.loading = false;
           //localStorage.setItem('point', JSON.stringify(data));
@@ -107,7 +103,7 @@ export class ManagemultimediaComponent implements OnInit {
   }
 
   editDataMultimedia(){
-    this._serviceMultimedia.updateMultimedia(this.idMedia,this.descriptionAudio,this.point,this.titleAudio)
+    this._serviceMultimedia.updateMultimedia(this.idMedia,this.descriptionAudio,this.point,this.titleAudio, localStorage.getItem("correo"))
     .subscribe(
       data =>{
         alert('Se actualizo correctamente');
@@ -123,7 +119,7 @@ export class ManagemultimediaComponent implements OnInit {
     console.log(multimedia)
     if(confirm("¿Esta seguro que desea eliminar el registro seleccionado?")){
 
-      this._serviceMultimedia.dropMultimedia(multimedia.idMedia, localStorage.getItem("user_correo")) .subscribe(
+      this._serviceMultimedia.dropMultimedia(multimedia.idMedia, localStorage.getItem("correo")) .subscribe(
         (data) => {
           alert("Se elimino el registro seleccionado");
           this.listMultimedia();

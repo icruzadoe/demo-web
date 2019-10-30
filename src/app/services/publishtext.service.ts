@@ -18,7 +18,7 @@ export class PublishtextService {
       title: tittle,
       description: description,
       point: point,
-      correo : correo,
+      user_correo : correo,
       category: category,
     });
   }

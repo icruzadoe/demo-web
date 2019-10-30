@@ -17,12 +17,13 @@ export class MultimediaService {
     return this.http.get(globals.BASE_URL+'listarMedia');
   }
 
-  updateMultimedia(idMedia, description, point,title){
+  updateMultimedia(idMedia, description, point,title,user_correo){
     return this.http.post(globals.BASE_URL+'updateMedia', {
       "idMedia": idMedia,
       "description": description,
       "point": point,
       "title": title,
+      "user_correo": user_correo
     });
   }
 
