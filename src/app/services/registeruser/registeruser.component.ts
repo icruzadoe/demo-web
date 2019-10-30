@@ -47,7 +47,7 @@ export class RegisteruserComponent implements OnInit {
       this.loginForm.controls.password.value,
       this.loginForm.controls.numCel.value,
       this.loginForm.controls.email.value,
-      this.loginForm.controls.typeUser.value)
+      this.loginForm.controls.typeUser.value, localStorage.getItem("correo"))
       .subscribe(
         (data) => { // Success
           console.log(" data :", data)

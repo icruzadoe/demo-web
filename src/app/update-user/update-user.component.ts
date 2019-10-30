@@ -58,7 +58,7 @@ export class UpdateUserComponent implements OnInit {
       this.loginForm.controls.password.value,
       this.loginForm.controls.numCel.value,
       this.loginForm.controls.email.value,
-      this.loginForm.controls.typeUser.value)
+      this.loginForm.controls.typeUser.value, localStorage.getItem("correo"))
       .subscribe(
         (data) => { // Success
           localStorage.removeItem("userUpdate");

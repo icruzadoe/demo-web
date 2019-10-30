@@ -12,13 +12,14 @@ export class UserService {
   ) {
   }
 
-  register(nameUser,password, numCel, email,typeUser) {
+  register(nameUser,password, numCel, email,typeUser,user_correo) {
     return this.http.post(globals.BASE_URL+'register', {
       username:nameUser,
       password: password,
       celular: numCel,
       correo: email,
       privilegio : typeUser,
+      user_correo: user_correo,
     });
   }
 
@@ -26,7 +27,7 @@ export class UserService {
     return this.http.get(globals.BASE_URL+'listarUsuario');
   }
 
-  updateUser(idUser, nameUser, password, numCel, email,typeUser){
+  updateUser(idUser, nameUser, password, numCel, email,typeUser,user_correo){
     return this.http.post(globals.BASE_URL+'updateUser', {
       id: idUser,
       username:nameUser,
@@ -34,6 +35,7 @@ export class UserService {
       celular: numCel,
       correo: email,
       privilegio : typeUser,
+      user_correo: user_correo,
     });
   }
 
