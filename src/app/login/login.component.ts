@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     this._serviceLogin.login(this.loginForm.controls.password.value, this.loginForm.controls.email.value)
       .subscribe(
         (data) => {
-          localStorage.setItem('point', JSON.stringify(data));
+          localStorage.setItem('userLogin', JSON.stringify(data));
 
           let login = {
             "user": this.loginForm.controls.email.value,

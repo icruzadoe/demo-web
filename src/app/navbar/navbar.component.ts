@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   showButton: boolean;
   mode = new FormControl('over');
   shouldRun = false;
+  userLogin : any;
 
   constructor(
     private router: Router
@@ -23,6 +24,7 @@ export class NavbarComponent implements OnInit {
     if (this.loginData) {
       if (this.loginData.user = ! null && this.loginData.auth) {
         this.shouldRun = true;
+        this.userLogin =  JSON.parse(localStorage.getItem('userLogin'));
       }
     }
   }

@@ -18,16 +18,20 @@
 
 <mat-sidenav-container class="example-container color-navbar" *ngIf="shouldRun">
     <mat-sidenav class="content-menu" #sidenav [mode]="mode.value">
-        <p>
-            <button mat-button (click)="sidenav.toggle()">
-        <i class="material-icons color-icon">list</i>
-        <span class="color-icon">MENU</span>
-      </button>
+        <p class="container-icon-user">
+            <button class="user-container" mat-button (click)="sidenav.toggle()">
+              <i class="material-icons color-icon size-ico">account_circle</i>
+            </button>
         </p>
+        <span class="color-icon margin-text">{{userLogin.correo}}</span>
+        <br>
+        <span class="color-icon margin-text">{{userLogin.username}}</span>
+        <br>
+        <br>
         <p>
             <button routerLink="/manageuser" class="option-menu" mat-menu-item>
 
-        <span class="color-icon">GESTIONAR USUARIOS</span>
+          <span class="color-icon">GESTIONAR USUARIOS</span>
       </button>
             <button routerLink="/managemultimedia" class="option-menu" mat-menu-item>
 
@@ -51,7 +55,7 @@
         <p class="menu-btn">
             <button mat-button (click)="sidenav.toggle()">
         <i class="material-icons color-icon">list</i>
-        <span class="color-icon">MENU</span>
+        <span class="color-icon">MENUuuuu</span>
       </button>
         </p>
     </mat-sidenav-content>
