@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class ActivityregisterComponent implements OnInit {
   registerActivityForm: FormGroup;
   users: any;
+  registerSearch:string;
+  loading : boolean = false;
 
   constructor(
     private formBuilder : FormBuilder,
@@ -25,10 +27,27 @@ export class ActivityregisterComponent implements OnInit {
   }
 
   listLog() {
-    this._serviceUser.listLog().subscribe(
+    this.loading = true;
+    this._serviceUser.listLog("").subscribe(
       (data) => { // Success
         this.users = data;
-        console.log("data")
+        this.loading = false;
+      },
+      (error) => {
+        console.error(error);
+      });
+  }
+
+  searchLog(){
+    if(!this.registerSearch){
+      this.listLog();
+      //return alert('Ingrese un correo');
+    }
+    this.loading = true;
+    this._serviceUser.listLog(this.registerSearch).subscribe(
+      (data) => { // Success
+        this.users = data;
+        this.loading = false;
       },
       (error) => {
         console.error(error);

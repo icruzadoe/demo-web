@@ -45,7 +45,11 @@ export class UserService {
 
   }
 
-  listLog(){
-    return this.http.get(globals.BASE_URL+'listarLog');
+  listLog(param){
+    let queryString = "";
+    if(param != ""){
+      queryString = "?correo=" + param;
+    }
+    return this.http.get(globals.BASE_URL+'listarLog'+queryString);
   }
 }

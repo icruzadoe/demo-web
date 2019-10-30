@@ -13,6 +13,16 @@ export class ManagemultimediaComponent implements OnInit {
   multimedias: any;
   multimediasBuckup: any;
   multimediaSelect:object;
+  editForm : boolean = false;
+  idMedia : string;
+  titleAudio : string;
+  descriptionAudio : string;
+  point : string;
+  loading : boolean = false;
+  points : any[];
+  agenciaSearch : string;
+  pointsAux : any[];
+  multimediasAux : string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,14 +39,43 @@ export class ManagemultimediaComponent implements OnInit {
   }
 
   listMultimedia() {
+    this.loading = true;
     this._serviceMultimedia.listMedia().subscribe(
       (data) => { // Success
         this.multimedias = data;
         this.multimediasBuckup = data;
+        if(this.points == null){
+          this.listarPuntos();
+        }
+        else{
+          this.loading = false;
+        }
       },
       (error) => {
         console.error(error);
       });
+  }
+  listarPuntos(){
+    this.loading = true;
+    this._serviceMultimedia.listarPuntos().subscribe(
+      (data) => {
+        if(data !== null){
+          //console.log(JSON.stringify(data));
+          this.procesarData(data);
+          this.loading = false;
+          //localStorage.setItem('point', JSON.stringify(data));
+
+        }
+      }
+    )
+  }
+
+  procesarData(responseData) {
+    this.points = [];
+
+    this.points = responseData;
+    this.pointsAux = responseData;
+    this.loading = false;
   }
   
   onSubmit() {
@@ -51,8 +90,32 @@ export class ManagemultimediaComponent implements OnInit {
   }
 
   editMultimedia(multimedia){
-    localStorage.setItem("updateMultimedia",JSON.stringify(multimedia));
-    this.router.navigate(['updateuser']);
+    //localStorage.setItem("updateMultimedia",JSON.stringify(multimedia));
+    this.editForm = true;
+    this.titleAudio = multimedia.title;
+    this.descriptionAudio = multimedia.description;
+    this.point = multimedia.pointId;
+    this.idMedia = multimedia.idMedia;
+  }
+
+  cancel(){
+    this.editForm = false;
+    this.titleAudio = "";
+    this.descriptionAudio = "";
+    this.point = "";
+    this.idMedia = "";
+  }
+
+  editDataMultimedia(){
+    this._serviceMultimedia.updateMultimedia(this.idMedia,this.descriptionAudio,this.point,this.titleAudio)
+    .subscribe(
+      data =>{
+        alert('Se actualizo correctamente');
+        this.cancel();
+        this.listMultimedia();
+      }
+
+    )
   }
 
   deleteMultimedia(multimedia){
@@ -74,6 +137,29 @@ export class ManagemultimediaComponent implements OnInit {
         }
       );
     }
+  }
+
+  buscarAgencia(){
+    this.multimedias = this.multimediasBuckup;
+    if(!this.agenciaSearch){
+      return alert('Ingrese un parametro de busqueda');
+    }
+    let datas : any;
+    datas = [];
+    
+    this.multimedias.forEach(
+      m =>{
+        if(m.point.toUpperCase().includes(this.agenciaSearch.toUpperCase())){
+          datas.push(m);
+        } 
+      });
+    if(datas.length == 0){
+      alert('No se encontro el valor ingresado');
+    }
+    else{
+      this.multimedias = datas;
+    }
+
   }
 
 }

@@ -46,7 +46,7 @@ export class AddagencyComponent implements OnInit {
       "ip" : this.ip,
       "nombre_carpeta_destino" : this.nameFolder,
       "ciudad" : this.ciudad,
-      "user_correo" : "correo@prueba.com"
+      "user_correo" : localStorage.getItem("correo")
     }
 
     this.serviceAgency.editarPuntos(body).subscribe(

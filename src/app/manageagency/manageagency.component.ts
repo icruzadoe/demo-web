@@ -90,7 +90,7 @@ export class ManageAgencyComponent implements OnInit {
       editPoint.ip = this.ipEdit;
       editPoint.nombre_carpeta_destino = this.carpetaEdit;
       editPoint.ciudad = this.ciudadEdit;
-      editPoint.user_correo = "correoprueba@gmail.com"
+      editPoint.user_correo = localStorage.getItem("correo");
       this._serviceMultimedia.editarPuntos(editPoint).subscribe(
 
         (data) => {
@@ -107,7 +107,7 @@ export class ManageAgencyComponent implements OnInit {
     if(confirm("¿Esta seguro que desea eliminar el registro seleccionado?")){
       let editPoint = new Points;
       editPoint.id = Number(id);
-      editPoint.user_correo = "correoelimina@gmail.com";
+      editPoint.user_correo = localStorage.getItem("correo");
 
       this._serviceMultimedia.eliminarPuntos(editPoint).subscribe(
 
