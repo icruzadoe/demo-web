@@ -32,7 +32,7 @@
                     <br>
                     <label for="numCel">Seleccione un tipo de usuario:</label>
                     <select class="custom-select" (change)="selectTyprUser($event)" formControlName="typeUser" name="select" id="typeUser">
-                        <option *ngFor="let user of typeUsers" value="value1">{{user.type}} </option>
+                        <option *ngFor="let user of typeUsers" value="{{user.type}}">{{user.type}} </option>
                     </select>
                     <br>
                     <br>
