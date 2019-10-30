@@ -21,7 +21,7 @@
                     </div>
                     <select class="custom-select" (change)="selectPoint($event)" formControlName="pointName" name="select" id="point">
                 <option selected>Selecciona un punto </option>
-                <option *ngFor="let point of points" value="value1">{{point.points}} </option>
+                <option *ngFor="let point of points" value="{{point.points}}">{{point.points}} </option>
             </select>
                     <br>
                     <br>

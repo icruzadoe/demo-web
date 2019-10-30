@@ -32,7 +32,7 @@ export class UploadService {
         });
   }
 
-  upload2( user_correo,file : File[], title:string,des: string, category: string) {
+  upload2( user_correo,file : File[], title:string,des: string, category: string, point:string) {
     return new Promise((resolve, reject) => {
       let formData:FormData = new FormData();
       let xhr:XMLHttpRequest = new XMLHttpRequest();
@@ -50,7 +50,9 @@ export class UploadService {
       formData.append('user_correo',user_correo);
       formData.append('description', des);
       formData.append('category', category);
-   
+      console.log("point"+point)
+      formData.append('point', point);
+      
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {

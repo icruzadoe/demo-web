@@ -90,8 +90,9 @@ export class ManagemultimediaComponent implements OnInit {
     this.editForm = true;
     this.titleAudio = multimedia.title;
     this.descriptionAudio = multimedia.description;
-    this.point = multimedia.pointId;
+    this.point = multimedia.points;
     this.idMedia = multimedia.idMedia;
+
   }
 
   cancel(){
@@ -103,7 +104,8 @@ export class ManagemultimediaComponent implements OnInit {
   }
 
   editDataMultimedia(){
-    this._serviceMultimedia.updateMultimedia(this.idMedia,this.descriptionAudio,this.point,this.titleAudio, localStorage.getItem("correo"))
+    
+  this._serviceMultimedia.updateMultimedia(this.idMedia,this.descriptionAudio,this.points,this.titleAudio, localStorage.getItem("correo"))
     .subscribe(
       data =>{
         alert('Se actualizo correctamente');

@@ -49,10 +49,11 @@ export class PublishvideoComponent implements OnInit {
     let audioElement = this.inputEl.nativeElement;
     // console.log('Archivos:' + audioElement.files.length);
     let file = audioElement.files[0];
+    alert("this.publishVideoForm.controls.pointName.value"+this.publishVideoForm.controls.pointName.value)
     this._uploadService.upload2(localStorage.getItem("correo"),
     audioElement.files, this.publishVideoForm.controls.titleVideo.value,
      this.publishVideoForm.controls.descriptionVideo.value
-     ,"VIDEO")
+     ,"VIDEO", this.publishVideoForm.controls.pointName.value)
      this.router.navigate(['managemultimedia']);
 
 

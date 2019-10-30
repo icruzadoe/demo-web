@@ -53,7 +53,7 @@ export class PublishaudioComponent implements OnInit {
     ,audioElement.files,
     this.publishAudioForm.controls.titleAudio.value,
     this.publishAudioForm.controls.descriptionAudio.value,
-    "BANNER")
+    "BANNER", this.publishAudioForm.controls.pointName.value)
     this.router.navigate(['managemultimedia']);
 
  /*   this._uploadService.upload(

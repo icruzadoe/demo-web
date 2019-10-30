@@ -55,7 +55,8 @@ console.log("upload")
       "asd",
       audioElement.files,
       this.publishBannerForm.controls.titleVideo.value,
-      this.publishBannerForm.controls.descriptionVideo.value, "BANNER");
+      this.publishBannerForm.controls.descriptionVideo.value, "BANNER",
+      this.publishBannerForm.controls.pointName.value);
       this.router.navigate(['managemultimedia']);
 
 
