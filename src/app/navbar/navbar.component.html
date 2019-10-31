@@ -1,25 +1,7 @@
-<!-- <mat-toolbar class="title-bar" color="primary">
-  <mat-toolbar-row class="navbar">
-    <span>Web admin</span>
-    <span class="example-spacer"></span>
-    <button *ngIf="showButton" routerLink="/publishvideo" mat-button class="text-menu">PÚBLICAR VIDEO</button>
-    <button *ngIf="showButton" routerLink="/publishbanner" mat-button ton class="text-menu">PÚBLICAR BANNER</button>
-    <button *ngIf="showButton" routerLink="/publishtext" mat-button class="text-menu">PÚBLICAR TEXTO</button>
-    <button *ngIf="showButton" routerLink="/home" mat-button class="text-menu">INICIO</button>
-    <div *ngIf="showButton" routerLink="/login" (click)="logout($event)">
-      <button  mat-button class="text-menu">
-        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">perm_identity
-        </mat-icon>
-        <span>CERRAR SESIÓN</span>
-      </button>
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar> -->
-
 <mat-sidenav-container class="example-container color-navbar text-center" *ngIf="shouldRun">
     <mat-sidenav class="content-menu" #sidenav [mode]="mode.value">
         <p class="container-icon-user">
-            <button class="user-container" mat-button (click)="sidenav.toggle()">
+            <button class="user-container" mat-button disabled>
               <i class="material-icons color-icon size-ico">account_circle</i>
             </button>
         </p>
@@ -30,25 +12,24 @@
         <br>
         <p>
             <button *ngIf="isAdmin" routerLink="/manageuser" class="option-menu" mat-menu-item>
-
-          <span class="color-icon">GESTIONAR USUARIOS</span>
-      </button>
+            <span class="color-icon">GESTIONAR USUARIOS</span>
+          </button>
             <button routerLink="/managemultimedia" class="option-menu" mat-menu-item>
-
-        <span class="color-icon">GESTIONAR MULTIMEDIA</span>
-      </button>
+            <i class="material-icons">image</i>
+            <span class="color-icon">GESTIONAR MULTIMEDIA</span>
+          </button>
             <button routerLink="/manageagency" class="option-menu" mat-menu-item>
-
-        <span class="color-icon">GESTIONAR AGENCIA</span>
-      </button>
+            <i class="material-icons">account_balance</i>
+            <span class="color-icon">GESTIONAR AGENCIA</span>
+          </button>
             <button routerLink="/activityregister" class="option-menu" mat-menu-item>
-
-        <span class="color-icon">GESTIONAR ACTIVIDAD</span>
-      </button>
+            <i class="material-icons">event_note</i>
+            <span class="color-icon">GESTIONAR ACTIVIDAD</span>
+          </button>
             <button (click)="logout($event)" class="option-menu" mat-menu-item>
-
-        <span class="color-icon">CERRAR SESION</span>
-      </button>
+            <i class="material-icons">power_settings_new</i>
+            <span class="color-icon">CERRAR SESION</span>
+          </button>
         </p>
     </mat-sidenav>
     <mat-sidenav-content>

@@ -31,7 +31,7 @@ export class UpdateUserComponent implements OnInit {
     });
 
     this.user = JSON.parse(localStorage.getItem('userUpdate'));
-    if(this.user){
+    if (this.user) {
       this.loginForm.controls.numCel.setValue(this.user.celular);
       this.loginForm.controls.email.setValue(this.user.correo);
       this.loginForm.controls.password.setValue(this.user.password);
