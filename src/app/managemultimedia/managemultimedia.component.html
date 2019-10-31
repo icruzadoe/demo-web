@@ -35,62 +35,62 @@
             AGREGAR TEXTO
         </button>
         <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <input matInput [matDatepicker]="picker" [matDatepickerFilter]="dateFilter" placeholder="Choose a date" (dateChange)="changeEvent($event)">
+            <mat-datepicker-toggle matSuffix [for]=" picker "></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
     </div>
     <br>
     <br>
     <br>
-    <form [formGroup]="manageMediaForm">
+    <form [formGroup]="manageMediaForm ">
         <div class="form-row ">
-            <div class="col-md-6 mb-3">
-                <label class="sr-only" for="agengy">Agencia:</label>
-                <input type="agency" class="form-control mb-2" formControlName="agency" id="agency" [(ngModel)]="agenciaSearch" placeholder="Ingrese el nombre de la agencia" autocomplete="off">
+            <div class="col-md-6 mb-3 ">
+                <label class="sr-only " for="agengy ">Agencia:</label>
+                <input type="agency " class="form-control mb-2 " formControlName="agency " id="agency " [(ngModel)]="agenciaSearch " placeholder="Ingrese el nombre de la agencia " autocomplete="off ">
             </div>
-            <div class="col-md-3 mb-3">
-                <button (click)="buscarAgencia()" class="btn btn-primary mb-2" [disabled]="manageMediaForm.invalid">BUSCAR
+            <div class="col-md-3 mb-3 ">
+                <button (click)="buscarAgencia() " class="btn btn-primary mb-2 " [disabled]="manageMediaForm.invalid ">BUSCAR
                     AGENCIA
                 </button>
             </div>
-            <div class="col-md-3 mb-3">
-                <button (click)="searchClean()" class="btn btn-primary mb-2">LIMPIAR BÚSQUEDA
+            <div class="col-md-3 mb-3 ">
+                <button (click)="searchClean() " class="btn btn-primary mb-2 ">LIMPIAR BÚSQUEDA
                 </button>
             </div>
         </div>
     </form>
     <br>
-    <table class="table table-hover">
-        <thead class="thead-color">
+    <table class="table table-hover ">
+        <thead class="thead-color ">
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">AGENCIA</th>
-                <th scope="col">TIPO DE RECURSO</th>
-                <th scope="col">FECHA</th>
-                <th scope="col">URL</th>
-                <th scope="col">EDITAR</th>
-                <th scope="col">ELIMINAR</th>
+                <th scope="col ">#</th>
+                <th scope="col ">AGENCIA</th>
+                <th scope="col ">TIPO DE RECURSO</th>
+                <th scope="col ">FECHA</th>
+                <th scope="col ">URL</th>
+                <th scope="col ">EDITAR</th>
+                <th scope="col ">ELIMINAR</th>
             </tr>
         </thead>
-        <tbody *ngFor="let multimedia of multimedias; index as i">
+        <tbody *ngFor="let multimedia of multimedias; index as i ">
             <tr>
-                <th scope="row">{{i+1}}</th>
+                <th scope="row ">{{i+1}}</th>
                 <td>{{multimedia.point}}</td>
                 <td>{{multimedia.category}}</td>
                 <td>{{multimedia.dateCreated.slice(0,10)}}</td>
                 <td>{{multimedia.fileName}}</td>
                 <td>
-                    <button mat-button class="text-menu" (click)="editMultimedia(multimedia)">
-                   <!-- <button (click)="editMultimedia(multimedia)" mat-button class="text-menu"> -->
-                        <i class="material-icons">
+                    <button mat-button class="text-menu " (click)="editMultimedia(multimedia) ">
+                   <!-- <button (click)="editMultimedia(multimedia) " mat-button class="text-menu "> -->
+                        <i class="material-icons ">
                             edit
                         </i>
                     </button>
                 </td>
                 <td>
-                    <button (click)="deleteMultimedia(multimedia)" mat-button class="text-menu">
-                        <i class="material-icons">
+                    <button (click)="deleteMultimedia(multimedia) " mat-button class="text-menu ">
+                        <i class="material-icons ">
                             delete
                         </i>
                     </button>
@@ -99,41 +99,41 @@
         </tbody>
     </table>
 </div>
-<div class="loading-indicator" *ngIf="editForm">
-    <div class="center-container">
-        <div class="col-md-6 user-container">
-            <div class="card rounded-0">
-                <div class="card-body">
-                    <h2 class="text-center">EDITAR MULTIMEDIA </h2>
+<div class="loading-indicator " *ngIf="editForm ">
+    <div class="center-container ">
+        <div class="col-md-6 user-container ">
+            <div class="card rounded-0 ">
+                <div class="card-body ">
+                    <h2 class="text-center ">EDITAR MULTIMEDIA </h2>
 
-                    <div class="form-group">
-                        <label for="titleAudio">Título:</label>
-                        <input class="form-control" type="text" id="titleAudio" [(ngModel)]="titleAudio" autocomplete="off">
-
-
-                    </div>
-                    <div class="form-group">
-                        <label for="descriptionAudio">Descripción:</label>
-                        <input class="form-control" type="text" id="descriptionAudio" [(ngModel)]="descriptionAudio" autocomplete="off">
+                    <div class="form-group ">
+                        <label for="titleAudio ">Título:</label>
+                        <input class="form-control " type="text " id="titleAudio " [(ngModel)]="titleAudio " autocomplete="off ">
 
 
                     </div>
-                    <div class="form-group">
-                        <label for="descriptionAudio">Agencia:</label>
-                        <select class="custom-select" name="select" [(ngModel)]="point" id="point">
+                    <div class="form-group ">
+                        <label for="descriptionAudio ">Descripción:</label>
+                        <input class="form-control " type="text " id="descriptionAudio " [(ngModel)]="descriptionAudio " autocomplete="off ">
+
+
+                    </div>
+                    <div class="form-group ">
+                        <label for="descriptionAudio ">Agencia:</label>
+                        <select class="custom-select " name="select " [(ngModel)]="point " id="point ">
                                 <option selected>Selecciona un punto </option>
-                                <option *ngFor="let point of points" [value]="point.id">{{point.points}} </option>
+                                <option *ngFor="let point of points " [value]="point.id ">{{point.points}} </option>
                             </select>
                     </div>
                     <br>
                     <br>
 
                     <br>
-                    <div class="container-btn-form">
-                        <button (click)="editDataMultimedia()" class="btn btn-primary  btn-register">ACTUALIZAR</button>
-                        <button (click)="cancel()" class="btn btn-secondary">CANCELAR</button>
+                    <div class="container-btn-form ">
+                        <button (click)="editDataMultimedia() " class="btn btn-primary btn-register ">ACTUALIZAR</button>
+                        <button (click)="cancel() " class="btn btn-secondary ">CANCELAR</button>
                     </div>
-                    <div *ngIf="invalidLogin">
+                    <div *ngIf="invalidLogin ">
                         <div>
                             Invalid credentials.
                         </div>

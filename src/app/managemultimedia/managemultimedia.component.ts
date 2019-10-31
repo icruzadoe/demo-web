@@ -2,6 +2,7 @@ import { MultimediaService } from './../services/multimedia.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-managemultimedia',
@@ -23,6 +24,8 @@ export class ManagemultimediaComponent implements OnInit {
   agenciaSearch : string;
   pointsAux : any[];
   multimediasAux : string;
+  minDate = new Date();
+  maxDate = new Date(2019, 3, 10);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -64,6 +67,19 @@ export class ManagemultimediaComponent implements OnInit {
         }
       }
     )
+  }
+
+  dateFilter = date => {
+    let day = date.getDay();
+
+    return day != 0 && day != 6;
+  }
+
+  changeEvent(event){
+
+    const convertTime = moment(event.target.value).format("YYYY-MM-DD");
+
+    console.log("event :", convertTime)
   }
 
   procesarData(responseData) {
