@@ -33,6 +33,8 @@ import { PublishaudioComponent } from './publishaudio/publishaudio.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { AppRoutingModule } from './services/app-routing.module';
 import { ManagemultimediaComponent } from './managemultimedia/managemultimedia.component';
+//import excel
+import { ExcelService } from './services/excel.service';
 
 
 @NgModule({
@@ -69,6 +71,7 @@ import { ManagemultimediaComponent } from './managemultimedia/managemultimedia.c
     UserService,
     MultimediaService,
     AuthGuard,
+    ExcelService,
   ],
   
   bootstrap: [AppComponent]

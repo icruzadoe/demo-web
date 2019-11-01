@@ -1,23 +1,23 @@
 <app-navbar></app-navbar>
 <div class="loading-indicator" *ngIf="loading">
-        <div class="windows8 windows-parquet">
-          <div class="wBall" id="wBall_1">
+    <div class="windows8 windows-parquet">
+        <div class="wBall" id="wBall_1">
             <div class="wInnerBall"></div>
-          </div>
-          <div class="wBall" id="wBall_2">
-            <div class="wInnerBall"></div>
-          </div>
-          <div class="wBall" id="wBall_3">
-            <div class="wInnerBall"></div>
-          </div>
-          <div class="wBall" id="wBall_4">
-            <div class="wInnerBall"></div>
-          </div>
-          <div class="wBall" id="wBall_5">
-            <div class="wInnerBall"></div>
-          </div>
         </div>
-      </div>
+        <div class="wBall" id="wBall_2">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_3">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_4">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_5">
+            <div class="wInnerBall"></div>
+        </div>
+    </div>
+</div>
 <div class="center-container margin-container">
     <h2 class="text-center">REGISTRO DE ACTIVIDAD DEL USUARIO</h2>
     <br>
@@ -26,11 +26,14 @@
         <div class="form-row ">
             <div class="col-md-6 mb-3">
                 <label class="sr-only" for="user">Correo electrónico:</label>
-                <input type="text" class="form-control mb-2" id="agency" placeholder="Ingrese el correo electrónico"
-                [(ngModel)] = "registerSearch" [ngModelOptions]="{standalone: true}" autocomplete="off">
+                <input type="text" class="form-control mb-2" id="agency" placeholder="Ingrese el correo electrónico" [(ngModel)]="registerSearch" [ngModelOptions]="{standalone: true}" autocomplete="off">
             </div>
             <div class="col-md-3 mb-3">
                 <button (click)="searchLog()" class="btn btn-primary mb-2" [disabled]="">BUSCAR
+                </button>
+            </div>
+            <div class="col-md-3 mb-3">
+                <button (click)="generateExcel()" class="btn btn-primary mb-2" [disabled]="">DESCARGAR EXCEL
                 </button>
             </div>
         </div>
@@ -53,8 +56,8 @@
                 <td>{{user.accion}}</td>
                 <td>{{user.fecha | date:'d-MM-yyyy, HH:mm aaa'}}</td>
                 <td><a href="{{user.url}}" TARGET="_blank">Link</a></td>
-                 
-               
+
+
             </tr>
         </tbody>
     </table>
