@@ -46,16 +46,21 @@
     <form [formGroup]="manageMediaForm">
         <div class="form-row ">
             <div class="col-md-6 mb-3 ">
-                <label class="sr-only " for="agengy">Agencia:</label>
-                <input type="agengy " class="form-control mb-2 " formControlName="agengy " [(ngModel)]="agenciaSearch " id="agengy " placeholder="Ingrese el nombre de la agencia " autocomplete="off ">
+                <label class="sr-only " for="agency">Agencia:</label>
+                <input type="text " class="form-control mb-2 " formControlName="agency" [(ngModel)]="agenciaSearch " id="agency " placeholder="Ingrese el nombre de la agencia " autocomplete="off ">
             </div>
-            <div class="col-md-3 mb-3 ">
+            <div class="col-md-2 mb-3 ">
                 <button (click)="buscarAgencia() " class="btn btn-primary mb-2 " [disabled]="manageMediaForm.invalid ">BUSCAR
                     AGENCIA
                 </button>
             </div>
-            <div class="col-md-3 mb-3 ">
+            <div class="col-md-2 mb-3 ">
                 <button (click)="searchClean() " class="btn btn-primary mb-2 ">LIMPIAR BÚSQUEDA
+                </button>
+            </div>
+            <div class="col-md-2 mb-3">
+                <button (click)="generateExcel()" class="btn btn-primary color-btn-excel mb-2">DESCARGAR
+                            EXCEL
                 </button>
             </div>
         </div>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
-import { Points } from '../model/points.model'
-import { MultimediaService } from '../services/multimedia.service'
+import { Points } from '../model/points.model';
+import { MultimediaService } from '../services/multimedia.service';
+import { ExcelService } from '../services/excel.service';
 
 @Component({
   selector: 'app-manageagency',
@@ -22,10 +23,12 @@ export class ManageAgencyComponent implements OnInit {
   loading : boolean = false;
   agenciaSearch : string;
   pointsAux : Points[];
+  dataExcel = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private router:Router,
+    private _excelService: ExcelService,
     private _serviceMultimedia : MultimediaService,
   ) { }
 
@@ -36,7 +39,18 @@ export class ManageAgencyComponent implements OnInit {
     this.agencyForm = this.formBuilder.group({
       agency: ['', Validators.compose([Validators.required])],
     });
+  }
 
+  generateExcel():void{
+    var that = this;
+    var array = []
+    this._serviceMultimedia.listarPuntos().subscribe(data => {
+      for(var register in data){
+        array.push( data[register])
+      }
+  
+     that._excelService.exportAsExcelFile(array, 'gestionar-agencias');
+    }), function (err) {  };
   }
 
   listarPuntos(){
@@ -44,7 +58,6 @@ export class ManageAgencyComponent implements OnInit {
     this._serviceMultimedia.listarPuntos().subscribe(
       (data) => {
         if(data !== null){
-          console.log(JSON.stringify(data));
           this.procesarData(data);
           localStorage.setItem('point', JSON.stringify(data));
 

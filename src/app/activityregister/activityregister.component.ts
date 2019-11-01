@@ -34,14 +34,12 @@ export class ActivityregisterComponent implements OnInit {
     var that = this;
     var array = []
     this._serviceUser.listLog("").subscribe(data => {
-      console.log(data)
       for(var register in data){
         array.push( data[register])
       }
   
-     that._excelService.exportAsExcelFile(array, 'export');
+     that._excelService.exportAsExcelFile(array, 'gestionar-actividad');
     }), function (err) {  };
-
   }
 
   listLog() {
