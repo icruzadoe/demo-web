@@ -162,9 +162,9 @@ export class ManagemultimediaComponent implements OnInit {
     datas = [];
     
     this.multimedias.forEach(
-      m =>{
-        if(m.point.toUpperCase().includes(this.agenciaSearch.toUpperCase())){
-          datas.push(m);
+      multimedia =>{
+        if(multimedia.point.toUpperCase().includes(this.agenciaSearch.toUpperCase())){
+          datas.push(multimedia);
         } 
       });
     if(datas.length == 0){
