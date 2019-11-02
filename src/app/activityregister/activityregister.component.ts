@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user.service';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-activityregister',
@@ -10,8 +11,9 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class ActivityregisterComponent implements OnInit {
   registerActivityForm: FormGroup;
   users: any;
-  registerSearch:string;
+  registerSearch:string="";
   loading : boolean = false;
+  fechaFiltro : string="";
 
   constructor(
     private formBuilder : FormBuilder,
@@ -28,7 +30,7 @@ export class ActivityregisterComponent implements OnInit {
 
   listLog() {
     this.loading = true;
-    this._serviceUser.listLog("").subscribe(
+    this._serviceUser.listLog("","").subscribe(
       (data) => { // Success
         this.users = data;
         this.loading = false;
@@ -39,12 +41,12 @@ export class ActivityregisterComponent implements OnInit {
   }
 
   searchLog(){
-    if(!this.registerSearch){
-      this.listLog();
+    if(this.registerSearch == "" && this.fechaFiltro==""){
+      return this.listLog();
       //return alert('Ingrese un correo');
     }
     this.loading = true;
-    this._serviceUser.listLog(this.registerSearch).subscribe(
+    this._serviceUser.listLog(this.registerSearch,this.fechaFiltro).subscribe(
       (data) => { // Success
         this.users = data;
         this.loading = false;
@@ -52,6 +54,17 @@ export class ActivityregisterComponent implements OnInit {
       (error) => {
         console.error(error);
       });
+  }
+
+  changeEvent(event){
+    if(event.target.value != null && event.target.value != ''){
+      const convertTime = moment(event.target.value).format("YYYY-MM-DD");
+      this.fechaFiltro = convertTime;
+      console.log("event :", this.fechaFiltro);
+    }else{
+      this.fechaFiltro = "";
+    }
+
   }
 
 }

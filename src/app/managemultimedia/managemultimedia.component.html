@@ -47,10 +47,10 @@
         <div class="form-row ">
             <div class="col-md-6 mb-3 ">
                 <label class="sr-only " for="agengy">Agencia:</label>
-                <input type="agengy " class="form-control mb-2 " formControlName="agengy " [(ngModel)]="agenciaSearch " id="agengy " placeholder="Ingrese el nombre de la agencia " autocomplete="off ">
+                <input type="text" class="form-control mb-2" formControlName="agency" id="agency" [(ngModel)]="agenciaSearch" placeholder="Ingrese el nombre de la agencia" autocomplete="off">
             </div>
             <div class="col-md-3 mb-3 ">
-                <button (click)="buscarAgencia() " class="btn btn-primary mb-2 " [disabled]="manageMediaForm.invalid ">BUSCAR
+                <button (click)="buscarAgencia() " class="btn btn-primary mb-2 " [disabled]="">BUSCAR
                     AGENCIA
                 </button>
             </div>
@@ -65,6 +65,7 @@
         <thead class="thead-color ">
             <tr>
                 <th scope="col ">#</th>
+                <th scope="col ">TITULO</th>
                 <th scope="col ">AGENCIA</th>
                 <th scope="col ">TIPO DE RECURSO</th>
                 <th scope="col ">FECHA</th>
@@ -76,6 +77,7 @@
         <tbody *ngFor="let multimedia of multimedias; index as i ">
             <tr>
                 <th scope="row ">{{i+1}}</th>
+                <td>{{multimedia.title}}</td>
                 <td>{{multimedia.point}}</td>
                 <td>{{multimedia.category}}</td>
                 <td>{{multimedia.dateCreated.slice(0,10)}}</td>
@@ -98,47 +100,56 @@
             </tr>
         </tbody>
     </table>
-</div>
-<div class="loading-indicator " *ngIf="editForm ">
-    <div class="center-container ">
-        <div class="col-md-6 user-container ">
-            <div class="card rounded-0 ">
-                <div class="card-body ">
-                    <h2 class="text-center ">EDITAR MULTIMEDIA </h2>
 
-                    <div class="form-group ">
-                        <label for="titleAudio ">Título:</label>
-                        <input class="form-control " type="text " id="titleAudio " [(ngModel)]="titleAudio " autocomplete="off ">
-
-
-                    </div>
-                    <div class="form-group ">
-                        <label for="descriptionAudio ">Descripción:</label>
-                        <input class="form-control " type="text " id="descriptionAudio " [(ngModel)]="descriptionAudio " autocomplete="off ">
-
-
-                    </div>
-                    <div class="form-group ">
-                        <label for="descriptionAudio ">Agencia:</label>
-                        <select class="custom-select " name="select " [(ngModel)]="point " id="point ">
-                                <option selected>Selecciona un punto </option>
-                                <option *ngFor="let point of points " [value]="point.id ">{{point.points}} </option>
-                            </select>
-                    </div>
-                    <br>
-                    <br>
-
-                    <br>
-                    <div class="container-btn-form ">
-                        <button (click)="editDataMultimedia() " class="btn btn-primary btn-register ">ACTUALIZAR</button>
-                        <button (click)="cancel() " class="btn btn-secondary ">CANCELAR</button>
-                    </div>
-                    <div *ngIf="invalidLogin ">
-                        <div>
-                            Invalid credentials.
+    <div class="loading-indicator " *ngIf="editForm ">
+        <div class="center-container ">
+            <div class="col-md-6 user-container ">
+                <div class="card rounded-0 ">
+                    <div class="card-body ">
+                        <h2 class="text-center ">EDITAR MULTIMEDIA </h2>
+    
+                        <div class="form-group ">
+                            <label for="titleAudio ">Título:</label>
+                            <input class="form-control " type="text " id="titleAudio " [(ngModel)]="titleAudio " autocomplete="off ">
+    
+    
                         </div>
+                        <div class="form-group ">
+                            <label for="descriptionAudio ">Descripción:</label>
+                            <input class="form-control " type="text " id="descriptionAudio " [(ngModel)]="descriptionAudio " autocomplete="off ">
+    
+    
+                        </div>
+                        <div class="form-group ">
+                            <label for="descriptionAudio ">Agencia:</label>
+                            <select class="custom-select " name="select " [(ngModel)]="point " id="point ">
+                                    <option selected>Selecciona un punto </option>
+                                    <option *ngFor="let point of points " [value]="point.id ">{{point.points}} </option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="descriptionAudio ">Fecha:</label><br>
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="picker2" placeholder="Elige una fecha" [(ngModel)]="fechaEdit" (dateChange)="changeEvent2($event)">
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <br>
+                        <br>
+    
+                        <br>
+                        <div class="container-btn-form ">
+                            <button (click)="editDataMultimedia() " class="btn btn-primary btn-register ">ACTUALIZAR</button>
+                            <button (click)="cancel() " class="btn btn-secondary ">CANCELAR</button>
+                        </div>
+                        <div *ngIf="invalidLogin ">
+                            <div>
+                                Invalid credentials.
+                            </div>
+                        </div>
+    
                     </div>
-
                 </div>
             </div>
         </div>

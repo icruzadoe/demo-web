@@ -33,6 +33,11 @@
                 <button (click)="searchLog()" class="btn btn-primary mb-2" [disabled]="">BUSCAR
                 </button>
             </div>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" [matDatepickerFilter]="dateFilter" placeholder="Elige una fecha" (dateChange)="changeEvent($event)">
+              <mat-datepicker-toggle matSuffix [for]=" picker "></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </div>
     </form>
     <br>
@@ -51,7 +56,7 @@
                 <th scope="row">{{i+1}}</th>
                 <td>{{user.correo}}</td>
                 <td>{{user.accion}}</td>
-                <td>{{user.fecha | date:'d-MM-yyyy, HH:mm aaa'}}</td>
+                <td>{{user.fecha | date:'yyyy-MM-d, HH:mm aaa'}}</td>
                 <td><a href="{{user.url}}" TARGET="_blank">Link</a></td>
                  
                

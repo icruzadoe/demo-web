@@ -21,11 +21,13 @@ export class ManagemultimediaComponent implements OnInit {
   point : string;
   loading : boolean = false;
   points : any[];
-  agenciaSearch : string;
+  agenciaSearch : string = "";
   pointsAux : any[];
   multimediasAux : string;
   minDate = new Date();
   maxDate = new Date(2019, 3, 10);
+  fechaFiltro : string = "";
+  fechaEdit : string = "";
 
   constructor(
     private formBuilder: FormBuilder,
@@ -78,8 +80,14 @@ export class ManagemultimediaComponent implements OnInit {
   changeEvent(event){
 
     const convertTime = moment(event.target.value).format("YYYY-MM-DD");
+    this.fechaFiltro = convertTime;
+    //console.log("event :", convertTime)
+  }
 
-    console.log("event :", convertTime)
+  changeEvent2(event){
+
+    this.fechaEdit = moment(event.target.value).format("YYYY-MM-DD");
+    console.log("event :", this.fechaEdit)
   }
 
   procesarData(responseData) {
@@ -106,8 +114,9 @@ export class ManagemultimediaComponent implements OnInit {
     this.editForm = true;
     this.titleAudio = multimedia.title;
     this.descriptionAudio = multimedia.description;
-    this.point = multimedia.points;
+    this.point = multimedia.pointId;
     this.idMedia = multimedia.idMedia;
+    this.fechaEdit = multimedia.dateCreated;
 
   }
 
@@ -120,8 +129,9 @@ export class ManagemultimediaComponent implements OnInit {
   }
 
   editDataMultimedia(){
-    
-  this._serviceMultimedia.updateMultimedia(this.idMedia,this.descriptionAudio,this.points,this.titleAudio, localStorage.getItem("correo"))
+    this.loading = true;
+    this.editForm = false;
+  this._serviceMultimedia.updateMultimedia(this.idMedia,this.descriptionAudio,this.point,this.titleAudio, localStorage.getItem("correo"))
     .subscribe(
       data =>{
         alert('Se actualizo correctamente');
@@ -155,18 +165,38 @@ export class ManagemultimediaComponent implements OnInit {
 
   buscarAgencia(){
     this.multimedias = this.multimediasBuckup;
-    if(!this.agenciaSearch){
+    console.log(this.agenciaSearch);
+    console.log(this.fechaFiltro);
+    if(!this.agenciaSearch && !this.fechaFiltro){
       return alert('Ingrese un parametro de busqueda');
     }
     let datas : any;
     datas = [];
     
-    this.multimedias.forEach(
-      multimedia =>{
-        if(multimedia.point.toUpperCase().includes(this.agenciaSearch.toUpperCase())){
-          datas.push(multimedia);
-        } 
+    if(this.fechaFiltro !== ""){
+      this.multimedias.forEach(
+        multimedia =>{
+          if(this.agenciaSearch !== ""){
+              if(multimedia.dateCreated == this.fechaFiltro &&
+                multimedia.point.toUpperCase().includes(this.agenciaSearch.toUpperCase())){
+              datas.push(multimedia);
+            }
+          }else{
+            if(multimedia.dateCreated == this.fechaFiltro){
+              datas.push(multimedia);
+            }
+          }
+          
       });
+    }
+    else{
+      this.multimedias.forEach(
+        multimedia =>{
+          if(multimedia.point.toUpperCase().includes(this.agenciaSearch.toUpperCase())){
+            datas.push(multimedia);
+          }
+      });
+    }
     if(datas.length == 0){
       alert('No se encontro el valor ingresado');
     }

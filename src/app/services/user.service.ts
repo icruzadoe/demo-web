@@ -47,11 +47,12 @@ export class UserService {
 
   }
 
-  listLog(param){
-    let queryString = "";
-    if(param != ""){
-      queryString = "?correo=" + param;
-    }
-    return this.http.get(globals.BASE_URL+'listarLog'+queryString);
+  listLog(correo,fecha){
+    let queryString = {
+      correo: correo,
+      fecha : fecha
+    };
+    console.log(queryString);
+    return this.http.post(globals.BASE_URL+'listarLog',queryString);
   }
 }
