@@ -2,6 +2,7 @@ import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { ExcelService } from '../services/excel.service';
 
 @Component({
   selector: 'app-manageuser',
@@ -13,10 +14,13 @@ export class ManageuserComponent implements OnInit {
   users: any;
   usersBuckup: any;
   userSelect:object;
+  dataExcel = [];
+
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private _excelService: ExcelService,
     private _serviceUser: UserService,
   ) { }
 
@@ -58,6 +62,18 @@ export class ManageuserComponent implements OnInit {
          "privilegio" : "admin",
        }
      ]*/
+  }
+
+  generateExcel():void{
+    var that = this;
+    var array = []
+    this._serviceUser.listUser().subscribe(data => {
+      for(var register in data){
+        array.push( data[register])
+      }
+  
+     that._excelService.exportAsExcelFile(array, 'gestionar-usuarios');
+    }), function (err) {  };
   }
 
   listUsers() {

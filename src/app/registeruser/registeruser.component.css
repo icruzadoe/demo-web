@@ -1,30 +1,33 @@
-.center-container{
+.center-container {
     display: flex;
     justify-content: center;
     margin-top: 60px;
-  }
+}
 
-  .message-alert{
-      color: red;
-  }
+.message-alert {
+    color: red;
+}
 
-  .container-btn-form{
+.container-btn-form {
     display: flex;
     justify-content: flex-start;
     align-content: center;
-  }
+}
 
-  .btn-register{
-      margin-right: 20px;
-  }
+.btn-register {
+    margin-right: 20px;
+}
 
-  
-.icon-register{
+.icon-register {
     font-size: 6em;
     display: flex;
     justify-content: center;
-  }
+}
 
-  .margin-bottom{
+.margin-bottom {
     margin-bottom: 25px;
-  }
+}
+
+.color-card-body {
+    background-color: gainsboro;
+}

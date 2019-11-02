@@ -2,7 +2,7 @@
 <div class="center-container">
     <div class="col-md-6 user-container">
         <div class="card rounded-0">
-            <div class="card-body">
+            <div class="card-body color-card-body">
                 <h2 class="text-center">Iniciar sesión </h2>
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <i class="material-icons icon-login">
@@ -11,17 +11,14 @@
                     <div class="form-group">
                         <label for="email">Correo electrónico:</label>
                         <input class="form-control" type="email" formControlName="email" id="email" placeholder="Ingrese su correo electrónico" autocomplete="off" required>
-                        <div
-                            *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">
+                        <div *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">
 
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña:</label>
-                        <input class="form-control" type="password" formControlName="password" id="password" placeholder="Ingrese su contraseña"
-                            autocomplete="off">
-                        <div
-                            *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
+                        <input class="form-control" type="password" formControlName="password" id="password" placeholder="Ingrese su contraseña" autocomplete="off">
+                        <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
 
                         </div>
                     </div>
@@ -32,7 +29,7 @@
                         <div>
                             <div class="alert alert-danger" role="alert">
                                 {{advertencia}}
-                              </div>
+                            </div>
                         </div>
                     </div>
                 </form>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { ExcelService } from '../services/excel.service';
 
 @Component({
   selector: 'app-managemultimedia',
@@ -28,10 +29,12 @@ export class ManagemultimediaComponent implements OnInit {
   maxDate = new Date(2019, 3, 10);
   fechaFiltro : string = "";
   fechaEdit : string = "";
+  dataExcel = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private _excelService: ExcelService,
     private _serviceMultimedia: MultimediaService,
   ) { }
 
@@ -41,6 +44,18 @@ export class ManagemultimediaComponent implements OnInit {
     });
 
     this.listMultimedia();  
+  }
+
+  generateExcel():void{
+    var that = this;
+    var array = []
+    this._serviceMultimedia.listMedia().subscribe(data => {
+      for(var register in data){
+        array.push( data[register])
+      }
+  
+     that._excelService.exportAsExcelFile(array, 'gestionar-multimedia');
+    }), function (err) {  };
   }
 
   listMultimedia() {
@@ -99,7 +114,7 @@ export class ManagemultimediaComponent implements OnInit {
   }
   
   onSubmit() {
-    let agency = this.manageMediaForm.controls.agency.value;
+    let agency = this.manageMediaForm.controls.agengy.value;
     let multimediaSelected = this.multimedias.filter(multimedia => multimedia.point == agency);
     this.multimedias = multimediaSelected;
   }

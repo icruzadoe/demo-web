@@ -1,40 +1,44 @@
 .example-container {
     display: flex;
     flex-direction: column;
-  }
-  
-  .example-container > * {
-    width: 100%;
-  }
-  
-  .example-right-align {
-    text-align: right;
-  }
-  
-  input.example-right-align::-webkit-outer-spin-button,
-  input.example-right-align::-webkit-inner-spin-button {
-    display: none;
-  }
-  
-  input.example-right-align {
-    -moz-appearance: textfield;
-  }
+}
 
-  .title-page{
+.example-container>* {
+    width: 100%;
+}
+
+.example-right-align {
+    text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}
+
+.title-page {
     text-align: center;
     margin-top: 0px !important;
     font-weight: bold;
     font: sans-serif;
 }
 
-.center-container{
-  display: flex;
-  justify-content: center;
-  margin-top: 60px;
+.center-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
 }
 
-.icon-login{
-  font-size: 6em;
-  display: flex;
-  justify-content: center;
+.icon-login {
+    font-size: 6em;
+    display: flex;
+    justify-content: center;
+}
+
+.color-card-body {
+    background-color: gainsboro;
 }

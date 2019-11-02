@@ -2,7 +2,7 @@
 <div class="center-container">
     <div class="col-md-6 user-container">
         <div class="card rounded-0">
-            <div class="card-body">
+            <div class="card-body color-card-body">
                 <h2 class="text-center">Públicar texto </h2>
                 <form [formGroup]="publishTextForm">
                     <div class="form-group">
@@ -27,7 +27,7 @@
                     <br>
                     <br>
                     <div class="container-btn-form">
-                        <button (click)="onSubmit()" class="btn btn-primary  btn-register" >PÚBLICAR</button>
+                        <button (click)="onSubmit()" class="btn btn-primary  btn-register">PÚBLICAR</button>
                         <button (click)="cancel()" class="btn btn-secondary">CANCELAR</button>
                     </div>
                     <div *ngIf="invalidLogin">

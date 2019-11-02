@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user.service';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import * as moment from 'moment';
+import { ExcelService } from '../services/excel.service';
 
 @Component({
   selector: 'app-activityregister',
@@ -14,18 +15,33 @@ export class ActivityregisterComponent implements OnInit {
   registerSearch:string="";
   loading : boolean = false;
   fechaFiltro : string="";
+  dataExcel = [];
 
   constructor(
     private formBuilder : FormBuilder,
+    private _excelService: ExcelService,
     private _serviceUser: UserService,
   ) { }
 
   ngOnInit() {
+    
     this.registerActivityForm = this.formBuilder.group({
       user: ['', Validators.compose([Validators.required])],
     });
 
     this.listLog();
+  }
+
+  generateExcel():void{
+    var that = this;
+    var array = []
+    this._serviceUser.listLog("").subscribe(data => {
+      for(var register in data){
+        array.push( data[register])
+      }
+  
+     that._excelService.exportAsExcelFile(array, 'gestionar-actividad');
+    }), function (err) {  };
   }
 
   listLog() {

@@ -11,17 +11,21 @@
         <div class="form-row ">
             <div class="col-md-6 mb-3">
                 <label class="sr-only" for="email">Correo electrónico:</label>
-                <input type="email" class="form-control mb-2" formControlName="email" id="email" placeholder="Ingrese su correo electrónico"
-                    autocomplete="off">
+                <input type="email" class="form-control mb-2" formControlName="email" id="email" placeholder="Ingrese su correo electrónico" autocomplete="off">
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-2 mb-3">
                 <button (click)="onSubmit()" class="btn btn-primary mb-2" [disabled]="loginForm.invalid">BUSCAR
                     USUARIO
                 </button>
             </div>
-            <div class="col-md-3 mb-3">
-                    <button (click)="searchClean()" class="btn btn-primary mb-2" >LIMPIAR BÚSQUEDA
+            <div class="col-md-2 mb-3">
+                <button (click)="searchClean()" class="btn btn-primary mb-2">LIMPIAR BÚSQUEDA
             </button>
+            </div>
+            <div class="col-md-2 mb-3">
+                <button (click)="generateExcel()" class="btn btn-primary color-btn-excel mb-2">DESCARGAR
+                        EXCEL
+                </button>
             </div>
         </div>
     </form>
@@ -38,7 +42,7 @@
                 <th scope="col">ELIMINAR</th>
             </tr>
         </thead>
-        <tbody *ngFor="let user of users; index as i" >
+        <tbody *ngFor="let user of users; index as i">
             <tr>
                 <th scope="row">{{i}}</th>
                 <td>{{user.username}}</td>
@@ -46,7 +50,7 @@
                 <td>{{user.celular}}</td>
                 <td>{{user.privilegio}}</td>
                 <td>
-                    <button (click)="editUser(user)" mat-button class="text-menu" >
+                    <button (click)="editUser(user)" mat-button class="text-menu">
                         <i class="material-icons">
                             edit
                         </i>

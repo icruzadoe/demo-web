@@ -2,7 +2,7 @@
 <div class="center-container">
     <div class="col-md-6 user-container">
         <div class="card rounded-0">
-            <div class="card-body">
+            <div class="card-body color-card-body">
                 <h2 class="text-center">Públicar banner </h2>
                 <form [formGroup]="publishBannerForm">
                     <div class="form-group">
@@ -40,7 +40,7 @@
                     </div>
                     <br>
                     <div class="container-btn-form">
-                        <button (click)="upload()" class="btn btn-primary  btn-register" >PUBLICAR</button>
+                        <button (click)="upload()" class="btn btn-primary  btn-register">PUBLICAR</button>
                         <button (click)="cancel()" class="btn btn-secondary">CANCELAR</button>
                     </div>
                     <div *ngIf="invalidLogin">
