@@ -24,12 +24,12 @@
     <br>
     <form [formGroup]="registerActivityForm">
         <div class="form-row ">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-4 mb-2">
                 <label class="sr-only" for="user">Correo electrónico:</label>
                 <input type="text" class="form-control mb-2" id="agency" placeholder="Ingrese el correo electrónico" [(ngModel)]="registerSearch" [ngModelOptions]="{standalone: true}" autocomplete="off">
             </div>
             <div class="col-md-3 mb-3">
-                <button (click)="searchLog()" class="btn btn-primary mb-2" [disabled]="">BUSCAR
+                <button (click)="searchLog()" class="btn btn-primary mb-2" [disabled]="">BUSCAR POR CORREO
                 </button>
             </div>
             <mat-form-field>
@@ -37,10 +37,15 @@
               <mat-datepicker-toggle matSuffix [for]=" picker "></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-            <div class="col-md-3 mb-3">
+
+          <div class="col-md-3 mb-3">
+            <button (click)="searchLog()" class="btn btn-primary mb-2" [disabled]="">BUSCAR POR FECHA
+            </button>
+         </div>
+            <!-- <div class="col-md-3 mb-3">
                 <button (click)="generateExcel()" class="btn btn-primary color-btn-excel mb-2" [disabled]="">DESCARGAR EXCEL
                 </button>
-            </div>
+            </div> -->
         </div>
     </form>
     <br>

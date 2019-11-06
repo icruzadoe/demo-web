@@ -4,11 +4,28 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { ExcelService } from '../services/excel.service';
+import {MomentDateAdapter} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
+export const MY_FORMATS2 = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 @Component({
   selector: 'app-managemultimedia',
   templateUrl: './managemultimedia.component.html',
-  styleUrls: ['./managemultimedia.component.css']
+  styleUrls: ['./managemultimedia.component.css'],
+  providers: [
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS2},
+  ]
 })
 export class ManagemultimediaComponent implements OnInit {
   manageMediaForm: FormGroup;
@@ -85,12 +102,12 @@ export class ManagemultimediaComponent implements OnInit {
       }
     )
   }
-
+/*
   dateFilter = date => {
     let day = date.getDay();
 
     return day != 0 && day != 6;
-  }
+  }*/
 
   changeEvent(event){
 
@@ -102,7 +119,7 @@ export class ManagemultimediaComponent implements OnInit {
   changeEvent2(event){
 
     this.fechaEdit = moment(event.target.value).format("YYYY-MM-DD");
-    console.log("event :", this.fechaEdit)
+    console.log("event :", this.fechaEdit);
   }
 
   procesarData(responseData) {
@@ -141,12 +158,13 @@ export class ManagemultimediaComponent implements OnInit {
     this.descriptionAudio = "";
     this.point = "";
     this.idMedia = "";
+    this.fechaEdit = "";
   }
 
   editDataMultimedia(){
     this.loading = true;
     this.editForm = false;
-  this._serviceMultimedia.updateMultimedia(this.idMedia,this.descriptionAudio,this.point,this.titleAudio, localStorage.getItem("correo"))
+  this._serviceMultimedia.updateMultimedia(this.idMedia,this.descriptionAudio,this.point,this.titleAudio,this.fechaEdit, localStorage.getItem("correo"))
     .subscribe(
       data =>{
         alert('Se actualizo correctamente');
@@ -182,9 +200,9 @@ export class ManagemultimediaComponent implements OnInit {
     this.multimedias = this.multimediasBuckup;
     console.log(this.agenciaSearch);
     console.log(this.fechaFiltro);
-    if(!this.agenciaSearch && !this.fechaFiltro){
-      return alert('Ingrese un parametro de busqueda');
-    }
+    // if(!this.agenciaSearch && !this.fechaFiltro){
+    //   return alert('Ingrese un parametro de busqueda');
+    // }
     let datas : any;
     datas = [];
     

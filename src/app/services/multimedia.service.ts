@@ -17,14 +17,19 @@ export class MultimediaService {
     return this.http.get(globals.BASE_URL+'listarMedia');
   }
 
-  updateMultimedia(idMedia, description, point,title,user_correo){
-    return this.http.post(globals.BASE_URL+'updateMedia', {
+  updateMultimedia(idMedia, description, point,title,fecha,user_correo){
+    let newDate = new Date(fecha);
+    newDate.setDate(newDate.getDate() + 1)
+    let request = {
       "idMedia": idMedia,
       "description": description,
       "point": point,
       "title": title,
+      "dateCreated":newDate,
       "user_correo": user_correo
-    });
+    };
+    console.log(request);
+    return this.http.post(globals.BASE_URL+'updateMedia', request);
   }
 
   dropMultimedia(idMedia, user_correo){

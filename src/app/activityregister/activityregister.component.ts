@@ -35,7 +35,7 @@ export class ActivityregisterComponent implements OnInit {
   generateExcel():void{
     var that = this;
     var array = []
-    this._serviceUser.listLog("").subscribe(data => {
+    this._serviceUser.listLog("", "").subscribe(data => {
       for(var register in data){
         array.push( data[register])
       }

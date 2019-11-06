@@ -14,7 +14,8 @@ interface HttpEvent {
   providedIn: 'root'
 })
 export class UploadService {
-  urlprueba : string = globals.BASE_URL+'file/upload2'
+  urlprueba : string = globals.BASE_URL+'file/upload2';
+  porcentage:number;
   _eventBus: Subject<HttpEvent>;
   constructor(
     private http: HttpClient
@@ -62,6 +63,8 @@ export class UploadService {
           }
         }
       }
+    
+
       xhr.open('POST', this.urlprueba, true);
       xhr.send(formData);
     });
