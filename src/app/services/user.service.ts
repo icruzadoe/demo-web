@@ -12,7 +12,7 @@ export class UserService {
   ) {
   }
 
-  register(nameUser,password, numCel, email,typeUser,user_correo) {
+  register(nameUser,password, numCel, email,typeUser,user_correo, dni,ciudad) {
     return this.http.post(globals.BASE_URL+'register', {
       username:nameUser,
       password: password,
@@ -20,6 +20,8 @@ export class UserService {
       correo: email,
       privilegio : typeUser,
       user_correo: user_correo,
+      ciudad: ciudad,
+      dni: dni,
     });
   }
 
