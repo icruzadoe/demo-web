@@ -12,21 +12,21 @@
                         <label for="email">Correo electrónico:</label>
                         <input class="form-control" type="email" formControlName="email" id="email" autocomplete="off">
                         <div class="form-control is-invalid" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">
-
+                            Ingrese Correo Electronico
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name">Nombres:</label>
                         <input class="form-control" type="name" formControlName="name" id="name" autocomplete="off">
                         <div class="form-control is-invalid" *ngIf="loginForm.controls['name'].hasError('required') && loginForm.controls['name'].touched">
-
+                            Ingreso un Nombre Correcto
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="numCel">Numero de celular:</label>
                         <input class="form-control" type="number" formControlName="numCel" id="numCel" autocomplete="off">
                         <div class="form-control is-invalid" *ngIf="loginForm.controls['numCel'].hasError('required') && loginForm.controls['numCel'].touched">
-
+                            Ingrese un Celular
                         </div>
                     </div>
                     <br>
@@ -40,7 +40,7 @@
                         <label for="pwd">Contraseña:</label>
                         <input class="form-control" type="password" formControlName="password" id="pwd" autocomplete="off">
                         <div class="message-alert" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
-
+                            Ingrese una Contraseña
                         </div>
                     </div>
                     <div class="container-btn-form">

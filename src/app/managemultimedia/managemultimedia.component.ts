@@ -96,7 +96,7 @@ export class ManagemultimediaComponent implements OnInit {
          console.log(JSON.stringify(data));
           this.procesarData(data);
           this.loading = false;
-          //localStorage.setItem('point', JSON.stringify(data));
+          localStorage.setItem('point', JSON.stringify(data));
 
         }
       }
