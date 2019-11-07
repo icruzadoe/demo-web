@@ -22,6 +22,21 @@
                             Ingreso un Nombre Correcto
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad:</label>
+                        <input class="form-control" type="ciudad" formControlName="ciudad" id="ciudad" autocomplete="off">
+                        <div class="form-control is-invalid" *ngIf="loginForm.controls['ciudad'].hasError('required') && loginForm.controls['ciudad'].touched">
+                            Ingreso una ciudad
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dni">DNI:</label>
+                        <input class="form-control" type="dni" formControlName="dni" id="dni" autocomplete="off">
+                        <div class="form-control is-invalid" *ngIf="loginForm.controls['dni'].hasError('required') && loginForm.controls['dni'].touched">
+                            Ingreso un dni
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="numCel">Numero de celular:</label>
                         <input class="form-control" type="number" formControlName="numCel" id="numCel" autocomplete="off">
