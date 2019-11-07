@@ -38,6 +38,9 @@
                 <th scope="col">CORREO ELECTRÓNICO</th>
                 <th scope="col">CELULAR</th>
                 <th scope="col">TIPO DE USUARIO</th>
+                <th scope="col">PASSWORD</th>
+                <th scope="col">DNI</th>
+                <th scope="col">CIUDA</th>
                 <th scope="col">EDITAR</th>
                 <th scope="col">ELIMINAR</th>
             </tr>
@@ -49,6 +52,9 @@
                 <td>{{user.correo}}</td>
                 <td>{{user.celular}}</td>
                 <td>{{user.privilegio}}</td>
+                <td>******</td>
+                <td>{{user.dni}}</td>
+                <td>{{user.ciudad}}</td>
                 <td>
                     <button (click)="editUser(user)" mat-button class="text-menu">
                         <i class="material-icons">
