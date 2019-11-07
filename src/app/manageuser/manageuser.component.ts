@@ -15,6 +15,7 @@ export class ManageuserComponent implements OnInit {
   usersBuckup: any;
   userSelect:object;
   dataExcel = [];
+  loading : boolean = false;
 
 
   constructor(
@@ -25,6 +26,7 @@ export class ManageuserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loading = true;
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required])],
       
@@ -81,6 +83,7 @@ export class ManageuserComponent implements OnInit {
       (data) => { // Success
         this.users = data;
         this.usersBuckup = data;
+        this.loading = false;
       },
       (error) => {
         console.error(error);

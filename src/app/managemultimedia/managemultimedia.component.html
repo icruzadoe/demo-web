@@ -21,23 +21,9 @@
 <div class="center-container margin-container" *ngIf="!editForm">
     <h2 class="text-center">GESTIONAR MULTIMEDIA</h2>
     <br>
-    <div class="buttons-container">
-        <button [routerLink]="['/publishvideo']" class="btn btn-primary margin-btn">
-            AGREGAR VIDEO
-        </button>
-        <button [routerLink]="['/publishaudio']" class="btn btn-primary margin-btn">
-            AGREGAR BANNER
-        </button>
-        <!-- <button [routerLink]="['/publishbanner']" class="btn btn-primary margin-btn">
-            AGREGAR BANNER
-        </button> -->
-        <button [routerLink]="['/publishtext']" class="btn btn-primary margin-btn">
-            AGREGAR TEXTO
-        </button>
-     
+    <div style="text-align: center;width: 100%;">
+        <button (click)="agregarMultimedia()" class="btn btn-primary mb-2 " [disabled]="" style="font-size:42px;">+</button>
     </div>
-    <br>
-    <br>
     <br>
     <form [formGroup]="manageMediaForm">
         <div class="form-row ">
@@ -173,6 +159,32 @@
                         </div>
                     </div>
             </div>
+
+</div>
+<div class="loading-indicator" style="text-align: center;display: inline-block;margin: 0 auto;
+background-color: #ffffff; " 
+*ngIf="addNew">
+    <div style="margin: 0 auto; text-align: center" class="col-md-12 user-container margin-bottom">
+            <div class="">
+                    <button [routerLink]="['/publishvideo']" class="btn btn-primary margin-btn btn-lg">
+                        AGREGAR VIDEO
+                    </button>
+                    <br>
+                    <button [routerLink]="['/publishaudio']" class="btn btn-primary margin-btn btn-lg">
+                        AGREGAR BANNER
+                    </button>
+                    <br>
+                    <!-- <button [routerLink]="['/publishbanner']" class="btn btn-primary margin-btn">
+                        AGREGAR BANNER
+                    </button> -->
+                    <button [routerLink]="['/publishtext']" class="btn btn-primary margin-btn btn-lg">
+                        AGREGAR TEXTO
+                    </button>
+                    <br>
+                    <button (click)="cancelarAgregar()" class="btn btn-primary mb-2 " [disabled]="">CANCELAR
+                        </button>
+                </div>
+    </div>
 
 </div>
 

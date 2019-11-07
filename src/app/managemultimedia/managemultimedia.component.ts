@@ -47,6 +47,7 @@ export class ManagemultimediaComponent implements OnInit {
   fechaFiltro : string = "";
   fechaEdit : string = "";
   dataExcel = [];
+  addNew : boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -237,6 +238,14 @@ export class ManagemultimediaComponent implements OnInit {
       this.multimedias = datas;
     }
 
+  }
+
+  agregarMultimedia(){
+    this.addNew = true;
+  }
+
+  cancelarAgregar(){
+    this.addNew = false;
   }
 
 }
