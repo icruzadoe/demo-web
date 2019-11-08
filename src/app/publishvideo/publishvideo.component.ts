@@ -79,6 +79,6 @@ export class PublishvideoComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['managemultimedia']);
+    this.router.navigate(['addmultimedia']);
   }
 }

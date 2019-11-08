@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="loading-indicator" class="container-page">
+    <div class="container-body">
+        <button [routerLink]="[ '/managemultimedia']" class=" btn-back ">
+        <i class="material-icons icon-back ">
+                    arrow_back
+                    </i>
+        </button>
+        <div class="col-md-5 container-btns ">
+            <button [routerLink]="[ '/publishvideo'] " class="btn btn-primary margin-btn btn-lg btn-multimedia ">
+                                <i class="material-icons icon-btn ">ondemand_video</i>
+                                <br>
+                                AGREGAR VIDEO
+                            </button>
+            <br>
+            <button [routerLink]="[ '/publishbanner'] " class="btn btn-primary margin-btn btn-lg btn-multimedia ">
+                                <i class="material-icons icon-btn ">photo</i>
+                                <br>
+                                AGREGAR BANNER
+                            </button>
+            <br>
+            <button [routerLink]="[ '/publishtext'] " class="btn btn-primary margin-btn btn-lg btn-multimedia ">
+                                <i class="material-icons icon-btn ">
+                                        create
+                                        </i>
+                                        <br>
+                                            AGREGAR TEXTO
+                                        </button>
+            <br>
+        </div>
+        <div class="col-md-2 container-btns ">
+            <div>
+                <i class="material-icons btn-multimedia icon-info ">info</i>
+            </div>
+            <br>
+            <div>
+                <i class="material-icons btn-multimedia icon-info ">info</i>
+            </div>
+            <br>
+            <div>
+                <i class="material-icons btn-multimedia icon-info ">info</i>
+            </div>
+            <br>
+        </div>
+        <div class="col-md-5 container-btns ">
+
+            <button disabled="true " class="btn btn-primary margin-btn btn-lg btn-multimedia ">
+                                                    Formato admitidos: AVI, MP4.
+                                                </button>
+            <br>
+            <button disabled="true " class="btn btn-primary margin-btn btn-lg btn-multimedia ">
+                                                    Formatos admitidos: JPG, PNG.
+                                                </button>
+            <br>
+
+            <button disabled="true " class="btn btn-primary margin-btn btn-lg btn-multimedia ">
+                                                    Formatos admitidos: solo incluirá texto.
+                                                </button>
+            <br>
+        </div>
+    </div>
+
+
+</div>

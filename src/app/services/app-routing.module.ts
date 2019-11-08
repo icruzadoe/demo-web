@@ -1,3 +1,4 @@
+import { AddmultimediaComponent } from './../addmultimedia/addmultimedia.component';
 import { ManagemultimediaComponent } from './../managemultimedia/managemultimedia.component';
 import { UpdateUserComponent } from './../update-user/update-user.component';
 import { PublishaudioComponent } from './../publishaudio/publishaudio.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'publishaudio', component: PublishaudioComponent, canActivate: [AuthGuard]},
   {path: 'activityregister', component: ActivityregisterComponent, canActivate: [AuthGuard]},
   {path: 'updateuser', component: UpdateUserComponent, canActivate: [AuthGuard]},
+  {path: 'addmultimedia', component: AddmultimediaComponent, canActivate: [AuthGuard]},
   {path: '', component: LoginComponent,  pathMatch: 'full'},
   {path: '**', component: LoginComponent,  pathMatch: 'full'}
 ]

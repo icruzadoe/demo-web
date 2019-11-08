@@ -21,8 +21,13 @@
 <div class="center-container margin-container" *ngIf="!editForm">
     <h2 class="text-center">GESTIONAR MULTIMEDIA</h2>
     <br>
-    <div style="text-align: center;width: 100%;">
-        <button (click)="agregarMultimedia()" class="btn btn-primary mb-2 " [disabled]="" style="font-size:42px;">+</button>
+    <div class="container-btn-add">
+        <button (click)="agregarMultimedia()" class="btn btn-primary mb-2 symbol-add" [disabled]="">
+                <i class="material-icons icon-add">
+                        add
+                </i>
+                <br>AGREGAR MULTIMEDIA
+        </button>
     </div>
     <br>
     <form [formGroup]="manageMediaForm">
@@ -100,91 +105,63 @@
             </tr>
         </tbody>
     </table>
-  
-  
+
+
 </div>
 
-<div class="loading-indicator" style="text-align: center;display: inline-block;margin: 0 auto; " 
-*ngIf="editForm">
-        <div style="margin: 0 auto; text-align: center" class="col-md-12 user-container margin-bottom">
-                <div class="center-container col-md-12">
-                        <div class="col-md-6 user-container" style="margin-left: 25%; margin-top: 7%">
-                            <div class="card rounded-0 ">
-                                <div class="card-body ">
-                                    <h2 class="text-center ">EDITAR MULTIMEDIA </h2>
-                
-                                    <div class="form-group ">
-                                        <label for="titleAudio ">Título:</label>
-                                        <input class="form-control " type="text " id="titleAudio " [(ngModel)]="titleAudio " autocomplete="off ">
-                
-                
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="descriptionAudio ">Descripción:</label>
-                                        <input class="form-control " type="text " id="descriptionAudio " [(ngModel)]="descriptionAudio " autocomplete="off ">
-                
-                
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="descriptionAudio ">Agencia:</label>
-                                        <select class="custom-select " name="select " [(ngModel)]="point " id="point ">
+<div class="loading-indicator" style="text-align: center;display: inline-block;margin: 0 auto; " *ngIf="editForm">
+    <div style="margin: 0 auto; text-align: center" class="col-md-12 user-container margin-bottom">
+        <div class="center-container col-md-12">
+            <div class="col-md-6 user-container" style="margin-left: 25%; margin-top: 7%">
+                <div class="card rounded-0 ">
+                    <div class="card-body ">
+                        <h2 class="text-center ">EDITAR MULTIMEDIA </h2>
+
+                        <div class="form-group ">
+                            <label for="titleAudio ">Título:</label>
+                            <input class="form-control " type="text " id="titleAudio " [(ngModel)]="titleAudio " autocomplete="off ">
+
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="descriptionAudio ">Descripción:</label>
+                            <input class="form-control " type="text " id="descriptionAudio " [(ngModel)]="descriptionAudio " autocomplete="off ">
+
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="descriptionAudio ">Agencia:</label>
+                            <select class="custom-select " name="select " [(ngModel)]="point " id="point ">
                                                 <option selected>Selecciona un punto </option>
                                                 <option *ngFor="let point of points " [value]="point.id ">{{point.points}} </option>
                                             </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="descriptionAudio ">Fecha:</label><br>
-                                        <mat-form-field>
-                                            <input matInput [matDatepicker]="picker2" placeholder="Elige una fecha" [(ngModel)]="fechaEdit" (dateChange)="changeEvent2($event)">
-                                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                                            <mat-datepicker #picker2></mat-datepicker>
-                                        </mat-form-field>
-                                    </div>
-                                    <br>
-                                    <br>
-                
-                                    <br>
-                                    <div class="container-btn-form ">
-                                        <button (click)="editDataMultimedia() " class="btn btn-primary btn-register ">ACTUALIZAR</button>
-                                        <button (click)="cancel() " class="btn btn-secondary ">CANCELAR</button>
-                                    </div>
-                                    <div *ngIf="invalidLogin ">
-                                        <div>
-                                            Invalid credentials.
-                                        </div>
-                                    </div>
-                
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="descriptionAudio ">Fecha:</label><br>
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="picker2" placeholder="Elige una fecha" [(ngModel)]="fechaEdit" (dateChange)="changeEvent2($event)">
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <br>
+                        <br>
+
+                        <br>
+                        <div class="container-btn-form ">
+                            <button (click)="editDataMultimedia() " class="btn btn-primary btn-register ">ACTUALIZAR</button>
+                            <button (click)="cancel() " class="btn btn-secondary ">CANCELAR</button>
+                        </div>
+                        <div *ngIf="invalidLogin ">
+                            <div>
+                                Invalid credentials.
                             </div>
                         </div>
-                    </div>
-            </div>
 
-</div>
-<div class="loading-indicator" style="text-align: center;display: inline-block;margin: 0 auto;
-background-color: #ffffff; " 
-*ngIf="addNew">
-    <div style="margin: 0 auto; text-align: center" class="col-md-12 user-container margin-bottom">
-            <div class="">
-                    <button [routerLink]="['/publishvideo']" class="btn btn-primary margin-btn btn-lg">
-                        AGREGAR VIDEO
-                    </button>
-                    <br>
-                    <button [routerLink]="['/publishaudio']" class="btn btn-primary margin-btn btn-lg">
-                        AGREGAR BANNER
-                    </button>
-                    <br>
-                    <!-- <button [routerLink]="['/publishbanner']" class="btn btn-primary margin-btn">
-                        AGREGAR BANNER
-                    </button> -->
-                    <button [routerLink]="['/publishtext']" class="btn btn-primary margin-btn btn-lg">
-                        AGREGAR TEXTO
-                    </button>
-                    <br>
-                    <button (click)="cancelarAgregar()" class="btn btn-primary mb-2 " [disabled]="">CANCELAR
-                        </button>
+                    </div>
                 </div>
+            </div>
+        </div>
     </div>
 
 </div>
-

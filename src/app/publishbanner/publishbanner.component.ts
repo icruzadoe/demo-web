@@ -83,6 +83,6 @@ console.log("upload")
   }
 
   cancel() {
-    this.router.navigate(['managemultimedia'])
+    this.router.navigate(['addmultimedia'])
   }
 }

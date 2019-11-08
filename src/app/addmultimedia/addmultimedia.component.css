@@ -1,0 +1,46 @@
+.container-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-multimedia {
+    width: 18rem;
+    height: 10rem;
+    border-radius: 10px;
+}
+
+.container-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.icon-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+}
+
+.icon-btn {
+    font-size: 50px;
+}
+
+.container-body {
+    display: flex;
+}
+
+.btn-back {
+    height: 43px;
+    margin-top: 40px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.icon-back {
+    font-size: 36px;
+    color: white;
+}

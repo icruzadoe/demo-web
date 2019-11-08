@@ -35,6 +35,7 @@ import { AppRoutingModule } from './services/app-routing.module';
 import { ManagemultimediaComponent } from './managemultimedia/managemultimedia.component';
 //import excel
 import { ExcelService } from './services/excel.service';
+import { AddmultimediaComponent } from './addmultimedia/addmultimedia.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { ExcelService } from './services/excel.service';
     PublishaudioComponent,
     UpdateUserComponent,
     ManagemultimediaComponent,
+    AddmultimediaComponent,
   ],
   imports: [
     BrowserModule,

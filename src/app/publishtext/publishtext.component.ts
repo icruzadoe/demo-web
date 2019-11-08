@@ -56,6 +56,6 @@ export class PublishtextComponent implements OnInit {
   }
 
   cancel(){
-    this.router.navigate(['managemultimedia']);
+    this.router.navigate(['addmultimedia']);
   }
 }

@@ -241,7 +241,7 @@ export class ManagemultimediaComponent implements OnInit {
   }
 
   agregarMultimedia(){
-    this.addNew = true;
+    this.router.navigate(['addmultimedia'])
   }
 
   cancelarAgregar(){
