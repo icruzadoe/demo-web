@@ -137,8 +137,12 @@ export class ManageuserComponent implements OnInit {
 
   onSubmit() {
     let email = this.loginForm.controls.email.value;
-    let userSelect = this.users.filter(user => user.correo == email);
-    this.users = userSelect;
+    let userSelect = this.users.filter(user => user.correo.toUpperCase() == email.toUpperCase());
+    if(userSelect.length <= 0) {
+      alert("No se encontro el usuario ingresado");
+    }else{
+      this.users = userSelect;
+    }
   }
 
   searchClean(){
