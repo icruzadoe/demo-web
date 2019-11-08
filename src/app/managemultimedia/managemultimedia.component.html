@@ -161,11 +161,14 @@
             </div>
 
 </div>
-<div class="loading-indicator" style="text-align: center;display: inline-block;margin: 0 auto;
-background-color: #ffffff; " 
+<div class="loading-indicator modal" style="text-align: center;display: inline-block;margin: 0 auto; " 
 *ngIf="addNew">
-    <div style="margin: 0 auto; text-align: center" class="col-md-12 user-container margin-bottom">
-            <div class="">
+    
+    <div style="margin: 0 auto; text-align: center" class="modal-content">
+            <div class="modal-header">
+                    <span class="close" (click)="cancelarAgregar()">&times;</span>
+            </div>
+            <div class="modal-body">
                     <button [routerLink]="['/publishvideo']" class="btn btn-primary margin-btn btn-lg">
                         AGREGAR VIDEO
                     </button>
@@ -180,9 +183,6 @@ background-color: #ffffff; "
                     <button [routerLink]="['/publishtext']" class="btn btn-primary margin-btn btn-lg">
                         AGREGAR TEXTO
                     </button>
-                    <br>
-                    <button (click)="cancelarAgregar()" class="btn btn-primary mb-2 " [disabled]="">CANCELAR
-                        </button>
                 </div>
     </div>
 
