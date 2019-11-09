@@ -28,6 +28,8 @@ export class UpdateUserComponent implements OnInit {
       numCel: ['', Validators.required],
       password: ['', Validators.required],
       typeUser: ['', Validators.required],
+      dni : ['',Validators.required],
+      ciudad : ['',Validators.required]
     });
 
     this.user = JSON.parse(localStorage.getItem('userUpdate'));
@@ -37,6 +39,8 @@ export class UpdateUserComponent implements OnInit {
       this.loginForm.controls.password.setValue(this.user.password);
       this.loginForm.controls.typeUser.setValue(this.user.privilegio);
       this.loginForm.controls.name.setValue(this.user.username);
+      this.loginForm.controls.dni.setValue(this.user.dni);
+      this.loginForm.controls.ciudad.setValue(this.user.ciudad);
     }
 
     this.typeUsers = [
@@ -58,6 +62,8 @@ export class UpdateUserComponent implements OnInit {
       this.loginForm.controls.password.value,
       this.loginForm.controls.numCel.value,
       this.loginForm.controls.email.value,
+      this.loginForm.controls.dni.value,
+      this.loginForm.controls.ciudad.value,
       this.loginForm.controls.typeUser.value, localStorage.getItem("correo"))
       .subscribe(
         (data) => { // Success
