@@ -29,7 +29,7 @@ export class UserService {
     return this.http.get(globals.BASE_URL+'listarUsuario');
   }
 
-  updateUser(idUser, nameUser, password, numCel, email,typeUser,user_correo){
+  updateUser(idUser, nameUser, password, numCel, email,typeUser,dni,ciudad,user_correo){
     return this.http.post(globals.BASE_URL+'updateUser', {
       id: idUser,
       username:nameUser,
@@ -37,6 +37,8 @@ export class UserService {
       celular: numCel,
       correo: email,
       privilegio : typeUser,
+      dni: dni,
+      ciudad: ciudad,
       user_correo: user_correo,
     });
   }

@@ -34,6 +34,26 @@
                         </div>
                     </div>
                     <br>
+                    <div class="form-group">
+                            <label for="dni">DNI:</label>
+                            <input class="form-control" type="number" formControlName="dni" id="dni"
+                                autocomplete="off">
+                            <div class="form-control is-invalid"
+                                *ngIf="loginForm.controls['dni'].hasError('required') && loginForm.controls['dni'].touched">
+                                Ingrese un DNI
+                            </div>
+                        </div>
+                        <br>
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad:</label>
+                        <input class="form-control" type="text" formControlName="ciudad" id="ciudad"
+                            autocomplete="off">
+                        <div class="form-control is-invalid"
+                            *ngIf="loginForm.controls['ciudad'].hasError('required') && loginForm.controls['ciudad'].touched">
+                            Ingrese una Ciudad
+                        </div>
+                    </div>
+                    <br>
                     <label for="typeUser">Seleccione un tipo de usuario:</label>
                     <select class="custom-select" (change)="selectTypeUser($event)" formControlName="typeUser"
                         name="select" id="typeUser">
@@ -51,7 +71,7 @@
                         </div>
                     </div>
                     <div class="container-btn-form">
-                        <button (click)="onSubmit()" class="btn btn-primary  btn-register">REGISTRAR</button>
+                        <button (click)="onSubmit()" class="btn btn-primary  btn-register">ACTUALIZAR</button>
                         <button (click)="cancel()" class="btn btn-secondary">CANCELAR</button>
                     </div>
 
