@@ -32,8 +32,10 @@ export class PublishvideoComponent implements OnInit {
   invalidLogin: boolean = false;
   points: Array<any>;
   fileName: string;
-  progress: number;
+  progress: number = 0;
   files: File[];
+
+  loading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,6 +52,7 @@ export class PublishvideoComponent implements OnInit {
       fileVideo: ['', Validators.required],
       pointName: ['', Validators.required],
     });
+
   }
 
   loadImage(event) {
@@ -62,7 +65,7 @@ export class PublishvideoComponent implements OnInit {
   }
 
   upload() {
-
+    this.loading = true;
     // console.log("Video Fomr :", this.publishVideoForm)
     let audioElement = this.inputEl.nativeElement;
     // console.log('Archivos:' + audioElement.files.length);
@@ -73,9 +76,7 @@ export class PublishvideoComponent implements OnInit {
      this.publishVideoForm.controls.descriptionVideo.value
      ,"VIDEO", this.publishVideoForm.controls.pointName.value)
 
-     if(this.progress== 100){
-      this.router.navigate(['managemultimedia']);
-     }
+   
     // this.router.navigate(['managemultimedia']);
  
   }
@@ -126,9 +127,13 @@ export class PublishvideoComponent implements OnInit {
         this.progress = Math.round(event.loaded / event.total * 100);
         console.log("progreso: "+this.progress)
         // this._eventBus.next({type: 'progress', reason: 'upload', value: this.progress, id: requestId, name: f.name});
+        if(this.progress== 100){
+            this.router.navigate(['managemultimedia']);
+          // console.log("entrroooo****")
+         }
       };
 
-    
+     
 
       xhr.open('POST', this.urlprueba, true);
       xhr.send(formData);

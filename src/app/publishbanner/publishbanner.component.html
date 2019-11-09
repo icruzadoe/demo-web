@@ -1,4 +1,10 @@
 <app-navbar></app-navbar>
+
+<div class="loading show" *ngIf="loading">
+        Subiendo {{progress}} % &nbsp;
+    <div class="spin"></div>
+</div>
+
 <div class="center-container">
     <div class="col-md-6 user-container">
         <div class="card rounded-0">

@@ -1,4 +1,32 @@
 <app-navbar></app-navbar>
+
+<div class="loading-indicator" >
+    <div class="windows8 windows-parquet">
+        <div class="wBall" id="wBall_1">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_2">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_3">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_4">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_5">
+            <div class="wInnerBall"></div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="CARGANdo">CARGANDO... 100%</div> -->
+
+<div class="loading show" *ngIf="loading">
+        Subiendo {{progress}} % &nbsp;
+    <div class="spin"></div>
+</div>
+
 <div class="center-container">
     <div class="col-md-6 user-container">
         <div class="card rounded-0">
